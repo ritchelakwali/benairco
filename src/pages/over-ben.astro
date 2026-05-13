@@ -14,6 +14,7 @@
  */
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { site } from '~/config/site';
+import OverBenIllustration from '~/components/OverBenIllustration.astro';
 ---
 
 <BaseLayout
@@ -22,13 +23,8 @@ import { site } from '~/config/site';
 >
   <article class="py-14 md:py-20">
     <div class="container-content grid gap-12 md:grid-cols-[2fr_3fr]">
-      <div
-        class="aspect-[4/5] w-full overflow-hidden rounded-[var(--radius-image)] border border-[var(--color-border)] bg-[var(--color-primary-50)]"
-        aria-label="Portretfoto Ben Vriezen — volgt"
-      >
-        <div class="flex h-full w-full items-center justify-center text-center text-sm text-[var(--color-muted)]">
-          Portretfoto Ben<br />(volgt na foto-shoot)
-        </div>
+      <div class="aspect-[4/5] w-full overflow-hidden rounded-[var(--radius-image)] border border-[var(--color-border)]">
+        <OverBenIllustration />
       </div>
 
       <div class="prose-readable">

@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { site } from '~/config/site';
+import ContactIllustration from '~/components/ContactIllustration.astro';
+import Icon from '~/components/Icon.astro';
 
 const phoneHref = `tel:${site.contact.phone.replace(/\s/g, '')}`;
 const mailHref = `mailto:${site.contact.email}`;
@@ -22,7 +24,7 @@ const dayLabels: Record<string, string> = {
   description={`Bel of WhatsApp Ben Vriezen direct. Geen formulier — gewoon persoonlijk contact via telefoon, WhatsApp of e-mail.`}
 >
   <section class="py-14 md:py-20">
-    <div class="container-content grid gap-12 md:grid-cols-2">
+    <div class="container-content grid gap-12 md:grid-cols-2 md:items-center">
       <div>
         <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
           Contact
@@ -39,45 +41,64 @@ const dayLabels: Record<string, string> = {
           plant Ben nog geen installatie-afspraken; vragen, oriënterende gesprekken en
           voorlopige reserveringen zijn wél welkom.
         </p>
+
+        <div class="mt-7 space-y-3">
+          <a
+            href={phoneHref}
+            class="flex items-center gap-4 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-5 transition-colors hover:bg-[var(--color-primary-50)]"
+          >
+            <span class="grid size-11 shrink-0 place-items-center rounded-full bg-[var(--color-primary-900)] text-white">
+              <Icon name="phone" class="size-5" />
+            </span>
+            <span class="flex-1">
+              <span class="block text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)]">
+                Telefoon
+              </span>
+              <span class="block font-serif text-xl text-[var(--color-primary-900)]">
+                {site.contact.phoneDisplay}
+              </span>
+            </span>
+          </a>
+
+          <a
+            href={whatsappHref}
+            rel="noopener"
+            class="flex items-center gap-4 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-5 transition-colors hover:bg-[var(--color-primary-50)]"
+          >
+            <span class="grid size-11 shrink-0 place-items-center rounded-full bg-[var(--color-accent)] text-white">
+              <Icon name="whatsapp" class="size-5" />
+            </span>
+            <span class="flex-1">
+              <span class="block text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)]">
+                WhatsApp
+              </span>
+              <span class="block font-serif text-xl text-[var(--color-primary-900)]">
+                Stuur Ben een berichtje
+              </span>
+            </span>
+          </a>
+
+          <a
+            href={mailHref}
+            class="flex items-center gap-4 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-5 transition-colors hover:bg-[var(--color-primary-50)]"
+          >
+            <span class="grid size-11 shrink-0 place-items-center rounded-full bg-[var(--color-primary-700)] text-white">
+              <Icon name="mail" class="size-5" />
+            </span>
+            <span class="flex-1">
+              <span class="block text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)]">
+                E-mail
+              </span>
+              <span class="block font-serif text-lg break-all text-[var(--color-primary-900)]">
+                {site.contact.email}
+              </span>
+            </span>
+          </a>
+        </div>
       </div>
 
-      <div class="space-y-4">
-        <a
-          href={phoneHref}
-          class="block rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-6 transition-colors hover:bg-[var(--color-primary-50)]"
-        >
-          <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)]">
-            Telefoon
-          </span>
-          <p class="mt-1 font-serif text-2xl text-[var(--color-primary-900)]">
-            {site.contact.phoneDisplay}
-          </p>
-        </a>
-
-        <a
-          href={whatsappHref}
-          rel="noopener"
-          class="block rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-6 transition-colors hover:bg-[var(--color-primary-50)]"
-        >
-          <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)]">
-            WhatsApp
-          </span>
-          <p class="mt-1 font-serif text-2xl text-[var(--color-primary-900)]">
-            Stuur Ben een berichtje
-          </p>
-        </a>
-
-        <a
-          href={mailHref}
-          class="block rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-6 transition-colors hover:bg-[var(--color-primary-50)]"
-        >
-          <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)]">
-            E-mail
-          </span>
-          <p class="mt-1 font-serif text-2xl break-all text-[var(--color-primary-900)]">
-            {site.contact.email}
-          </p>
-        </a>
+      <div class="aspect-[8/9] w-full overflow-hidden rounded-[var(--radius-image)] border border-[var(--color-border)]">
+        <ContactIllustration />
       </div>
     </div>
 

@@ -1,0 +1,156 @@
+---
+// Gestileerde kaart van het werkgebied rondom Gaanderen.
+// Geen geografisch correcte kaart — een sfeer-illustratie van de Achterhoek
+// met Gaanderen centraal en omliggende plaatsen als stippen.
+---
+
+<svg
+  viewBox="0 0 600 500"
+  xmlns="http://www.w3.org/2000/svg"
+  class="h-full w-full"
+  aria-hidden="true"
+>
+  <defs>
+    <pattern id="mapDots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="0.8" fill="var(--color-primary-700)" opacity="0.1"></circle>
+    </pattern>
+    <radialGradient id="centerGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="var(--color-accent)" stop-opacity="0.18"></stop>
+      <stop offset="100%" stop-color="var(--color-accent)" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+
+  <rect width="600" height="500" fill="var(--color-paper)" rx="12"></rect>
+  <rect width="600" height="500" fill="url(#mapDots)" rx="12"></rect>
+
+  <!-- Regio-vorm (zachte abstracte Achterhoek-vorm) -->
+  <path
+    d="M 110 140
+       Q 90 110 130 90
+       Q 180 75 240 90
+       Q 320 100 400 95
+       Q 470 100 510 130
+       Q 540 180 530 240
+       Q 525 320 480 380
+       Q 420 430 340 425
+       Q 250 430 180 405
+       Q 120 380 95 320
+       Q 80 250 95 200
+       Q 100 165 110 140 Z"
+    fill="var(--color-primary-100)"
+    stroke="var(--color-primary-700)"
+    stroke-width="2"
+    stroke-dasharray="6 4"
+    opacity="0.7"
+  ></path>
+
+  <!-- Subtiele rivierlijntjes (suggestie van Oude IJssel) -->
+  <g
+    stroke="var(--color-primary-700)"
+    stroke-width="1.5"
+    fill="none"
+    opacity="0.25"
+    stroke-linecap="round"
+  >
+    <path d="M 130 200 Q 200 220 270 240 T 410 280 Q 470 295 510 285" />
+    <path d="M 180 350 Q 240 340 300 345 T 420 360" />
+  </g>
+
+  <!-- 1 uur rijden cirkel (afstandssuggestie) -->
+  <circle
+    cx="300"
+    cy="250"
+    r="180"
+    fill="url(#centerGlow)"
+    stroke="var(--color-accent)"
+    stroke-width="1.5"
+    stroke-dasharray="3 5"
+    opacity="0.5"
+  ></circle>
+
+  <!-- Plaatsen rondom (kleine cirkels met labels) -->
+  <g font-family="Inter, system-ui, sans-serif" font-size="13" fill="var(--color-primary-900)">
+    <!-- Zutphen -->
+    <circle cx="180" cy="120" r="4" fill="var(--color-primary-700)"></circle>
+    <text x="170" y="108" text-anchor="end">Zutphen</text>
+
+    <!-- Lochem -->
+    <circle cx="280" cy="105" r="4" fill="var(--color-primary-700)"></circle>
+    <text x="280" y="93" text-anchor="middle">Lochem</text>
+
+    <!-- Winterswijk -->
+    <circle cx="470" cy="200" r="4" fill="var(--color-primary-700)"></circle>
+    <text x="486" y="195" text-anchor="start">Winterswijk</text>
+
+    <!-- Aalten -->
+    <circle cx="450" cy="290" r="4" fill="var(--color-primary-700)"></circle>
+    <text x="466" y="295" text-anchor="start">Aalten</text>
+
+    <!-- Doetinchem -->
+    <circle cx="240" cy="240" r="4" fill="var(--color-primary-700)"></circle>
+    <text x="232" y="232" text-anchor="end">Doetinchem</text>
+
+    <!-- Wehl -->
+    <circle cx="180" cy="270" r="4" fill="var(--color-primary-700)"></circle>
+    <text x="170" y="275" text-anchor="end">Wehl</text>
+
+    <!-- Didam -->
+    <circle cx="155" cy="310" r="4" fill="var(--color-primary-700)"></circle>
+    <text x="145" y="315" text-anchor="end">Didam</text>
+
+    <!-- Zevenaar -->
+    <circle cx="125" cy="370" r="4" fill="var(--color-primary-700)"></circle>
+    <text x="115" y="375" text-anchor="end">Zevenaar</text>
+
+    <!-- Arnhem -->
+    <circle cx="90" cy="290" r="4" fill="var(--color-primary-700)"></circle>
+    <text x="80" y="295" text-anchor="end">Arnhem</text>
+
+    <!-- Ulft -->
+    <circle cx="340" cy="320" r="4" fill="var(--color-primary-700)"></circle>
+    <text x="340" y="340" text-anchor="middle">Ulft</text>
+
+    <!-- 's-Heerenberg -->
+    <circle cx="245" cy="370" r="4" fill="var(--color-primary-700)"></circle>
+    <text x="245" y="390" text-anchor="middle">'s-Heerenberg</text>
+
+    <!-- Borculo -->
+    <circle cx="380" cy="150" r="4" fill="var(--color-primary-700)"></circle>
+    <text x="380" y="138" text-anchor="middle">Borculo</text>
+  </g>
+
+  <!-- Gaanderen — centrale pin -->
+  <g transform="translate(300 250)">
+    <circle r="36" fill="var(--color-accent)" opacity="0.15"></circle>
+    <circle r="22" fill="var(--color-accent)" opacity="0.3"></circle>
+    <path
+      d="M 0 -16 C -8 -16 -14 -10 -14 -2 C -14 8 0 22 0 22 C 0 22 14 8 14 -2 C 14 -10 8 -16 0 -16 Z"
+      fill="var(--color-accent-600)"
+    ></path>
+    <circle cx="0" cy="-3" r="5" fill="var(--color-paper)"></circle>
+    <text
+      x="0"
+      y="48"
+      font-family="Inter, system-ui, sans-serif"
+      font-size="15"
+      font-weight="700"
+      fill="var(--color-primary-900)"
+      text-anchor="middle"
+    >
+      Gaanderen
+    </text>
+  </g>
+
+  <!-- "1 uur rijden" label -->
+  <text
+    x="450"
+    y="440"
+    font-family="Inter, system-ui, sans-serif"
+    font-size="12"
+    fill="var(--color-accent-600)"
+    text-anchor="middle"
+    font-weight="600"
+  >
+    ⌀ 1 uur rijden
+  </text>
+</svg>
