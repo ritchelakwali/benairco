@@ -1,25 +1,12 @@
 ---
-/**
- * /over-ben, placeholder-versie
- *
- * Deze pagina is bewust neutraal opgesteld zodat we Ben geen woorden in
- * de mond leggen die hij niet heeft uitgesproken. Het Bens-eigen-verhaal-blok
- * is een lege uitnodiging die Ben zelf invult.
- *
- * TODO_BEN (vóór hard-launch):
- *  - "Bens eigen verhaal" blok vervangen door persoonlijke tekst (~150–250 woorden)
- *  - Portretfoto toevoegen in src/assets/over-ben/portret.jpg (4:5, ≥ 1200px)
- *  - Eventueel werkfoto in src/assets/over-ben/aan-het-werk.jpg
- *  - Onder "Achtergrond" optioneel een tijdlijn invullen (vakopleiding, eerste klus, etc.)
- */
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { site } from '~/config/site';
 import OverBenIllustration from '~/components/OverBenIllustration.astro';
 ---
 
 <BaseLayout
-  title="Over Ben"
-  description={`Maak kennis met ${site.owner.name}, de man achter ${site.name}. Vakman en ZZP'er uit ${site.address.city}, over hoe Benairco is ontstaan en wat hem drijft.`}
+  title="Over Ben en het team"
+  description={`Maak kennis met ${site.owner.name}, de man achter ${site.name}, en het netwerk van zelfstandige vakmensen waar hij mee samenwerkt.`}
 >
   <article class="py-14 md:py-20">
     <div class="container-content grid gap-12 md:grid-cols-[2fr_3fr]">
@@ -29,7 +16,7 @@ import OverBenIllustration from '~/components/OverBenIllustration.astro';
 
       <div class="prose-readable">
         <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
-          De man achter Benairco
+          De mens achter Benairco
         </p>
         <h1 class="mt-2 font-serif text-3xl text-[var(--color-primary-900)] md:text-4xl">
           {site.owner.name}, {site.address.city}
@@ -46,24 +33,39 @@ import OverBenIllustration from '~/components/OverBenIllustration.astro';
           In 2024 maakte hij de stap naar zijn eigen bedrijf, Aircoservice-Gelre,
           inmiddels ook bekend onder de merknaam Benairco. De reden: zelf het hele
           traject met de klant doen, van eerste gesprek tot oplevering, in plaats
-          van alleen het uitvoerende deel. Geen wisselende projectteams, geen
-          aannemer die je later kwijt bent als je een vraag hebt over jouw toestel.
+          van alleen het uitvoerende deel.
         </p>
 
-        <h2>Waar Ben nu staat</h2>
+        <h2>Het team rondom Ben</h2>
         <p>
-          Ben start zijn installatie-werkzaamheden in {site.business.expectedHardLaunchLabel}.
-          Tot die tijd kun je hem benaderen voor advies, een oriënterend gesprek of
-          een voorlopige reservering.
+          Benairco is officieel een eenmanszaak, maar Ben werkt niet alleen. Voor
+          grotere klussen en drukkere periodes schakelt hij vaste collega-vakmensen
+          in: zelfstandige installateurs uit de Achterhoek die hij al jaren kent en
+          waarmee hij eerder schouder aan schouder klussen heeft afgemaakt.
+        </p>
+        <p>
+          Wat dat voor jou betekent: wie bij je thuis aan het werk komt is óf Ben
+          zelf, óf iemand uit dit vaste netwerk. Geen onbekende onderaannemer uit
+          een uitzendbureau, geen wisselende projectploegen, geen "ik weet niet wie
+          er morgen langskomt". Allemaal mensen die werken zoals Ben werkt:
+          netjes, eerlijk, en met respect voor je huis.
+        </p>
+
+        <h2>Waar wij nu staan</h2>
+        <p>
+          De installatie-werkzaamheden van Benairco starten in{' '}
+          {site.business.expectedHardLaunchLabel}. Tot die tijd kun je ons benaderen
+          voor advies, een oriënterend gesprek of een voorlopige reservering.
         </p>
 
         <h2>Klein, lokaal, eerlijk</h2>
         <p>
-          {site.name} is en blijft een eenmanszaak. Geen verkoopteam, geen
-          callcenter, geen tussenpersonen die op provisie werken. Wie naar Benairco
-          belt, krijgt Ben. Dat is kleiner van schaal dan een groot installatie-
-          bedrijf, maar persoonlijker van karakter, en bij iemand thuis aan het
-          werk hoort dat ook zo te zijn.
+          Benairco blijft bewust klein. Geen verkoopteam, geen callcenter, geen
+          tussenpersonen die op provisie werken. Het eerste gesprek voer je met Ben
+          persoonlijk; de mensen die bij je thuis komen werken kent hij allemaal.
+          Dat is kleiner van schaal dan een groot installatiebedrijf, maar
+          persoonlijker van karakter, en bij iemand thuis aan het werk hoort dat
+          ook zo te zijn.
         </p>
       </div>
     </div>

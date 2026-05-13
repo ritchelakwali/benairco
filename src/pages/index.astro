@@ -27,7 +27,7 @@ const pillars = [
   {
     icon: 'heart' as const,
     title: 'Persoonlijk',
-    body: 'Geen callcenter, geen tussenpersonen. Vanaf het eerste belletje heb je contact met Ben, diezelfde persoon plaatst straks ook je installatie.',
+    body: 'Geen callcenter, geen tussenpersonen. Een klein vast team van zelfstandige vakmensen rond Ben Vriezen die elkaar al jaren kennen. Wie bij jou langskomt is geen onbekende.',
   },
   {
     icon: 'check' as const,
@@ -50,7 +50,7 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
 
 <BaseLayout
   title={site.name}
-  description={`Persoonlijke airco-installatie in de Achterhoek door Ben Vriezen uit Gaanderen. Start dienstverlening ${site.business.expectedHardLaunchLabel}, tot dan welkom voor advies en kennismaking.`}
+  description={`Persoonlijke airco-installatie in de Achterhoek. Een klein team van zelfstandige vakmensen rond Ben Vriezen uit Gaanderen. Start dienstverlening ${site.business.expectedHardLaunchLabel}, tot dan welkom voor advies en kennismaking.`}
 >
   <!-- HERO with photo + gradient overlay -->
   <section class="relative isolate overflow-hidden">
@@ -93,9 +93,9 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
           <span class="text-[var(--color-accent)]">aan huis.</span>
         </h1>
         <p class="mt-5 max-w-prose text-lg leading-7 text-white/90">
-          Benairco is de eenmanszaak van Ben Vriezen uit Gaanderen. Persoonlijke
-          airco-installatie voor particulieren binnen één uur rijden, met focus op
-          netheid, eerlijke prijzen en vakwerk.
+          Benairco is een klein team van zelfstandige vakmensen rond Ben Vriezen
+          uit Gaanderen. Persoonlijke airco-installatie voor particulieren binnen
+          één uur rijden, met focus op netheid, eerlijke prijzen en vakwerk.
         </p>
 
         <ul class="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-[0.95rem] text-white/90">
@@ -112,7 +112,7 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
         <div class="mt-9 flex flex-wrap items-center gap-3">
           <a href={phoneHref} class="btn-primary">
             <Icon name="phone" class="size-4" />
-            Bel met Ben
+            Bel direct
           </a>
           <a
             href={whatsappHref}
@@ -142,7 +142,7 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
           Waarom Benairco
         </p>
         <h2 class="mt-2 font-serif text-2xl text-[var(--color-primary-900)] md:text-3xl">
-          Drie dingen die Ben anders doet
+          Drie dingen die wij anders doen
         </h2>
       </div>
 
@@ -269,7 +269,7 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
           Vragen over je airco-mogelijkheden?
         </h2>
         <p class="mx-auto mt-4 max-w-prose text-[0.95rem] text-white/80">
-          Ben staat persoonlijk klaar voor algemene vragen, vrijblijvend advies
+          Wij staan persoonlijk klaar voor algemene vragen, vrijblijvend advies
           en voorlopige reserveringen, ook nu, in de aanloop naar de opening
           in {site.business.expectedHardLaunchLabel}.
         </p>
