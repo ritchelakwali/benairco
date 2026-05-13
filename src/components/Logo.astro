@@ -1,0 +1,113 @@
+---
+// Benairco logo — schild met luchtstroom + wordmark.
+// SVG-mark links, HTML-wordmark rechts (gebruikt site-typografie).
+// Tagline 'AIRCO INSTALLATIEBEDRIJF' bewust weggelaten in fase 0/1
+// (STEK-soft-launch). Activeren in fase 2 via `withTagline` prop.
+
+interface Props {
+  /** Hoogte van het volledige logo in pixels. */
+  size?: number;
+  /** Toon de 'AIRCO INSTALLATIEBEDRIJF' tagline onder het wordmark. */
+  withTagline?: boolean;
+  /** Alleen het schild-symbool tonen, zonder wordmark. */
+  markOnly?: boolean;
+  /** Extra className voor de wrapper. */
+  class?: string;
+}
+
+const {
+  size = 40,
+  withTagline = false,
+  markOnly = false,
+  class: className = '',
+} = Astro.props;
+
+const markSize = size;
+---
+
+<span class={`inline-flex items-center gap-3 ${className}`} aria-label="Benairco logo">
+  <svg
+    viewBox="0 0 100 120"
+    xmlns="http://www.w3.org/2000/svg"
+    style={`width:${markSize * 0.83}px;height:${markSize}px`}
+    aria-hidden="true"
+  >
+    <!-- Schild-omtrek + vulling in medium teal-blauw -->
+    <path
+      d="M 10 18
+         Q 10 8 22 6
+         L 50 2
+         L 78 6
+         Q 90 8 90 18
+         L 90 68
+         Q 90 92 50 116
+         Q 10 92 10 68
+         Z"
+      fill="var(--color-primary-700)"
+    ></path>
+
+    <!-- Luchtstroom-symbool binnen het schild: drie curven met eindkrul -->
+    <!-- Bovenste curve (kortst, hoog) -->
+    <path
+      d="M 28 36
+         Q 50 30 64 36
+         Q 70 38 70 42
+         Q 70 46 66 46
+         Q 62 46 62 42"
+      fill="none"
+      stroke="var(--color-paper)"
+      stroke-width="5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+
+    <!-- Middelste curve (langste swoosh) -->
+    <path
+      d="M 24 56
+         Q 50 48 70 56
+         Q 78 60 78 66
+         Q 78 72 72 72
+         Q 66 72 66 66"
+      fill="none"
+      stroke="var(--color-paper)"
+      stroke-width="5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+
+    <!-- Onderste curve (compact, naar binnen krullend) -->
+    <path
+      d="M 30 78
+         Q 48 72 60 78
+         Q 64 80 64 84
+         Q 64 88 60 88
+         Q 56 88 56 84"
+      fill="none"
+      stroke="var(--color-paper)"
+      stroke-width="5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    ></path>
+  </svg>
+
+  {
+    !markOnly && (
+      <span class="flex flex-col leading-none">
+        <span
+          class="font-sans font-extrabold tracking-tight text-[var(--color-primary-900)]"
+          style={`font-size:${size * 0.5}px`}
+        >
+          BENAIRCO
+        </span>
+        {withTagline && (
+          <span
+            class="mt-1 font-sans font-medium uppercase tracking-[0.18em] text-[var(--color-muted)]"
+            style={`font-size:${size * 0.2}px`}
+          >
+            Airco installatiebedrijf
+          </span>
+        )}
+      </span>
+    )
+  }
+</span>

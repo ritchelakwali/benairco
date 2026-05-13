@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#2c4a52"/>
-      <stop offset="100%" stop-color="#1a2e33"/>
+      <stop offset="0%" stop-color="#1a3a5c"/>
+      <stop offset="100%" stop-color="#102338"/>
     </linearGradient>
   </defs>
 
   <rect width="1200" height="630" fill="url(#bg)"/>
 
-  <!-- Subtle decorative arcs (cool-airflow suggestion) -->
+  <!-- Subtle decorative arcs -->
   <g opacity="0.08" stroke="#fbfaf6" stroke-width="2" fill="none">
     <circle cx="1050" cy="100" r="80"/>
     <circle cx="1050" cy="100" r="140"/>
@@ -16,11 +16,31 @@
     <circle cx="1050" cy="100" r="290"/>
   </g>
 
+  <!-- Logo mark (geschaald) -->
+  <g transform="translate(880 220) scale(2.2)">
+    <path
+      d="M 10 18 Q 10 8 22 6 L 50 2 L 78 6 Q 90 8 90 18 L 90 68 Q 90 92 50 116 Q 10 92 10 68 Z"
+      fill="#2c7da8"
+    />
+    <path
+      d="M 28 36 Q 50 30 64 36 Q 70 38 70 42 Q 70 46 66 46 Q 62 46 62 42"
+      fill="none" stroke="#fbfaf6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"
+    />
+    <path
+      d="M 24 56 Q 50 48 70 56 Q 78 60 78 66 Q 78 72 72 72 Q 66 72 66 66"
+      fill="none" stroke="#fbfaf6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"
+    />
+    <path
+      d="M 30 78 Q 48 72 60 78 Q 64 80 64 84 Q 64 88 60 88 Q 56 88 56 84"
+      fill="none" stroke="#fbfaf6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"
+    />
+  </g>
+
   <!-- Accent dot -->
-  <circle cx="120" cy="300" r="6" fill="#c47b3c"/>
+  <circle cx="120" cy="220" r="6" fill="#c47b3c"/>
 
   <!-- Eyebrow -->
-  <text x="150" y="308"
+  <text x="150" y="228"
     font-family="Inter, system-ui, sans-serif"
     font-size="22"
     font-weight="600"
@@ -29,27 +49,28 @@
     AIRCO IN DE ACHTERHOEK
   </text>
 
-  <!-- Main heading -->
-  <text x="120" y="400"
-    font-family="Georgia, 'Source Serif 4', serif"
-    font-size="84"
-    font-weight="600"
+  <!-- Main wordmark -->
+  <text x="120" y="320"
+    font-family="Inter, system-ui, sans-serif"
+    font-size="90"
+    font-weight="800"
+    letter-spacing="-2"
     fill="#fbfaf6">
-    Benairco
+    BENAIRCO
   </text>
 
   <!-- Tagline -->
-  <text x="120" y="470"
+  <text x="120" y="400"
     font-family="Inter, system-ui, sans-serif"
-    font-size="32"
+    font-size="30"
     font-weight="400"
     fill="#fbfaf6"
     opacity="0.85">
     Persoonlijke airco-installatie.
   </text>
-  <text x="120" y="510"
+  <text x="120" y="440"
     font-family="Inter, system-ui, sans-serif"
-    font-size="32"
+    font-size="30"
     font-weight="400"
     fill="#fbfaf6"
     opacity="0.85">
@@ -57,7 +78,7 @@
   </text>
 
   <!-- Bottom byline -->
-  <text x="120" y="585"
+  <text x="120" y="555"
     font-family="Inter, system-ui, sans-serif"
     font-size="18"
     font-weight="500"

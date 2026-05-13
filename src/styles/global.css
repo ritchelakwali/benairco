@@ -1,12 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  /* Kleuren — gespiegeld vanuit src/config/site.ts brand.colors */
-  --color-primary: #2c4a52;
-  --color-primary-50: #f3f6f7;
-  --color-primary-100: #e0e8ea;
-  --color-primary-700: #2c4a52;
-  --color-primary-900: #1a2e33;
+  /* Kleuren — gespiegeld vanuit src/config/site.ts brand.colors.
+   * Palette komt voort uit het Benairco-logo:
+   *  - primary-900 = navy uit het wordmark
+   *  - primary-700 = teal uit het schild-symbool
+   *  - primary-50/100 = lichte tints voor backgrounds en heuvels */
+  --color-primary: #1a3a5c;
+  --color-primary-50: #eaf2f8;
+  --color-primary-100: #c8dde8;
+  --color-primary-700: #2c7da8;
+  --color-primary-900: #1a3a5c;
 
   --color-accent: #c47b3c;
   --color-accent-50: #fbf3eb;
@@ -15,7 +19,7 @@
   --color-ink: #1a1a1a;
   --color-paper: #fbfaf6;
   --color-muted: #6b7280;
-  --color-border: #e5e3dc;
+  --color-border: #e0e6ec;
 
   /* Typografie */
   --font-serif: "Source Serif 4", "Source Serif Pro", ui-serif, Georgia, serif;

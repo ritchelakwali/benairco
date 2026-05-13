@@ -131,9 +131,12 @@ export const site = {
 
   brand: {
     // Kleur-tokens (ook gespiegeld in src/styles/global.css @theme)
+    // Synchroon met het Benairco-logo: donker navy voor wordmark/body,
+    // medium teal voor het schild-symbool en accent-vlakken.
     colors: {
-      primary: '#2c4a52', // diep blauw-grijs, te tunen als logo er is
-      accent: '#c47b3c', // warm terracotta voor CTAs
+      primaryNavy: '#1a3a5c', // wordmark, headings, donkere blokken
+      primaryTeal: '#2c7da8', // schild-symbool, knop-accenten, links
+      accent: '#c47b3c', // warm terracotta voor primaire CTAs
       ink: '#1a1a1a',
       paper: '#fbfaf6', // ivoorwit
       muted: '#6b7280',
