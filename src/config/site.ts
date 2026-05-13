@@ -11,14 +11,15 @@ export const site = {
   url: 'https://benairco.nl',
   // Publieke merk-naam (domein, marketing, GBP)
   name: 'Benairco',
-  // Officiële handelsnaam zoals geregistreerd bij KvK. Wordt getoond in
-  // footer, voorwaarden en privacy om aan de wettelijke vermeldingsplicht
-  // voor eenmanszaken te voldoen.
+  // Officiële handelsnaam zoals oorspronkelijk ingeschreven bij KvK.
+  // Wordt getoond in footer/voorwaarden om aan de wettelijke
+  // vermeldingsplicht voor eenmanszaken te voldoen.
   legalName: 'Aircoservice-Gelre',
-  // Korte juridische disclosure-zin voor footer/voorwaarden.
-  // TODO_BEN: "Benairco" registreren als tweede handelsnaam bij KvK (€ 0
-  // bij het reguliere inschrijfformulier), of deze tekst aanpassen.
-  legalNotice: 'Benairco is de naam waaronder Aircoservice-Gelre haar diensten voor particulieren aanbiedt.',
+  // Disclosure-zin voor footer/voorwaarden. Gaat uit van scenario 1:
+  // Benairco wordt door Ben geregistreerd als tweede handelsnaam bij KvK.
+  // TODO_BEN: handelsnaam-toevoeging indienen bij KvK (gratis via reguliere
+  // wijzigingsmelding). Zodra dit is gedaan klopt deze tekst.
+  legalNotice: 'Benairco en Aircoservice-Gelre zijn handelsnamen van dezelfde eenmanszaak (KvK 94749493).',
   tagline: 'Persoonlijke airco-installatie in de Achterhoek',
 
   owner: {
@@ -37,15 +38,14 @@ export const site = {
   },
 
   address: {
-    // TODO_BEN: straatnaam + huisnummer in Gaanderen
-    street: 'Straatnaam 0',
-    postalCode: '7011 AA',
+    street: 'Akkerstraat 18',
+    postalCode: '7011 DB',
     city: 'Gaanderen',
     country: 'NL',
-    // Approx. coördinaten voor Gaanderen — TODO_BEN: aanpassen naar exacte locatie
+    // Coördinaten via OpenStreetMap Nominatim, mei 2026
     geo: {
-      latitude: 51.946,
-      longitude: 6.323,
+      latitude: 51.9287346,
+      longitude: 6.3502512,
     },
   },
 

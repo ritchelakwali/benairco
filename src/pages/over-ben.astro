@@ -1,17 +1,30 @@
 ---
+/**
+ * /over-ben — placeholder-versie
+ *
+ * Deze pagina is bewust neutraal opgesteld zodat we Ben geen woorden in
+ * de mond leggen die hij niet heeft uitgesproken. Het Bens-eigen-verhaal-blok
+ * is een lege uitnodiging die Ben zelf invult.
+ *
+ * TODO_BEN (vóór hard-launch):
+ *  - "Bens eigen verhaal" blok vervangen door persoonlijke tekst (~150–250 woorden)
+ *  - Portretfoto toevoegen in src/assets/over-ben/portret.jpg (4:5, ≥ 1200px)
+ *  - Eventueel werkfoto in src/assets/over-ben/aan-het-werk.jpg
+ *  - Onder "Achtergrond" optioneel een tijdlijn invullen (vakopleiding, eerste klus, etc.)
+ */
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { site } from '~/config/site';
 ---
 
 <BaseLayout
   title="Over Ben"
-  description={`Maak kennis met ${site.owner.name}, de man achter ${site.name}. Vakman, ZZP'er en buurman uit Gaanderen — over hoe Benairco is ontstaan en waarom airco.`}
+  description={`Maak kennis met ${site.owner.name}, de man achter ${site.name}. Vakman en ZZP'er uit ${site.address.city} — over hoe Benairco is ontstaan en wat hem drijft.`}
 >
   <article class="py-14 md:py-20">
     <div class="container-content grid gap-12 md:grid-cols-[2fr_3fr]">
       <div
         class="aspect-[4/5] w-full overflow-hidden rounded-[var(--radius-image)] border border-[var(--color-border)] bg-[var(--color-primary-50)]"
-        aria-label="Portretfoto Ben Vriezen — wordt later toegevoegd"
+        aria-label="Portretfoto Ben Vriezen — volgt"
       >
         <div class="flex h-full w-full items-center justify-center text-center text-sm text-[var(--color-muted)]">
           Portretfoto Ben<br />(volgt na foto-shoot)
@@ -23,43 +36,44 @@ import { site } from '~/config/site';
           De man achter Benairco
         </p>
         <h1 class="mt-2 font-serif text-3xl text-[var(--color-primary-900)] md:text-4xl">
-          Ben Vriezen — Gaanderen
+          {site.owner.name} — {site.address.city}
         </h1>
 
-        <p class="mt-6 text-[var(--color-muted)]">
-          <em>
-            Deze tekst is een werkversie. Ben levert binnenkort zijn eigen verhaal aan;
-            hieronder een uitnodigende eerste versie.
-          </em>
-        </p>
-
-        <p class="mt-4">
-          {`Ik ben Ben Vriezen, geboren en getogen in de Achterhoek. Twee jaar geleden ben ik begonnen met ${site.name} omdat ik zag dat er behoefte was aan een airco-installateur die het werk doet zoals een goede buurman dat zou doen: nuchter, netjes, en met aandacht voor wat de klant écht nodig heeft — niet wat er het meeste oplevert.`}
-        </p>
-
-        <h2>Waarom airco?</h2>
+        <h2>Wie is Ben?</h2>
         <p>
-          Een airco is geen luxe meer. Het is een toestel dat in de zomer comfort biedt
-          en in de tussenseizoenen efficiënt kan verwarmen — met de juiste subsidie zelfs
-          aantrekkelijk geprijsd. Ik leg uit wat past bij jouw huis, jouw budget en jouw
-          gebruik. Geen jargon, geen verkooppraat.
+          Ben Vriezen is geboren en getogen in de Achterhoek. Hij runt sinds 2024
+          zijn eigen eenmanszaak (Aircoservice-Gelre, inmiddels ook bekend onder
+          de merknaam Benairco) en richt zich op airco-installaties voor
+          particulieren in de regio. Werk in opdracht van mensen die hij vaak
+          persoonlijk leert kennen — geen aannemerij voor projectontwikkelaars,
+          geen onderhoudscontracten met VvE's, maar gewoon thuis bij de klant.
         </p>
 
-        <h2>Waar ik nu sta</h2>
+        <h2>Bens eigen verhaal</h2>
+        <aside class="rounded-[var(--radius-card)] border border-dashed border-[var(--color-border)] bg-[var(--color-primary-50)] p-5 text-[0.95rem] text-[var(--color-primary-900)]">
+          <strong>Hier komt het persoonlijke stuk van Ben zelf.</strong> Een paar
+          honderd woorden over zijn achtergrond, waarom hij voor airco koos en wat
+          hem onderscheidt — in zijn eigen woorden, niet in die van een copywriter.
+          Tot Ben deze tekst aanlevert blijft dit blok zichtbaar zodat geen aannames
+          gepubliceerd worden over zijn motivatie of historie.
+        </aside>
+
+        <h2>Waar Ben nu staat</h2>
         <p>
-          Op dit moment rond ik de STEK-erkenning en F-gassen-certificering af. Dat zijn
-          de officiële papieren die nodig zijn om met koudemiddelen te mogen werken — een
-          gewoon vakdiploma volstaat niet. Ik verwacht dat ik vanaf{' '}
-          {site.business.expectedHardLaunchLabel} installaties mag plaatsen. Tot die
-          tijd ben ik beschikbaar voor advies, oriënterende gesprekken en voorlopige
-          reserveringen.
+          De STEK-erkenning en F-gassen-certificering die nodig zijn om met
+          koudemiddelen te mogen werken, worden momenteel afgerond. Vanaf{' '}
+          {site.business.expectedHardLaunchLabel} mag Ben officieel installaties
+          plaatsen. Tot die tijd kun je hem benaderen voor advies, een oriënterend
+          gesprek of een voorlopige reservering.
         </p>
 
         <h2>Klein, lokaal, eerlijk</h2>
         <p>
-          Benairco is en blijft een eenmanszaak. Geen verkoopteam, geen call center, geen
-          tussenpersonen die provisie pakken. Bel je naar Benairco, dan krijg je mij. Dat
-          maakt het kleiner van schaal — maar persoonlijker van karakter.
+          {site.name} is en blijft een eenmanszaak. Geen verkoopteam, geen
+          callcenter, geen tussenpersonen die op provisie werken. Wie naar Benairco
+          belt, krijgt Ben. Dat is kleiner van schaal dan een groot installatie-
+          bedrijf, maar persoonlijker van karakter — en bij iemand thuis aan het
+          werk hoort dat ook zo te zijn.
         </p>
       </div>
     </div>
