@@ -23,6 +23,16 @@
         "source": "/projecten/:slug",
         "destination": "/kennisbank/voorbeelden/:slug",
         "type": 301
+      },
+      {
+        "source": "/voorbeelden",
+        "destination": "/kennisbank/voorbeelden",
+        "type": 301
+      },
+      {
+        "source": "/voorbeelden/:slug",
+        "destination": "/kennisbank/voorbeelden/:slug",
+        "type": 301
       }
     ],
     "headers": [
