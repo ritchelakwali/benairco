@@ -162,38 +162,39 @@ const brands: Brand[] = [
   description="Een overzicht van A-merk airco-modellen voor particulieren — Mitsubishi Heavy, Daikin, LG en Haier. Capaciteit, SCOP, geluidsniveau en geschikte ruimte per model."
 >
   <section class="py-14 md:py-20">
-    <div class="container-content max-w-3xl">
-      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
-        Modellen-overzicht
-      </p>
-      <h1 class="mt-2 font-serif text-3xl text-[var(--color-primary-900)] md:text-4xl">
-        Welk model past bij jouw situatie?
-      </h1>
-      <p class="mt-5 text-lg leading-7">
-        Een beknopt overzicht van A-merken die Ben graag in de Achterhoek
-        installeert. Per merk drie veelgekozen modellen met capaciteit, SCOP,
-        geluidsniveau en de ruimtes waar ze het beste tot hun recht komen.
-      </p>
-      <p class="mt-3 text-[var(--color-muted)]">
-        Niet hier staan ≠ niet leverbaar. Heb je een specifiek model op het oog,
-        bespreek het tijdens het opnamegesprek — vrijwel elk A-merk-model kan
-        besteld en geïnstalleerd worden.
-      </p>
-    </div>
+    <div class="container-content">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+          Modellen-overzicht
+        </p>
+        <h1 class="mt-2 font-serif text-3xl text-[var(--color-primary-900)] md:text-4xl">
+          Welk model past bij jouw situatie?
+        </h1>
+        <p class="mt-5 text-lg leading-7">
+          Een beknopt overzicht van A-merken die Ben graag in de Achterhoek
+          installeert. Per merk drie veelgekozen modellen met capaciteit, SCOP,
+          geluidsniveau en de ruimtes waar ze het beste tot hun recht komen.
+        </p>
+        <p class="mt-3 text-[var(--color-muted)]">
+          Niet hier staan ≠ niet leverbaar. Heb je een specifiek model op het oog,
+          bespreek het tijdens het opnamegesprek — vrijwel elk A-merk-model kan
+          besteld en geïnstalleerd worden.
+        </p>
+      </div>
 
-    <div class="container-content mt-14 space-y-20">
-      {
-        brands.map((brand) => (
-          <section>
-            <header class="max-w-3xl">
-              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
-                {brand.karakter}
-              </p>
-              <h2 class="mt-2 font-serif text-2xl text-[var(--color-primary-900)] md:text-3xl">
-                {brand.name}
-              </h2>
-              <p class="mt-3 text-[var(--color-ink)]">{brand.body}</p>
-            </header>
+      <div class="mt-14 space-y-20">
+        {
+          brands.map((brand) => (
+            <section>
+              <header class="max-w-3xl">
+                <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+                  {brand.karakter}
+                </p>
+                <h2 class="mt-2 font-serif text-2xl text-[var(--color-primary-900)] md:text-3xl">
+                  {brand.name}
+                </h2>
+                <p class="mt-3 text-[var(--color-ink)]">{brand.body}</p>
+              </header>
 
             <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {brand.modellen.map((model) => (
@@ -248,15 +249,16 @@ const brands: Brand[] = [
         ))
       }
 
-      <aside class="container-content mx-0 rounded-[var(--radius-card)] bg-[var(--color-primary-50)] p-6 text-sm text-[var(--color-primary-900)]">
-        <p>
-          <strong>Specs zijn indicatief.</strong> Fabrikanten passen modellen
-          jaarlijks aan; de waarden in dit overzicht zijn op moment van schrijven
-          (mei 2026) representatief, maar je actuele datablad voor jouw specifieke
-          model is altijd leidend. Bij offerte krijgt je het datasheet van het
-          voorgestelde toestel mee.
-        </p>
-      </aside>
+        <aside class="rounded-[var(--radius-card)] bg-[var(--color-primary-50)] p-6 text-sm text-[var(--color-primary-900)]">
+          <p>
+            <strong>Specs zijn indicatief.</strong> Fabrikanten passen modellen
+            jaarlijks aan; de waarden in dit overzicht zijn op moment van schrijven
+            (mei 2026) representatief, maar je actuele datablad voor jouw specifieke
+            model is altijd leidend. Bij offerte krijgt je het datasheet van het
+            voorgestelde toestel mee.
+          </p>
+        </aside>
+      </div>
     </div>
   </section>
 </BaseLayout>
