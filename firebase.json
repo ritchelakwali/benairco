@@ -33,6 +33,11 @@
         "source": "/voorbeelden/:slug",
         "destination": "/kennisbank/voorbeelden/:slug",
         "type": 301
+      },
+      {
+        "source": "/sitemap.xml",
+        "destination": "/sitemap-index.xml",
+        "type": 301
       }
     ],
     "headers": [
