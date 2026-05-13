@@ -38,6 +38,11 @@
         "source": "/sitemap.xml",
         "destination": "/sitemap-index.xml",
         "type": 301
+      },
+      {
+        "source": "/over-ben",
+        "destination": "/over-ons",
+        "type": 301
       }
     ],
     "headers": [
