@@ -14,8 +14,6 @@ interface Props {
   aantalUnits: number;
   doorlooptijd: string;
   isVoorbeeld?: boolean;
-  /** True om de body-tekst (description) te verbergen, voor compacte grids. */
-  compact?: boolean;
   /** Base URL voor de detail-link (default: /kennisbank/voorbeelden). */
   baseUrl?: string;
 }
@@ -29,9 +27,7 @@ const {
   toestel,
   type,
   capaciteit,
-  aantalUnits,
   doorlooptijd,
-  compact = false,
   baseUrl = '/kennisbank/voorbeelden',
 } = Astro.props;
 
@@ -42,115 +38,44 @@ const typeLabel: Record<Props['type'], string> = {
 };
 ---
 
-<article
-  class="group flex h-full flex-col overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white transition-shadow hover:shadow-[0_4px_18px_rgba(0,0,0,0.06)]"
+<a
+  href={`${baseUrl}/${id}`}
+  class="group block rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-7 transition-colors hover:border-[var(--color-primary-700)] md:p-8"
 >
-  <!-- Beeld-zone: stille illustratie + voorbeeld-badge -->
-  <div class="relative aspect-[16/10] overflow-hidden bg-[var(--color-primary-50)]">
-    <!-- Eenvoudig SVG-vignet als plaatshouder tot er echte foto's zijn -->
-    <svg
-      viewBox="0 0 320 200"
-      xmlns="http://www.w3.org/2000/svg"
-      class="h-full w-full"
-      aria-hidden="true"
-    >
-      <defs>
-        <linearGradient id={`pc-bg-${id}`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="var(--color-primary-50)"></stop>
-          <stop offset="100%" stop-color="var(--color-paper)"></stop>
-        </linearGradient>
-      </defs>
-      <rect width="320" height="200" fill={`url(#pc-bg-${id})`}></rect>
-
-      <!-- Geveloppervlak -->
-      <rect x="0" y="0" width="320" height="160" fill="var(--color-paper)"></rect>
-      <line x1="0" y1="160" x2="320" y2="160" stroke="var(--color-primary-900)" stroke-width="1.5" opacity="0.4"></line>
-
-      <!-- Raam linksboven -->
-      <rect x="40" y="40" width="50" height="40" fill="var(--color-primary-50)" stroke="var(--color-primary-900)" stroke-width="1.5"></rect>
-      <line x1="65" y1="40" x2="65" y2="80" stroke="var(--color-primary-900)" stroke-width="1.5"></line>
-
-      <!-- Airco buitenunit -->
-      <g transform="translate(190 60)">
-        <rect x="0" y="0" width="80" height="50" fill="var(--color-primary-700)" rx="3"></rect>
-        <rect x="3" y="3" width="74" height="8" fill="var(--color-primary-900)" opacity="0.4"></rect>
-        <circle cx="40" cy="32" r="11" fill="var(--color-paper)" opacity="0.85"></circle>
-        <circle cx="40" cy="32" r="5" fill="var(--color-primary-900)"></circle>
-        <!-- Beugel -->
-        <rect x="-5" y="14" width="5" height="22" fill="var(--color-primary-900)" opacity="0.6"></rect>
-        <!-- Trillingsdemper -->
-        <rect x="-7" y="36" width="9" height="3" fill="var(--color-accent-600)"></rect>
-      </g>
-
-      <!-- Luchtstroom -->
-      <g stroke="var(--color-accent)" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.6">
-        <path d="M 285 95 Q 305 90 305 75"></path>
-        <path d="M 285 100 Q 312 95 315 80"></path>
-      </g>
-
-      <!-- Vloer / stoep -->
-      <rect x="0" y="160" width="320" height="40" fill="var(--color-primary-100)" opacity="0.5"></rect>
-    </svg>
-
-    <span
-      class="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-[var(--color-primary-900)] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white"
-    >
+  <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-xs">
+    <span class="font-semibold uppercase tracking-wider text-[var(--color-muted)]">
+      {location} · {woningtype}
+    </span>
+    <span class="font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
       {typeLabel[type]}
     </span>
   </div>
 
-  <!-- Body -->
-  <div class="flex flex-1 flex-col p-6">
-    <p class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
-      <Icon name="home" class="size-3.5" />
-      {woningtype} · {location}
-    </p>
+  <h3 class="mt-3 font-serif text-xl leading-snug text-[var(--color-primary-900)] group-hover:text-[var(--color-accent-600)] md:text-2xl">
+    {title}
+  </h3>
 
-    <h3 class="mt-2 font-serif text-lg leading-snug text-[var(--color-primary-900)]">
-      <a href={`${baseUrl}/${id}`} class="hover:text-[var(--color-accent-600)]">
-        {title}
-      </a>
-    </h3>
+  <p class="mt-3 text-[0.95rem] leading-7 text-[var(--color-ink)]">
+    {description}
+  </p>
 
-    {
-      !compact && (
-        <p class="mt-3 text-sm text-[var(--color-muted)]">{description}</p>
-      )
-    }
+  <dl class="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-xs text-[var(--color-muted)]">
+    <div>
+      <dt class="inline font-semibold text-[var(--color-primary-900)]">Toestel:</dt>
+      <dd class="inline">{toestel}</dd>
+    </div>
+    <div>
+      <dt class="inline font-semibold text-[var(--color-primary-900)]">Capaciteit:</dt>
+      <dd class="inline">{capaciteit}</dd>
+    </div>
+    <div>
+      <dt class="inline font-semibold text-[var(--color-primary-900)]">Doorlooptijd:</dt>
+      <dd class="inline">{doorlooptijd}</dd>
+    </div>
+  </dl>
 
-    <dl class="mt-5 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-[var(--color-border)] pt-4 text-xs">
-      <div>
-        <dt class="font-semibold uppercase tracking-wider text-[var(--color-muted)]">
-          Toestel
-        </dt>
-        <dd class="mt-0.5 text-[var(--color-primary-900)]">{toestel}</dd>
-      </div>
-      <div>
-        <dt class="font-semibold uppercase tracking-wider text-[var(--color-muted)]">
-          Capaciteit
-        </dt>
-        <dd class="mt-0.5 text-[var(--color-primary-900)]">{capaciteit}</dd>
-      </div>
-      <div>
-        <dt class="font-semibold uppercase tracking-wider text-[var(--color-muted)]">
-          Aantal units
-        </dt>
-        <dd class="mt-0.5 text-[var(--color-primary-900)]">{aantalUnits}</dd>
-      </div>
-      <div>
-        <dt class="font-semibold uppercase tracking-wider text-[var(--color-muted)]">
-          Doorlooptijd
-        </dt>
-        <dd class="mt-0.5 text-[var(--color-primary-900)]">{doorlooptijd}</dd>
-      </div>
-    </dl>
-
-    <a
-      href={`${baseUrl}/${id}`}
-      class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-accent-600)] hover:underline"
-    >
-      Lees meer
-      <Icon name="arrow-right" class="size-4" />
-    </a>
-  </div>
-</article>
+  <span class="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-accent-600)]">
+    Lees meer
+    <Icon name="arrow-right" class="size-4 transition-transform group-hover:translate-x-1" />
+  </span>
+</a>
