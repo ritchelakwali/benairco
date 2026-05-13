@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/* Self-hosted fonts via @fontsource (geen Google Fonts CDN = AVG-vriendelijk) */
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/inter/800.css";
+@import "@fontsource/manrope/500.css";
+@import "@fontsource/manrope/600.css";
+@import "@fontsource/manrope/700.css";
+@import "@fontsource/manrope/800.css";
+
 @theme {
   /* Kleuren, gespiegeld vanuit src/config/site.ts brand.colors.
    * Palette komt voort uit het Benairco-logo:
@@ -21,8 +32,11 @@
   --color-muted: #6b7280;
   --color-border: #e0e6ec;
 
-  /* Typografie */
-  --font-serif: "Source Serif 4", "Source Serif Pro", ui-serif, Georgia, serif;
+  /* Typografie
+   * --font-serif is historisch genaamd maar wijst nu naar Manrope (modern sans
+   * voor koppen). De variabele-naam houden we voor compat met componenten die
+   * 'font-serif' uitliteratuur gebruiken; rename kan in een latere refactor. */
+  --font-serif: "Manrope", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, sans-serif;
 
@@ -56,8 +70,9 @@
   h4 {
     font-family: var(--font-serif);
     color: var(--color-primary-900);
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 700;
   }
 
   /* Reserveer ruimte voor focus-states zodat sprong-shift uitblijft */
