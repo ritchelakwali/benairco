@@ -29,4 +29,30 @@ const locations = defineCollection({
   }),
 });
 
-export const collections = { blog, locations };
+const projects = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projects' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string().max(180),
+    location: z.string(),
+    woningtype: z.string(),
+    bouwjaar: z.string().optional(),
+    toestel: z.string(),
+    type: z.enum(['single-split', 'multi-split', 'lucht-lucht warmtepomp']),
+    capaciteit: z.string(),
+    aantalUnits: z.number().int().positive().default(1),
+    doorlooptijd: z.string(),
+    bijzonderheid: z.string().optional(),
+    pubDate: z.coerce.date(),
+    /**
+     * Markeert dit als illustratief voorbeeld (i.p.v. een
+     * specifiek door Benairco uitgevoerd project). Tot we echte
+     * cases met klant-toestemming hebben staan, blijven alle
+     * items op true.
+     */
+    isVoorbeeld: z.boolean().default(true),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, locations, projects };

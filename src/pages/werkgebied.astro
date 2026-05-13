@@ -32,6 +32,50 @@ const excluded = site.serviceArea.excluded;
           gerust vrijblijvend contact op.
         </p>
 
+        <h2 class="mt-8 font-serif text-xl text-[var(--color-primary-900)]">
+          Typische Achterhoekse woningen
+        </h2>
+        <p class="mt-2 text-[0.95rem]">
+          Veel woningen in de regio brengen specifieke installatie-uitdagingen mee.
+          Een paar voorbeelden die we vaak tegenkomen:
+        </p>
+        <ul class="mt-3 space-y-2 text-[0.95rem]">
+          <li class="flex items-start gap-2">
+            <Icon name="check" class="mt-1 size-4 shrink-0 text-[var(--color-accent-600)]" />
+            <span>
+              <strong>Rijtjeswoningen jaren '70 (Doetinchem, Wehl, Didam):</strong>
+              {' '}spouwmuur-doorvoer, ruimte voor leidingwerk via achtertuin.
+            </span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="check" class="mt-1 size-4 shrink-0 text-[var(--color-accent-600)]" />
+            <span>
+              <strong>Vooroorlogse boerderijen (buitengebied Vorden, Ruurlo, Zelhem):</strong>
+              {' '}matige isolatie vraagt om extra leidingisolatie en zorgvuldige
+              ventilatieplaatsing.
+            </span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="check" class="mt-1 size-4 shrink-0 text-[var(--color-accent-600)]" />
+            <span>
+              <strong>Nieuwbouw (Didam, Zevenaar, 's-Heerenberg):</strong>
+              {' '}goed geïsoleerd, leidingdoorvoeren vaak al voorbereid — snelle
+              installatie mogelijk.
+            </span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="check" class="mt-1 size-4 shrink-0 text-[var(--color-accent-600)]" />
+            <span>
+              <strong>2-onder-1-kap en rijwoningen (Zutphen, Arnhem-Oost):</strong>
+              {' '}dichtbij buren — geluidsplaatsing van de buitenunit is hier
+              extra belangrijk.
+            </span>
+          </li>
+        </ul>
+        <p class="mt-4 text-sm text-[var(--color-muted)]">
+          Zie ook onze <a href="/projecten" class="font-semibold text-[var(--color-accent-600)] hover:underline">voorbeeldprojecten</a> per woningtype.
+        </p>
+
         {
           excluded.length > 0 && (
             <p class="mt-6 inline-flex items-start gap-3 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-4 text-sm">

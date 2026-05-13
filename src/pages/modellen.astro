@@ -1,0 +1,262 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import Icon from '~/components/Icon.astro';
+
+interface Model {
+  name: string;
+  type: 'single-split' | 'multi-split' | 'lucht-lucht warmtepomp';
+  capaciteitKw: string;
+  scop?: string;
+  geluidsniveauDb: string;
+  geschiktVoor: string;
+  highlight?: string;
+}
+
+interface Brand {
+  name: string;
+  karakter: string;
+  body: string;
+  modellen: Model[];
+}
+
+const brands: Brand[] = [
+  {
+    name: 'Mitsubishi Heavy',
+    karakter: 'Stil & robuust',
+    body: 'Mitsubishi Heavy Industries zit consistent in de stillere klasse qua buitenunit-geluid. Toestellen die met goed onderhoud 15+ jaar zonder storingen meegaan. Goede keuze voor rijtjeswoningen waar de buren-erfgrens-norm telt.',
+    modellen: [
+      {
+        name: 'SRK25ZSP-W',
+        type: 'single-split',
+        capaciteitKw: '2.5 kW',
+        scop: '4.7',
+        geluidsniveauDb: '47 dB(A) buitenunit, 19 dB(A) binnenunit (eco)',
+        geschiktVoor: 'Slaapkamer of werkkamer 10–18 m²',
+        highlight: 'Beste prijs/prestatie in het Mitsubishi Heavy-assortiment',
+      },
+      {
+        name: 'SRK35ZSP-W',
+        type: 'single-split',
+        capaciteitKw: '3.5 kW',
+        scop: '4.6',
+        geluidsniveauDb: '48 dB(A) buitenunit, 19 dB(A) binnenunit (eco)',
+        geschiktVoor: 'Woonkamer 20–32 m²',
+        highlight: 'Meest gangbare keuze voor rijtjes- en hoekwoningen',
+      },
+      {
+        name: 'SRK50ZSP-W',
+        type: 'single-split',
+        capaciteitKw: '5.0 kW',
+        scop: '4.4',
+        geluidsniveauDb: '51 dB(A) buitenunit',
+        geschiktVoor: 'Grote woonkamer of open keuken 30–50 m²',
+      },
+    ],
+  },
+  {
+    name: 'Daikin',
+    karakter: 'De referentie',
+    body: 'Wereldwijd marktleider met uitstekend service- en onderdelennet. Wat duurder, maar de standaard waaraan andere merken zich meten. Sterke app-bediening (Daikin Onecta) en goede documentatie.',
+    modellen: [
+      {
+        name: 'Sensira FTXF35E',
+        type: 'single-split',
+        capaciteitKw: '3.5 kW',
+        scop: '4.6',
+        geluidsniveauDb: '48 dB(A) buitenunit',
+        geschiktVoor: 'Woonkamer tot 30 m²',
+        highlight: 'Toegankelijk geprijsd, instapper in het Daikin-assortiment',
+      },
+      {
+        name: 'Perfera FTXM35A',
+        type: 'single-split',
+        capaciteitKw: '3.5 kW',
+        scop: '5.1',
+        geluidsniveauDb: '46 dB(A) buitenunit, 19 dB(A) binnenunit',
+        geschiktVoor: 'Woonkamer 20–35 m²',
+        highlight: 'Hoge SCOP voor wie de airco ook als verwarmer wil gebruiken',
+      },
+      {
+        name: '3MXM52A + 3× FTXM',
+        type: 'multi-split',
+        capaciteitKw: '5.2 kW totaal',
+        scop: '4.6',
+        geluidsniveauDb: '51 dB(A) buitenunit',
+        geschiktVoor: 'Drie ruimtes — bv. woonkamer + 2 slaapkamers',
+        highlight: 'Drie binnenunits op één buitenunit',
+      },
+    ],
+  },
+  {
+    name: 'LG',
+    karakter: 'Slim & ontworpen',
+    body: 'Sterke prijs/kwaliteit-verhouding met opvallende afwerking. Artcool-serie is in donkere kleuren leverbaar (i.p.v. wit), ideaal voor klassieke interieurs. Goede app-bediening via LG ThinQ, integratie met Google Home en Alexa.',
+    modellen: [
+      {
+        name: 'Standard Plus PC12SK',
+        type: 'single-split',
+        capaciteitKw: '3.5 kW',
+        scop: '4.0',
+        geluidsniveauDb: '50 dB(A) buitenunit',
+        geschiktVoor: 'Woonkamer of grote slaapkamer',
+        highlight: 'Aantrekkelijke instapper met goede basisspecs',
+      },
+      {
+        name: 'Artcool AC12BK',
+        type: 'lucht-lucht warmtepomp',
+        capaciteitKw: '3.5 kW',
+        scop: '4.3',
+        geluidsniveauDb: '50 dB(A) buitenunit',
+        geschiktVoor: 'Klassieke interieurs, ook voor verwarmen tot -7°C',
+        highlight: 'Donkere afwerking i.p.v. wit, valt minder op in oude woningen',
+      },
+      {
+        name: 'Dualcool DC12RH',
+        type: 'lucht-lucht warmtepomp',
+        capaciteitKw: '3.5 kW',
+        scop: '4.8',
+        geluidsniveauDb: '49 dB(A) buitenunit',
+        geschiktVoor: 'Woonkamer waar verwarmen even belangrijk is als koelen',
+        highlight: 'Top-SCOP, geschikt voor inzet als (bij)verwarmingsbron',
+      },
+    ],
+  },
+  {
+    name: 'Haier',
+    karakter: 'Compact & efficiënt',
+    body: 'Goede keuze voor compacte ruimtes en specifieke plaatsings-uitdagingen. Prijsbewuste optie met steeds betere specs. hOn-app voor bediening, integratie met smart home.',
+    modellen: [
+      {
+        name: 'Flexis Plus 25',
+        type: 'single-split',
+        capaciteitKw: '2.5 kW',
+        scop: '4.6',
+        geluidsniveauDb: '50 dB(A) buitenunit, 19 dB(A) binnenunit',
+        geschiktVoor: 'Slaapkamer tot 18 m²',
+        highlight: 'Smal en plat ontwerp — past achter gordijnstangen of in nissen',
+      },
+      {
+        name: 'Flexis Plus 35',
+        type: 'single-split',
+        capaciteitKw: '3.5 kW',
+        scop: '4.1',
+        geluidsniveauDb: '53 dB(A) buitenunit',
+        geschiktVoor: 'Woonkamer 22–32 m²',
+        highlight: 'Prijsvriendelijke woonkamer-keuze',
+      },
+      {
+        name: 'Tundra Green 50',
+        type: 'single-split',
+        capaciteitKw: '5.0 kW',
+        scop: '4.0',
+        geluidsniveauDb: '54 dB(A) buitenunit',
+        geschiktVoor: 'Grote woonkamer of klein kantoor',
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Airco-modellen"
+  description="Een overzicht van A-merk airco-modellen voor particulieren — Mitsubishi Heavy, Daikin, LG en Haier. Capaciteit, SCOP, geluidsniveau en geschikte ruimte per model."
+>
+  <section class="py-14 md:py-20">
+    <div class="container-content max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+        Modellen-overzicht
+      </p>
+      <h1 class="mt-2 font-serif text-3xl text-[var(--color-primary-900)] md:text-4xl">
+        Welk model past bij jouw situatie?
+      </h1>
+      <p class="mt-5 text-lg leading-7">
+        Een beknopt overzicht van A-merken die Ben graag in de Achterhoek
+        installeert. Per merk drie veelgekozen modellen met capaciteit, SCOP,
+        geluidsniveau en de ruimtes waar ze het beste tot hun recht komen.
+      </p>
+      <p class="mt-3 text-[var(--color-muted)]">
+        Niet hier staan ≠ niet leverbaar. Heb je een specifiek model op het oog,
+        bespreek het tijdens het opnamegesprek — vrijwel elk A-merk-model kan
+        besteld en geïnstalleerd worden.
+      </p>
+    </div>
+
+    <div class="container-content mt-14 space-y-20">
+      {
+        brands.map((brand) => (
+          <section>
+            <header class="max-w-3xl">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+                {brand.karakter}
+              </p>
+              <h2 class="mt-2 font-serif text-2xl text-[var(--color-primary-900)] md:text-3xl">
+                {brand.name}
+              </h2>
+              <p class="mt-3 text-[var(--color-ink)]">{brand.body}</p>
+            </header>
+
+            <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {brand.modellen.map((model) => (
+                <article class="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-6">
+                  <div class="flex items-start justify-between gap-3">
+                    <h3 class="font-serif text-lg text-[var(--color-primary-900)]">
+                      {model.name}
+                    </h3>
+                    <span class="inline-flex shrink-0 items-center rounded-full bg-[var(--color-primary-50)] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[var(--color-primary-900)]">
+                      {model.type}
+                    </span>
+                  </div>
+
+                  {model.highlight && (
+                    <p class="mt-2 text-xs italic text-[var(--color-accent-600)]">
+                      {model.highlight}
+                    </p>
+                  )}
+
+                  <dl class="mt-4 space-y-2 text-sm">
+                    <div class="flex justify-between gap-3 border-b border-[var(--color-border)] pb-2">
+                      <dt class="text-[var(--color-muted)]">Capaciteit</dt>
+                      <dd class="font-medium text-[var(--color-primary-900)]">
+                        {model.capaciteitKw}
+                      </dd>
+                    </div>
+                    {model.scop && (
+                      <div class="flex justify-between gap-3 border-b border-[var(--color-border)] pb-2">
+                        <dt class="text-[var(--color-muted)]">SCOP</dt>
+                        <dd class="font-medium text-[var(--color-primary-900)]">
+                          {model.scop}
+                        </dd>
+                      </div>
+                    )}
+                    <div class="flex justify-between gap-3 border-b border-[var(--color-border)] pb-2">
+                      <dt class="text-[var(--color-muted)]">Geluid</dt>
+                      <dd class="text-right font-medium text-[var(--color-primary-900)]">
+                        {model.geluidsniveauDb}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt class="text-[var(--color-muted)]">Geschikt voor</dt>
+                      <dd class="mt-0.5 text-[var(--color-primary-900)]">
+                        {model.geschiktVoor}
+                      </dd>
+                    </div>
+                  </dl>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))
+      }
+
+      <aside class="container-content mx-0 rounded-[var(--radius-card)] bg-[var(--color-primary-50)] p-6 text-sm text-[var(--color-primary-900)]">
+        <p>
+          <strong>Specs zijn indicatief.</strong> Fabrikanten passen modellen
+          jaarlijks aan; de waarden in dit overzicht zijn op moment van schrijven
+          (mei 2026) representatief, maar je actuele datablad voor jouw specifieke
+          model is altijd leidend. Bij offerte krijgt je het datasheet van het
+          voorgestelde toestel mee.
+        </p>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

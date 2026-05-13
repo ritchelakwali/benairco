@@ -1,0 +1,125 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { site } from '~/config/site';
+import Icon from '~/components/Icon.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects', ({ data }) => !data.draft);
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+
+const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const phoneHref = `tel:${site.contact.phone.replace(/\s/g, '')}`;
+
+const specs = [
+  { label: 'Woningtype', value: project.data.woningtype },
+  { label: 'Bouwjaar', value: project.data.bouwjaar },
+  { label: 'Plaats', value: project.data.location },
+  { label: 'Toestel', value: project.data.toestel },
+  { label: 'Type installatie', value: project.data.type },
+  { label: 'Capaciteit', value: project.data.capaciteit },
+  { label: 'Aantal binnenunits', value: String(project.data.aantalUnits) },
+  { label: 'Doorlooptijd', value: project.data.doorlooptijd },
+  ...(project.data.bijzonderheid
+    ? [{ label: 'Bijzonderheid', value: project.data.bijzonderheid }]
+    : []),
+].filter((s) => s.value);
+---
+
+<BaseLayout
+  title={project.data.title}
+  description={project.data.description}
+  type="article"
+>
+  <article class="py-12 md:py-16">
+    <div class="container-content max-w-3xl">
+      <nav aria-label="Broodkruimels" class="text-sm text-[var(--color-muted)]">
+        <a href="/projecten" class="hover:underline">Voorbeeldprojecten</a>
+        <span class="mx-2">/</span>
+        <span>{project.data.location}</span>
+      </nav>
+
+      <h1 class="mt-4 font-serif text-3xl text-[var(--color-primary-900)] md:text-4xl">
+        {project.data.title}
+      </h1>
+
+      <p class="mt-3 text-sm text-[var(--color-muted)]">
+        {dateFormatter.format(project.data.pubDate)}
+        {
+          project.data.isVoorbeeld && (
+            <>
+              {' '}
+              ·{' '}
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-primary-50)] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[var(--color-primary-900)]">
+                Voorbeeld-case
+              </span>
+            </>
+          )
+        }
+      </p>
+
+      <p class="mt-5 text-lg leading-7">{project.data.description}</p>
+
+      <!-- Spec-tabel -->
+      <dl class="mt-8 grid gap-x-6 gap-y-3 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-6 sm:grid-cols-2">
+        {
+          specs.map((spec) => (
+            <div>
+              <dt class="text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)]">
+                {spec.label}
+              </dt>
+              <dd class="mt-0.5 text-[0.95rem] text-[var(--color-primary-900)]">
+                {spec.value}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+
+    <div class="container-content mt-10">
+      <div class="prose-readable">
+        <Content />
+      </div>
+
+      {
+        project.data.isVoorbeeld && (
+          <aside class="prose-readable mt-12 rounded-[var(--radius-card)] border border-dashed border-[var(--color-border)] bg-[var(--color-primary-50)] p-5 text-sm text-[var(--color-primary-900)] max-w-[38rem]">
+            <strong>Voorbeeld-case.</strong> Bovenstaande situatie is een illustratie
+            van een typische installatie in dit type woning. Het beschrijft wat we
+            zouden doen, welk toestel we zouden kiezen en waarom — geen specifiek
+            project. Concrete cases met Bens eigen foto's worden toegevoegd zodra
+            klanten daar toestemming voor geven.
+          </aside>
+        )
+      }
+
+      <aside class="prose-readable mt-8 rounded-[var(--radius-card)] bg-[var(--color-primary-900)] p-6 text-white max-w-[38rem]">
+        <h2 class="font-serif text-xl text-white">Jouw woning lijkt erop?</h2>
+        <p class="mt-2 text-[0.95rem] text-white/85">
+          Bel Ben voor een vrijblijvend gesprek over wat in jouw specifieke situatie
+          past — woningtype, isolatie, gebruik, budget.
+        </p>
+        <a
+          href={phoneHref}
+          class="mt-4 inline-flex items-center gap-2 rounded-[var(--radius-button)] bg-[var(--color-accent)] px-5 py-2.5 font-semibold text-white hover:bg-[var(--color-accent-600)]"
+        >
+          <Icon name="phone" class="size-4" />
+          {site.contact.phoneDisplay}
+        </a>
+      </aside>
+    </div>
+  </article>
+</BaseLayout>
