@@ -1,156 +1,111 @@
 ---
-// Gestileerde kaart van het werkgebied rondom Gaanderen.
-// Geen geografisch correcte kaart, een sfeer-illustratie van de Achterhoek
-// met Gaanderen centraal en omliggende plaatsen als stippen.
+import { site } from '~/config/site';
+
+const lat = site.address.geo.latitude;
+const lng = site.address.geo.longitude;
 ---
 
-<svg
-  viewBox="0 0 600 500"
-  xmlns="http://www.w3.org/2000/svg"
+<div
+  id="werkgebied-map"
   class="h-full w-full"
-  aria-hidden="true"
+  data-lat={lat}
+  data-lng={lng}
+  data-place={site.address.city}
 >
-  <defs>
-    <pattern id="mapDots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="0.8" fill="var(--color-primary-700)" opacity="0.1"></circle>
-    </pattern>
-    <radialGradient id="centerGlow" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0%" stop-color="var(--color-accent)" stop-opacity="0.18"></stop>
-      <stop offset="100%" stop-color="var(--color-accent)" stop-opacity="0"></stop>
-    </radialGradient>
-  </defs>
+  <noscript>
+    <div class="flex h-full w-full items-center justify-center bg-[var(--color-primary-50)] p-6 text-center text-sm text-[var(--color-muted)]">
+      De interactieve kaart vereist JavaScript. Zie de plaatsenlijst hieronder.
+    </div>
+  </noscript>
+</div>
 
-  <rect width="600" height="500" fill="var(--color-paper)" rx="12"></rect>
-  <rect width="600" height="500" fill="url(#mapDots)" rx="12"></rect>
+<style is:global>
+  /* Leaflet CSS — minimaal genoeg voor onze use case */
+  @import 'leaflet/dist/leaflet.css';
 
-  <!-- Regio-vorm (zachte abstracte Achterhoek-vorm) -->
-  <path
-    d="M 110 140
-       Q 90 110 130 90
-       Q 180 75 240 90
-       Q 320 100 400 95
-       Q 470 100 510 130
-       Q 540 180 530 240
-       Q 525 320 480 380
-       Q 420 430 340 425
-       Q 250 430 180 405
-       Q 120 380 95 320
-       Q 80 250 95 200
-       Q 100 165 110 140 Z"
-    fill="var(--color-primary-100)"
-    stroke="var(--color-primary-700)"
-    stroke-width="2"
-    stroke-dasharray="6 4"
-    opacity="0.7"
-  ></path>
+  #werkgebied-map {
+    border-radius: var(--radius-image);
+    overflow: hidden;
+    z-index: 0;
+  }
 
-  <!-- Subtiele rivierlijntjes (suggestie van Oude IJssel) -->
-  <g
-    stroke="var(--color-primary-700)"
-    stroke-width="1.5"
-    fill="none"
-    opacity="0.25"
-    stroke-linecap="round"
-  >
-    <path d="M 130 200 Q 200 220 270 240 T 410 280 Q 470 295 510 285" />
-    <path d="M 180 350 Q 240 340 300 345 T 420 360" />
-  </g>
+  .benairco-pin {
+    background: transparent;
+    border: none;
+  }
 
-  <!-- 1 uur rijden cirkel (afstandssuggestie) -->
-  <circle
-    cx="300"
-    cy="250"
-    r="180"
-    fill="url(#centerGlow)"
-    stroke="var(--color-accent)"
-    stroke-width="1.5"
-    stroke-dasharray="3 5"
-    opacity="0.5"
-  ></circle>
+  .leaflet-popup-content-wrapper {
+    border-radius: var(--radius-card);
+    font-family: var(--font-sans);
+  }
 
-  <!-- Plaatsen rondom (kleine cirkels met labels) -->
-  <g font-family="Inter, system-ui, sans-serif" font-size="13" fill="var(--color-primary-900)">
-    <!-- Zutphen -->
-    <circle cx="180" cy="120" r="4" fill="var(--color-primary-700)"></circle>
-    <text x="170" y="108" text-anchor="end">Zutphen</text>
+  .leaflet-popup-content {
+    font-size: 0.875rem;
+    margin: 0.75rem 1rem;
+  }
 
-    <!-- Lochem -->
-    <circle cx="280" cy="105" r="4" fill="var(--color-primary-700)"></circle>
-    <text x="280" y="93" text-anchor="middle">Lochem</text>
+  .leaflet-popup-content strong {
+    color: var(--color-primary-900);
+    font-family: var(--font-serif);
+    font-size: 1rem;
+  }
 
-    <!-- Winterswijk -->
-    <circle cx="470" cy="200" r="4" fill="var(--color-primary-700)"></circle>
-    <text x="486" y="195" text-anchor="start">Winterswijk</text>
+  .leaflet-container {
+    background: var(--color-primary-50);
+    font-family: var(--font-sans);
+  }
+</style>
 
-    <!-- Aalten -->
-    <circle cx="450" cy="290" r="4" fill="var(--color-primary-700)"></circle>
-    <text x="466" y="295" text-anchor="start">Aalten</text>
+<script>
+  import L from 'leaflet';
 
-    <!-- Doetinchem -->
-    <circle cx="240" cy="240" r="4" fill="var(--color-primary-700)"></circle>
-    <text x="232" y="232" text-anchor="end">Doetinchem</text>
+  const container = document.getElementById('werkgebied-map');
+  if (container) {
+    const lat = parseFloat(container.dataset.lat ?? '51.9287');
+    const lng = parseFloat(container.dataset.lng ?? '6.3502');
+    const place = container.dataset.place ?? 'Gaanderen';
 
-    <!-- Wehl -->
-    <circle cx="180" cy="270" r="4" fill="var(--color-primary-700)"></circle>
-    <text x="170" y="275" text-anchor="end">Wehl</text>
+    const map = L.map(container, {
+      center: [lat, lng],
+      zoom: 10,
+      scrollWheelZoom: false,
+      zoomControl: true,
+    });
 
-    <!-- Didam -->
-    <circle cx="155" cy="310" r="4" fill="var(--color-primary-700)"></circle>
-    <text x="145" y="315" text-anchor="end">Didam</text>
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>',
+      maxZoom: 17,
+    }).addTo(map);
 
-    <!-- Zevenaar -->
-    <circle cx="125" cy="370" r="4" fill="var(--color-primary-700)"></circle>
-    <text x="115" y="375" text-anchor="end">Zevenaar</text>
+    // Aangepaste pin matchend met site-stijl
+    const pinSvg = `
+      <svg width="32" height="42" viewBox="0 0 32 42" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3))">
+        <path d="M16 0 C7 0 0 7 0 16 C0 28 16 42 16 42 C16 42 32 28 32 16 C32 7 25 0 16 0 Z" fill="#c47b3c"/>
+        <circle cx="16" cy="16" r="6" fill="#fbfaf6"/>
+      </svg>
+    `;
 
-    <!-- Arnhem -->
-    <circle cx="90" cy="290" r="4" fill="var(--color-primary-700)"></circle>
-    <text x="80" y="295" text-anchor="end">Arnhem</text>
+    const pinIcon = L.divIcon({
+      html: pinSvg,
+      className: 'benairco-pin',
+      iconSize: [32, 42],
+      iconAnchor: [16, 42],
+      popupAnchor: [0, -42],
+    });
 
-    <!-- Ulft -->
-    <circle cx="340" cy="320" r="4" fill="var(--color-primary-700)"></circle>
-    <text x="340" y="340" text-anchor="middle">Ulft</text>
+    L.marker([lat, lng], { icon: pinIcon })
+      .addTo(map)
+      .bindPopup(`<strong>Benairco</strong><br>${place}`);
 
-    <!-- 's-Heerenberg -->
-    <circle cx="245" cy="370" r="4" fill="var(--color-primary-700)"></circle>
-    <text x="245" y="390" text-anchor="middle">'s-Heerenberg</text>
-
-    <!-- Borculo -->
-    <circle cx="380" cy="150" r="4" fill="var(--color-primary-700)"></circle>
-    <text x="380" y="138" text-anchor="middle">Borculo</text>
-  </g>
-
-  <!-- Gaanderen, centrale pin -->
-  <g transform="translate(300 250)">
-    <circle r="36" fill="var(--color-accent)" opacity="0.15"></circle>
-    <circle r="22" fill="var(--color-accent)" opacity="0.3"></circle>
-    <path
-      d="M 0 -16 C -8 -16 -14 -10 -14 -2 C -14 8 0 22 0 22 C 0 22 14 8 14 -2 C 14 -10 8 -16 0 -16 Z"
-      fill="var(--color-accent-600)"
-    ></path>
-    <circle cx="0" cy="-3" r="5" fill="var(--color-paper)"></circle>
-    <text
-      x="0"
-      y="48"
-      font-family="Inter, system-ui, sans-serif"
-      font-size="15"
-      font-weight="700"
-      fill="var(--color-primary-900)"
-      text-anchor="middle"
-    >
-      Gaanderen
-    </text>
-  </g>
-
-  <!-- "1 uur rijden" label -->
-  <text
-    x="450"
-    y="440"
-    font-family="Inter, system-ui, sans-serif"
-    font-size="12"
-    fill="var(--color-accent-600)"
-    text-anchor="middle"
-    font-weight="600"
-  >
-    ⌀ 1 uur rijden
-  </text>
-</svg>
+    // 1-uur rijden radius (ca. 50 km)
+    L.circle([lat, lng], {
+      radius: 50000,
+      color: '#c47b3c',
+      weight: 1.5,
+      dashArray: '6, 6',
+      fillColor: '#c47b3c',
+      fillOpacity: 0.04,
+    }).addTo(map);
+  }
+</script>
