@@ -1,0 +1,121 @@
+---
+// Hero-illustratie voor /kennisbank index pagina.
+// Open boek met aantekeningen, airco-icoon zwevend erboven, lichte
+// glimp van een lamp (idee). Zelfde stijl als de andere illustraties.
+---
+
+<svg
+  viewBox="0 0 480 480"
+  xmlns="http://www.w3.org/2000/svg"
+  class="h-full w-full"
+  aria-hidden="true"
+>
+  <defs>
+    <pattern id="kbDots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="var(--color-primary-700)" opacity="0.08"></circle>
+    </pattern>
+    <linearGradient id="kbBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="var(--color-primary-50)"></stop>
+      <stop offset="100%" stop-color="var(--color-paper)"></stop>
+    </linearGradient>
+  </defs>
+
+  <rect width="480" height="480" fill="url(#kbBg)" rx="12"></rect>
+  <rect width="480" height="480" fill="url(#kbDots)" rx="12"></rect>
+
+  <!-- Lamp / idee-suggestie -->
+  <g transform="translate(360 110)">
+    <!-- Stralen -->
+    <g stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round" opacity="0.6">
+      <line x1="0" y1="-30" x2="0" y2="-44"></line>
+      <line x1="22" y1="-22" x2="32" y2="-32"></line>
+      <line x1="-22" y1="-22" x2="-32" y2="-32"></line>
+      <line x1="30" y1="0" x2="44" y2="0"></line>
+      <line x1="-30" y1="0" x2="-44" y2="0"></line>
+    </g>
+    <!-- Peer -->
+    <path
+      d="M -16 -2 C -16 -16 -8 -22 0 -22 C 8 -22 16 -16 16 -2 C 16 8 8 12 8 22 L -8 22 C -8 12 -16 8 -16 -2 Z"
+      fill="var(--color-accent)"
+      opacity="0.85"
+    ></path>
+    <!-- Fitting -->
+    <rect x="-10" y="22" width="20" height="6" fill="var(--color-primary-900)"></rect>
+    <rect x="-8" y="28" width="16" height="4" fill="var(--color-primary-900)" opacity="0.7"></rect>
+  </g>
+
+  <!-- Airco-binnenunit zwevend, met luchtstroom -->
+  <g transform="translate(80 100)">
+    <rect x="0" y="0" width="100" height="28" fill="var(--color-paper)" stroke="var(--color-primary-900)" stroke-width="2" rx="4"></rect>
+    <rect x="6" y="18" width="88" height="5" fill="var(--color-primary-700)" opacity="0.3"></rect>
+    <circle cx="14" cy="7" r="2" fill="var(--color-accent)"></circle>
+  </g>
+  <g stroke="var(--color-accent)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5">
+    <path d="M 100 135 Q 105 150 100 165" />
+    <path d="M 130 135 Q 135 155 130 175" />
+    <path d="M 160 135 Q 165 155 160 175" />
+  </g>
+
+  <!-- Stapeltje papieren onder boek -->
+  <g transform="translate(110 320) rotate(-3)">
+    <rect x="0" y="0" width="260" height="14" fill="var(--color-paper)" stroke="var(--color-primary-900)" stroke-width="1.5" rx="2" opacity="0.7"></rect>
+  </g>
+  <g transform="translate(105 312) rotate(4)">
+    <rect x="0" y="0" width="260" height="14" fill="var(--color-paper)" stroke="var(--color-primary-900)" stroke-width="1.5" rx="2" opacity="0.6"></rect>
+  </g>
+
+  <!-- Open boek (centraal) -->
+  <g transform="translate(70 200)">
+    <!-- Bandhoek schaduw -->
+    <ellipse cx="170" cy="118" rx="160" ry="10" fill="var(--color-primary-900)" opacity="0.15"></ellipse>
+
+    <!-- Linker pagina -->
+    <path
+      d="M 10 20 Q 160 0 170 30 L 170 110 Q 160 105 10 115 Z"
+      fill="var(--color-paper)"
+      stroke="var(--color-primary-900)"
+      stroke-width="2"
+    ></path>
+    <!-- Rechter pagina -->
+    <path
+      d="M 330 20 Q 180 0 170 30 L 170 110 Q 180 105 330 115 Z"
+      fill="var(--color-paper)"
+      stroke="var(--color-primary-900)"
+      stroke-width="2"
+    ></path>
+
+    <!-- Tekstlijntjes linker pagina -->
+    <g stroke="var(--color-primary-700)" stroke-width="1.5" stroke-linecap="round" opacity="0.5">
+      <line x1="30" y1="40" x2="140" y2="36"></line>
+      <line x1="30" y1="52" x2="148" y2="48"></line>
+      <line x1="30" y1="64" x2="130" y2="60"></line>
+      <line x1="30" y1="76" x2="146" y2="72"></line>
+      <line x1="30" y1="88" x2="120" y2="84"></line>
+    </g>
+    <!-- Accent-onderstreping (geheim van Ben?) -->
+    <line x1="30" y1="98" x2="100" y2="94" stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round"></line>
+
+    <!-- Tekstlijntjes rechter pagina -->
+    <g stroke="var(--color-primary-700)" stroke-width="1.5" stroke-linecap="round" opacity="0.5">
+      <line x1="200" y1="36" x2="310" y2="40"></line>
+      <line x1="200" y1="48" x2="305" y2="52"></line>
+      <line x1="200" y1="60" x2="295" y2="64"></line>
+      <line x1="200" y1="72" x2="312" y2="76"></line>
+      <line x1="200" y1="84" x2="280" y2="88"></line>
+      <line x1="200" y1="96" x2="298" y2="100"></line>
+    </g>
+
+    <!-- Mini-airco-symbool op rechter pagina (icoon) -->
+    <g transform="translate(255 70)">
+      <rect x="-14" y="-6" width="28" height="10" fill="var(--color-accent)" rx="2" opacity="0.85"></rect>
+    </g>
+  </g>
+
+  <!-- Potlood -->
+  <g transform="translate(330 280) rotate(35)">
+    <rect x="0" y="0" width="120" height="8" fill="var(--color-accent)" rx="1"></rect>
+    <rect x="0" y="0" width="20" height="8" fill="var(--color-primary-900)"></rect>
+    <path d="M 120 0 L 130 4 L 120 8 Z" fill="var(--color-paper)" stroke="var(--color-primary-900)" stroke-width="1.5"></path>
+    <path d="M 126 2 L 130 4 L 126 6 Z" fill="var(--color-primary-900)"></path>
+  </g>
+</svg>

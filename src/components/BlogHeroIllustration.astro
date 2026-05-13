@@ -1,0 +1,226 @@
+---
+// Categorie-bewuste hero-illustratie voor blog-posts.
+// Toont een centrale grafische metafoor per categorie zonder van stijl
+// af te wijken. Maat is breed/laag (16:7) zodat het bovenaan de tekst
+// past zonder de leesflow te breken.
+
+interface Props {
+  category: 'subsidie' | 'techniek' | 'onderhoud' | 'kosten' | 'verhaal';
+}
+
+const { category } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 800 280"
+  xmlns="http://www.w3.org/2000/svg"
+  class="h-full w-full"
+  aria-hidden="true"
+>
+  <defs>
+    <pattern id={`blogDots-${category}`} x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="var(--color-primary-700)" opacity="0.08"></circle>
+    </pattern>
+    <linearGradient id={`blogBg-${category}`} x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="var(--color-primary-50)"></stop>
+      <stop offset="100%" stop-color="var(--color-paper)"></stop>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="280" fill={`url(#blogBg-${category})`} rx="12"></rect>
+  <rect width="800" height="280" fill={`url(#blogDots-${category})`} rx="12"></rect>
+
+  <!-- Heuvels -->
+  <path
+    d="M 0 230 Q 200 200 400 215 T 800 220 L 800 280 L 0 280 Z"
+    fill="var(--color-primary-100)"
+    opacity="0.7"
+  ></path>
+
+  {/* Categorie-specifieke vorm centraal */}
+  {
+    category === 'subsidie' && (
+      <g transform="translate(400 140)">
+        {/* Muntstuk groot */}
+        <circle cx="0" cy="0" r="58" fill="var(--color-accent)" opacity="0.2" />
+        <circle cx="0" cy="0" r="48" fill="var(--color-accent)" stroke="var(--color-primary-900)" stroke-width="3" />
+        <text
+          x="0"
+          y="14"
+          font-family="Georgia, serif"
+          font-size="48"
+          font-weight="700"
+          text-anchor="middle"
+          fill="var(--color-paper)"
+        >
+          €
+        </text>
+        {/* Kleinere munten */}
+        <circle cx="-90" cy="20" r="20" fill="var(--color-accent)" stroke="var(--color-primary-900)" stroke-width="2" />
+        <text x="-90" y="27" font-family="Georgia, serif" font-size="20" font-weight="700" text-anchor="middle" fill="var(--color-paper)">€</text>
+        <circle cx="80" cy="-10" r="14" fill="var(--color-accent)" stroke="var(--color-primary-900)" stroke-width="2" opacity="0.7" />
+        {/* Pijltjes omhoog */}
+        <g stroke="var(--color-primary-900)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M 130 30 L 130 -10 M 122 -2 L 130 -10 L 138 -2" opacity="0.6" />
+          <path d="M -150 50 L -150 10 M -158 18 L -150 10 L -142 18" opacity="0.5" />
+        </g>
+      </g>
+    )
+  }
+
+  {
+    category === 'techniek' && (
+      <g transform="translate(400 130)">
+        {/* Tandwiel groot */}
+        <g fill="var(--color-primary-700)" opacity="0.85">
+          <circle cx="0" cy="0" r="52" />
+          {Array.from({ length: 8 }).map((_, i) => (
+            <rect
+              x="-8"
+              y="-66"
+              width="16"
+              height="20"
+              rx="2"
+              transform={`rotate(${i * 45})`}
+            />
+          ))}
+        </g>
+        <circle cx="0" cy="0" r="20" fill="var(--color-paper)" stroke="var(--color-primary-900)" stroke-width="3" />
+        {/* Tweede kleiner tandwiel */}
+        <g transform="translate(95 35)" fill="var(--color-accent)" opacity="0.85">
+          <circle cx="0" cy="0" r="32" />
+          {Array.from({ length: 6 }).map((_, i) => (
+            <rect
+              x="-5"
+              y="-44"
+              width="10"
+              height="14"
+              rx="2"
+              transform={`rotate(${i * 60})`}
+            />
+          ))}
+        </g>
+        <circle cx="95" cy="35" r="11" fill="var(--color-paper)" stroke="var(--color-primary-900)" stroke-width="2" />
+        {/* Sleutel */}
+        <g transform="translate(-120 -30) rotate(-25)" stroke="var(--color-primary-900)" stroke-width="3" fill="none" stroke-linecap="round">
+          <circle cx="0" cy="0" r="10" />
+          <line x1="8" y1="6" x2="44" y2="38" />
+          <line x1="36" y1="32" x2="42" y2="26" />
+        </g>
+      </g>
+    )
+  }
+
+  {
+    category === 'onderhoud' && (
+      <g transform="translate(400 130)">
+        {/* Klembord */}
+        <g transform="translate(-40 -70)">
+          <rect x="0" y="0" width="110" height="140" fill="var(--color-paper)" stroke="var(--color-primary-900)" stroke-width="2.5" rx="4" />
+          <rect x="35" y="-8" width="40" height="16" fill="var(--color-primary-900)" rx="3" />
+          <g stroke="var(--color-primary-700)" stroke-width="1.5" stroke-linecap="round" opacity="0.6">
+            <line x1="14" y1="34" x2="96" y2="34" />
+            <line x1="14" y1="50" x2="86" y2="50" />
+            <line x1="14" y1="66" x2="96" y2="66" />
+            <line x1="14" y1="82" x2="78" y2="82" />
+            <line x1="14" y1="98" x2="90" y2="98" />
+          </g>
+          {/* Vinkjes */}
+          <g stroke="var(--color-accent-600)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 34 24 38 30 30" />
+            <polyline points="20 50 24 54 30 46" />
+            <polyline points="20 66 24 70 30 62" />
+          </g>
+        </g>
+        {/* Schroevendraaier */}
+        <g transform="translate(110 -50) rotate(30)">
+          <rect x="-3" y="-50" width="6" height="60" fill="var(--color-primary-900)" />
+          <rect x="-7" y="-66" width="14" height="20" fill="var(--color-accent-600)" rx="2" />
+          <rect x="-3" y="10" width="6" height="14" fill="#d1d5db" stroke="var(--color-primary-900)" stroke-width="1.5" />
+        </g>
+        {/* Airco binnenunit klein */}
+        <g transform="translate(95 60)">
+          <rect x="0" y="0" width="80" height="22" fill="var(--color-paper)" stroke="var(--color-primary-900)" stroke-width="2" rx="3" />
+          <rect x="5" y="14" width="70" height="4" fill="var(--color-primary-700)" opacity="0.3" />
+          <circle cx="12" cy="6" r="2" fill="var(--color-accent)" />
+        </g>
+      </g>
+    )
+  }
+
+  {
+    category === 'kosten' && (
+      <g transform="translate(400 130)">
+        {/* Calculator */}
+        <g transform="translate(-90 -60)">
+          <rect x="0" y="0" width="140" height="130" fill="var(--color-paper)" stroke="var(--color-primary-900)" stroke-width="2.5" rx="6" />
+          {/* Display */}
+          <rect x="10" y="10" width="120" height="30" fill="var(--color-primary-900)" rx="3" />
+          <text x="124" y="32" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700" text-anchor="end" fill="var(--color-accent)">2.450</text>
+          {/* Knoppen */}
+          {Array.from({ length: 12 }).map((_, i) => {
+            const col = i % 4;
+            const row = Math.floor(i / 4);
+            return (
+              <rect
+                x={10 + col * 30}
+                y={50 + row * 24}
+                width="24"
+                height="18"
+                fill="var(--color-primary-50)"
+                stroke="var(--color-primary-700)"
+                stroke-width="1"
+                rx="2"
+                opacity="0.7"
+              />
+            );
+          })}
+        </g>
+        {/* Bonnetje */}
+        <g transform="translate(70 -70) rotate(8)">
+          <path
+            d="M 0 0 L 100 0 L 100 150 L 90 140 L 80 150 L 70 140 L 60 150 L 50 140 L 40 150 L 30 140 L 20 150 L 10 140 L 0 150 Z"
+            fill="var(--color-paper)"
+            stroke="var(--color-primary-900)"
+            stroke-width="2"
+          />
+          <g stroke="var(--color-primary-700)" stroke-width="1.5" stroke-linecap="round" opacity="0.5">
+            <line x1="14" y1="20" x2="86" y2="20" />
+            <line x1="14" y1="36" x2="86" y2="36" />
+            <line x1="14" y1="52" x2="86" y2="52" />
+            <line x1="14" y1="80" x2="86" y2="80" />
+            <line x1="14" y1="100" x2="86" y2="100" />
+          </g>
+          <text x="50" y="130" font-family="Georgia, serif" font-size="14" font-weight="700" text-anchor="middle" fill="var(--color-accent-600)">€ 2.450</text>
+        </g>
+      </g>
+    )
+  }
+
+  {
+    category === 'verhaal' && (
+      <g transform="translate(400 130)">
+        {/* Tekstballon */}
+        <path
+          d="M -100 -50 Q -100 -80 -70 -80 L 80 -80 Q 110 -80 110 -50 L 110 20 Q 110 50 80 50 L -30 50 L -50 80 L -50 50 L -70 50 Q -100 50 -100 20 Z"
+          fill="var(--color-paper)"
+          stroke="var(--color-primary-900)"
+          stroke-width="2.5"
+        />
+        <g stroke="var(--color-primary-700)" stroke-width="2" stroke-linecap="round" opacity="0.5">
+          <line x1="-78" y1="-55" x2="78" y2="-55" />
+          <line x1="-78" y1="-35" x2="60" y2="-35" />
+          <line x1="-78" y1="-15" x2="88" y2="-15" />
+          <line x1="-78" y1="5" x2="50" y2="5" />
+          <line x1="-78" y1="25" x2="74" y2="25" />
+        </g>
+        {/* Hartje accent */}
+        <path
+          d="M 92 -65 C 92 -72 86 -76 80 -76 C 76 -76 73 -73 72 -70 C 71 -73 68 -76 64 -76 C 58 -76 52 -72 52 -65 C 52 -56 72 -42 72 -42 C 72 -42 92 -56 92 -65 Z"
+          fill="var(--color-accent)"
+          opacity="0"
+        />
+      </g>
+    )
+  }
+</svg>
