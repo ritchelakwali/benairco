@@ -16,6 +16,7 @@ interface Brand {
   name: string;
   karakter: string;
   body: string;
+  url: string;
   modellen: Model[];
 }
 
@@ -24,6 +25,7 @@ const brands: Brand[] = [
     name: 'Mitsubishi Heavy',
     karakter: 'Stil & robuust',
     body: 'Mitsubishi Heavy Industries zit consistent in de stillere klasse qua buitenunit-geluid. Toestellen die met goed onderhoud 15+ jaar zonder storingen meegaan. Goede keuze voor rijtjeswoningen waar de buren-erfgrens-norm telt.',
+    url: 'https://mhinederland.nl/producten-2/airco-s-thuis',
     modellen: [
       {
         name: 'SRK25ZSP-W',
@@ -57,6 +59,7 @@ const brands: Brand[] = [
     name: 'Daikin',
     karakter: 'De referentie',
     body: 'Wereldwijd marktleider met uitstekend service- en onderdelennet. Wat duurder, maar de standaard waaraan andere merken zich meten. Sterke app-bediening (Daikin Onecta) en goede documentatie.',
+    url: 'https://www.daikin.nl/nl_nl/area-of-expertise/air-conditioning.html',
     modellen: [
       {
         name: 'Sensira FTXF35E',
@@ -91,6 +94,7 @@ const brands: Brand[] = [
     name: 'LG',
     karakter: 'Slim & ontworpen',
     body: 'Sterke prijs/kwaliteit-verhouding met opvallende afwerking. Artcool-serie is in donkere kleuren leverbaar (i.p.v. wit), ideaal voor klassieke interieurs. Goede app-bediening via LG ThinQ, integratie met Google Home en Alexa.',
+    url: 'https://www.lg.com/nl/residentiele-airconditioners/',
     modellen: [
       {
         name: 'Standard Plus PC12SK',
@@ -125,6 +129,7 @@ const brands: Brand[] = [
     name: 'Haier',
     karakter: 'Compact & efficiënt',
     body: 'Goede keuze voor compacte ruimtes en specifieke plaatsings-uitdagingen. Prijsbewuste optie met steeds betere specs. hOn-app voor bediening, integratie met smart home.',
+    url: 'https://www.haierairconditioning.nl/',
     modellen: [
       {
         name: 'Flexis Plus 25',
@@ -176,9 +181,9 @@ const brands: Brand[] = [
           geluidsniveau en de ruimtes waar ze het beste tot hun recht komen.
         </p>
         <p class="mt-3 text-[var(--color-muted)]">
-          Niet hier staan ≠ niet leverbaar. Heb je een specifiek model op het oog,
-          bespreek het tijdens het opnamegesprek, vrijwel elk A-merk-model kan
-          besteld en geïnstalleerd worden.
+          Per merk linkt onderaan een verwijzing naar de fabrikant zelf voor foto's,
+          complete datasheets en het volledige assortiment. Niet hier staan ≠ niet
+          leverbaar, vrijwel elk A-merk-model kan besteld en geïnstalleerd worden.
         </p>
       </div>
 
@@ -244,6 +249,31 @@ const brands: Brand[] = [
                   </dl>
                 </article>
               ))}
+            </div>
+
+            <div class="mt-6 text-center">
+              <a
+                href={brand.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-accent-600)] hover:underline"
+              >
+                Bekijk alle modellen en foto's bij {brand.name}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="size-3.5"
+                  aria-hidden="true"
+                >
+                  <path d="M7 17L17 7" />
+                  <path d="M7 7h10v10" />
+                </svg>
+              </a>
             </div>
           </section>
         ))
