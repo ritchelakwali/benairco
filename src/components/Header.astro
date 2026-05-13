@@ -11,9 +11,10 @@ const navItems = [
 ];
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const phoneHref = `tel:${site.contact.phone.replace(/\s/g, '')}`;
 ---
 
-<header class="border-b border-[var(--color-border)] bg-[var(--color-paper)]">
+<header class="relative border-b border-[var(--color-border)] bg-[var(--color-paper)]">
   <div class="container-content flex items-center justify-between py-4">
     <a href="/" aria-label={`${site.name}, terug naar home`}>
       <Logo size={40} />
@@ -45,11 +46,122 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
       </ul>
     </nav>
 
-    <a
-      href={`tel:${site.contact.phone.replace(/\s/g, '')}`}
-      class="btn-primary hidden md:inline-flex"
-    >
+    <a href={phoneHref} class="btn-primary hidden md:inline-flex">
       Bel direct
     </a>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="mobile-menu-toggle"
+      type="button"
+      aria-label="Menu openen"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      class="grid size-10 place-items-center rounded-[var(--radius-button)] text-[var(--color-primary-900)] hover:bg-[var(--color-primary-50)] md:hidden"
+    >
+      <svg
+        class="icon-open size-6"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        aria-hidden="true"
+      >
+        <line x1="4" y1="7" x2="20" y2="7" />
+        <line x1="4" y1="12" x2="20" y2="12" />
+        <line x1="4" y1="17" x2="20" y2="17" />
+      </svg>
+      <svg
+        class="icon-close hidden size-6"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        aria-hidden="true"
+      >
+        <line x1="6" y1="6" x2="18" y2="18" />
+        <line x1="6" y1="18" x2="18" y2="6" />
+      </svg>
+    </button>
   </div>
+
+  <!-- Mobile menu -->
+  <nav
+    id="mobile-menu"
+    aria-label="Mobiele navigatie"
+    hidden
+    class="border-t border-[var(--color-border)] bg-[var(--color-paper)] md:hidden"
+  >
+    <ul class="container-content flex flex-col gap-1 py-3">
+      {
+        navItems.map((item) => {
+          const itemPath = item.href.replace(/\/$/, '') || '/';
+          const isActive = currentPath === itemPath;
+          return (
+            <li>
+              <a
+                href={item.href}
+                class={`block rounded-[var(--radius-button)] px-3 py-2.5 text-[0.95rem] transition-colors hover:bg-[var(--color-primary-50)] hover:text-[var(--color-accent-600)] ${
+                  isActive
+                    ? 'bg-[var(--color-primary-50)] font-semibold text-[var(--color-primary-900)]'
+                    : 'text-[var(--color-ink)]'
+                }`}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          );
+        })
+      }
+      <li class="mt-2 border-t border-[var(--color-border)] pt-3">
+        <a href={phoneHref} class="btn-primary w-full justify-center">
+          Bel direct
+        </a>
+      </li>
+    </ul>
+  </nav>
 </header>
+
+<script is:inline>
+  (function () {
+    const toggle = document.getElementById('mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    if (!toggle || !menu) return;
+
+    const iconOpen = toggle.querySelector('.icon-open');
+    const iconClose = toggle.querySelector('.icon-close');
+
+    function setOpen(open) {
+      if (open) {
+        menu.removeAttribute('hidden');
+      } else {
+        menu.setAttribute('hidden', '');
+      }
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute(
+        'aria-label',
+        open ? 'Menu sluiten' : 'Menu openen',
+      );
+      iconOpen && iconOpen.classList.toggle('hidden', open);
+      iconClose && iconClose.classList.toggle('hidden', !open);
+    }
+
+    toggle.addEventListener('click', () => {
+      const isOpen = menu.hasAttribute('hidden') === false;
+      setOpen(!isOpen);
+    });
+
+    // Sluit menu bij Escape
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !menu.hasAttribute('hidden')) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+  })();
+</script>
