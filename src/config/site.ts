@@ -135,7 +135,7 @@ export const site = {
   verification: {
     // Google Search Console: kies bij setup 'HTML-tag' methode. Plak hier
     // alleen de content-waarde uit <meta name="google-site-verification" content="XXX">
-    google: '',
+    google: 'vOODJFcV20tXZfWw4mA3RVk2uNC4ZIPkPq5x3TX6dIw',
     // Bing Webmaster Tools: kies 'Meta tag' verificatie. Plak hier alleen
     // de content-waarde uit <meta name="msvalidate.01" content="XXX">
     bing: '',
