@@ -209,6 +209,7 @@ Mobile-first overal. Fixed bottom-bar op mobile met "Bel direct" en "WhatsApp" k
 
 ### Fase 2 — Hard-launch bij STEK-erkenning
 
+- [ ] **Ownership-transitie afronden** (zie `OWNERSHIP.md`): Firebase/GitHub/domein/GBP/LinkedIn onder Ben's account met Ritchel als operationeel beheerder + noodcontact-procedure ingericht
 - [ ] Homepage update: "aanstaande" verwijderen, expliciet operationeel verklaren
 - [ ] STEK-vermelding + certificeringen prominent in footer + op contact-pagina
 - [ ] Diensten-pagina's activeren (`noindex` verwijderen, opnemen in nav en sitemap)
