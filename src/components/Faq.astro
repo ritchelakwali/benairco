@@ -1,0 +1,120 @@
+---
+import { site } from '~/config/site';
+
+interface Item {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  items?: Item[];
+  title?: string;
+  intro?: string;
+}
+
+const defaultItems: Item[] = [
+  {
+    q: 'Wanneer kan Benairco daadwerkelijk installeren?',
+    a: `De STEK-erkenning en F-gassen-certificering worden momenteel afgerond. Naar verwachting kan Ben vanaf ${site.business.expectedHardLaunchLabel} installaties uitvoeren. Tot die tijd is hij wel beschikbaar voor advies, vrijblijvende gesprekken en voorlopige reserveringen.`,
+  },
+  {
+    q: 'Werkt Benairco in mijn woonplaats?',
+    a: 'Het werkgebied is alles binnen één uur rijden vanaf Gaanderen — van Doetinchem tot Winterswijk, van Zutphen tot Zevenaar. Uitzondering: Duiven. Zie de pagina <a href="/werkgebied">Werkgebied</a> voor de complete lijst.',
+  },
+  {
+    q: 'Wat kost een airco-installatie ongeveer?',
+    a: 'Voor een single-split airco betaal je in 2026 doorgaans tussen € 2.000 en € 3.500 inclusief installatie. Multi-split (meerdere binnenunits) ligt hoger. Het exacte bedrag hangt af van merk, vermogen en plaatsings-situatie. Lees de uitgebreide kosten-uitleg in <a href="/kennisbank/airco-kosten-installatie-2026">deze blogpost</a>.',
+  },
+  {
+    q: 'Kan ik ISDE-subsidie krijgen voor een airco?',
+    a: 'Voor lucht-lucht warmtepompen (airco\'s met warmtefunctie) is er onder voorwaarden ISDE-subsidie beschikbaar. De exacte bedragen en regels variëren per jaar. We hebben er een <a href="/kennisbank/isde-subsidie-airco-2026">apart artikel</a> over geschreven.',
+  },
+  {
+    q: 'Werkt een airco ook als verwarming?',
+    a: 'Ja, vrijwel alle moderne airco\'s kunnen ook verwarmen — technisch gezien een lucht-lucht warmtepomp. In de tussenseizoenen is dat enorm efficiënt: twee tot vier keer beter dan gas of elektrische verwarming.',
+  },
+  {
+    q: 'Krijgen mijn buren geluidsoverlast?',
+    a: 'Sinds 2021 geldt een wettelijke norm van maximaal 40 dB(A) op de erfgrens. Moderne toestellen halen dat ruim, mits ze fatsoenlijk worden geplaatst. We schreven er een <a href="/kennisbank/geluidsniveau-airco-plaatsing">uitgebreid stuk</a> over.',
+  },
+  {
+    q: 'Hoe vaak moet een airco onderhouden worden?',
+    a: 'Jaarlijks. Bij elke onderhoudsbeurt worden filters gereinigd, units doorgemeten, drainage en koudemiddel gecontroleerd. Voor grotere installaties is een F-gassen-lekdichtheidscontrole bovendien wettelijk verplicht.',
+  },
+  {
+    q: 'Welk vermogen heb ik nodig voor mijn kamer?',
+    a: 'Vuistregel: een gewone slaapkamer van 10–14 m² komt uit met 2.0–2.5 kW, een woonkamer van 20–35 m² met 3.5–5.0 kW. De exacte keuze hangt af van isolatie, glasoppervlak en bewoning. Tijdens de opname kijkt Ben hier persoonlijk naar.',
+  },
+];
+
+const {
+  items = defaultItems,
+  title = 'Veelgestelde vragen',
+  intro = 'De vragen die het vaakst aan de keukentafel terugkomen.',
+} = Astro.props;
+
+// JSON-LD voor SEO (FAQPage schema)
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      // Strip HTML uit het JSON-LD antwoord
+      text: item.a.replace(/<[^>]+>/g, ''),
+    },
+  })),
+};
+---
+
+<section class="bg-white py-16 md:py-20">
+  <div class="container-content max-w-3xl">
+    <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+      FAQ
+    </p>
+    <h2 class="mt-2 font-serif text-2xl text-[var(--color-primary-900)] md:text-3xl">
+      {title}
+    </h2>
+    <p class="mt-3 text-[var(--color-muted)]">{intro}</p>
+
+    <div class="mt-10 divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
+      {
+        items.map((item) => (
+          <details class="group py-5 [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex cursor-pointer items-start justify-between gap-6 text-left">
+              <span class="font-serif text-lg text-[var(--color-primary-900)]">
+                {item.q}
+              </span>
+              <span
+                class="mt-1 grid size-7 shrink-0 place-items-center rounded-full border border-[var(--color-border)] text-[var(--color-primary-900)] transition-transform group-open:rotate-45"
+                aria-hidden="true"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  class="size-4"
+                >
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+              </span>
+            </summary>
+            <div class="prose-readable mt-3 max-w-none text-[0.95rem]" set:html={item.a} />
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(faqSchema)}
+  is:inline
+/>

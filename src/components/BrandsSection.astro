@@ -1,0 +1,71 @@
+---
+const brands = [
+  {
+    name: 'Mitsubishi Heavy',
+    label: 'Stil & robuust',
+    body: 'Zit consistent onder het marktgemiddelde qua geluidsniveau van de buitenunit. Toestellen die 15+ jaar zonder gedoe meegaan.',
+  },
+  {
+    name: 'Daikin',
+    label: 'De referentie',
+    body: 'Wereldwijd marktleider met een uitstekend service- en onderdelennet. Wat duurder, maar de standaard waar andere merken aan worden afgemeten.',
+  },
+  {
+    name: 'LG',
+    label: 'Slim & betaalbaar',
+    body: 'Sterke prijs/kwaliteit-verhouding, mooie app-bediening. Voor wie waarde hecht aan moderne features en design.',
+  },
+  {
+    name: 'Haier',
+    label: 'Compact en efficiënt',
+    body: 'Goede keuze voor kleinere ruimtes en specifieke plaatsingsuitdagingen. Steeds vaker zichtbaar in Europese woningen.',
+  },
+];
+---
+
+<section class="py-16 md:py-20">
+  <div class="container-content">
+    <div class="max-w-2xl">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+        A-merken
+      </p>
+      <h2 class="mt-2 font-serif text-2xl text-[var(--color-primary-900)] md:text-3xl">
+        Merken waar Ben graag mee werkt
+      </h2>
+      <p class="mt-3 max-w-prose text-[var(--color-muted)]">
+        Ben kiest bewust voor een beperkt aantal A-merken die zich in de praktijk hebben
+        bewezen op betrouwbaarheid, garantie, geluidsniveau en service. Welk merk in
+        jouw situatie het beste past, bespreken we tijdens het opnamegesprek.
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      {
+        brands.map((brand) => (
+          <article class="group relative overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-6 transition-colors hover:border-[var(--color-primary-700)]">
+            <div
+              class="absolute -right-6 -top-6 size-20 rounded-full bg-[var(--color-primary-50)] transition-transform group-hover:scale-110"
+              aria-hidden="true"
+            />
+            <div class="relative">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+                {brand.label}
+              </p>
+              <h3 class="mt-1 font-serif text-xl text-[var(--color-primary-900)]">
+                {brand.name}
+              </h3>
+              <p class="mt-3 text-[0.9rem] leading-6 text-[var(--color-ink)]">
+                {brand.body}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <p class="mt-6 text-sm text-[var(--color-muted)]">
+      Niet hier staan ≠ niet leverbaar. Heb je een specifiek merk of model op het oog?
+      Ben bekijkt het graag mee.
+    </p>
+  </div>
+</section>

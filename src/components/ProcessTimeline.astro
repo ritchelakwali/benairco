@@ -1,0 +1,79 @@
+---
+import Icon from '~/components/Icon.astro';
+
+const steps = [
+  {
+    icon: 'phone' as const,
+    title: 'Bel of WhatsApp',
+    body: 'Geen formulier, geen wachtmuziek. Je krijgt Ben zelf aan de lijn voor een eerste, vrijblijvend gesprek.',
+  },
+  {
+    icon: 'home' as const,
+    title: 'Ben komt bij je thuis',
+    body: 'Gratis opname op locatie. Samen lopen we door je woning om te kijken wat past — qua vermogen, plaatsing en wensen.',
+  },
+  {
+    icon: 'mail' as const,
+    title: 'Heldere offerte',
+    body: 'Op papier zwart-op-wit wat je krijgt: toestel, leidingwerk, installatie, garantie. Geen meerwerk-verrassingen.',
+  },
+  {
+    icon: 'tools' as const,
+    title: 'Installatie in één dag',
+    body: 'Een single-split zit binnen één werkdag. Schoenhoesjes aan, vloer afgedekt, na afloop alles netjes opgeruimd.',
+  },
+  {
+    icon: 'shield' as const,
+    title: 'Uitleg + onderhoud',
+    body: 'Ben legt persoonlijk uit hoe je het toestel optimaal gebruikt en plant indien gewenst het jaarlijkse onderhoud in.',
+  },
+];
+---
+
+<section class="bg-[var(--color-paper)] py-16 md:py-20">
+  <div class="container-content">
+    <div class="max-w-2xl">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+        Zo werkt het
+      </p>
+      <h2 class="mt-2 font-serif text-2xl text-[var(--color-primary-900)] md:text-3xl">
+        Van eerste belletje tot draaiende airco
+      </h2>
+      <p class="mt-3 text-[var(--color-muted)]">
+        Vijf stappen — geen verkooptraject, geen pushy commerciële druk. Gewoon hoe het
+        bij Ben aan de keukentafel begint.
+      </p>
+    </div>
+
+    <ol class="mt-10 grid gap-6 md:grid-cols-5 md:gap-4">
+      {
+        steps.map((step, idx) => (
+          <li class="relative">
+            <div class="flex items-start gap-4 md:flex-col md:items-stretch">
+              <div class="relative z-10 flex size-12 shrink-0 items-center justify-center rounded-full border-2 border-[var(--color-primary-900)] bg-white text-[var(--color-primary-900)]">
+                <Icon name={step.icon} class="size-5" />
+              </div>
+              <div class="md:mt-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+                  Stap {idx + 1}
+                </p>
+                <h3 class="mt-1 font-serif text-lg text-[var(--color-primary-900)]">
+                  {step.title}
+                </h3>
+                <p class="mt-1.5 text-[0.95rem] text-[var(--color-ink)]">{step.body}</p>
+              </div>
+            </div>
+            {idx < steps.length - 1 && (
+              <div
+                class="absolute left-6 top-12 hidden h-px w-0 md:left-[calc(100%-2rem)] md:top-6 md:block md:h-px md:w-[calc(100%+1rem)]"
+                aria-hidden="true"
+              >
+                <div class="h-px w-full bg-[var(--color-border)]" />
+              </div>
+            )}
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
