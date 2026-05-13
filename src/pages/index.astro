@@ -2,12 +2,13 @@
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { site } from '~/config/site';
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import Icon from '~/components/Icon.astro';
-import HeroIllustration from '~/components/HeroIllustration.astro';
 import ProcessTimeline from '~/components/ProcessTimeline.astro';
 import BrandsSection from '~/components/BrandsSection.astro';
 import Faq from '~/components/Faq.astro';
 import CategoryBadge from '~/components/CategoryBadge.astro';
+import livingroomHero from '~/assets/hero/livingroom.jpg';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
@@ -51,61 +52,84 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
   title={site.name}
   description={`Persoonlijke airco-installatie in de Achterhoek door Ben Vriezen uit Gaanderen. STEK-certificering in afronding, dienstverlening start ${site.business.expectedHardLaunchLabel}.`}
 >
-  <!-- HERO -->
-  <section class="relative overflow-hidden">
+  <!-- HERO with photo + gradient overlay -->
+  <section class="relative isolate overflow-hidden">
+    <!-- Background image -->
+    <div class="absolute inset-0 -z-20">
+      <Image
+        src={livingroomHero}
+        alt="Moderne woonkamer met wandmodel-airco — Benairco-stijl installatie"
+        widths={[640, 960, 1280, 1600, 2000]}
+        sizes="100vw"
+        quality={82}
+        loading="eager"
+        fetchpriority="high"
+        class="h-full w-full object-cover"
+        style="object-position: center 35%;"
+      />
+    </div>
+
+    <!-- Gradient overlay: donker links waar tekst staat, transparanter rechts -->
     <div
-      class="absolute inset-x-0 top-0 -z-10 h-full bg-gradient-to-b from-[var(--color-primary-50)] to-[var(--color-paper)]"
+      class="absolute inset-0 -z-10 bg-gradient-to-r from-[var(--color-primary-900)]/90 via-[var(--color-primary-900)]/70 to-[var(--color-primary-900)]/20"
       aria-hidden="true"
     >
     </div>
-    <div class="container-content grid items-center gap-12 py-14 md:grid-cols-[3fr_2fr] md:py-20">
-      <div>
-        <p class="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[var(--color-primary-900)]">
+    <!-- Verticale extra overlay voor mobiele leesbaarheid onderaan -->
+    <div
+      class="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-gradient-to-t from-[var(--color-primary-900)]/80 to-transparent md:hidden"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="container-content py-20 text-white md:py-28 lg:py-32">
+      <div class="max-w-2xl">
+        <p class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
           <span class="inline-block size-1.5 rounded-full bg-[var(--color-accent)]"></span>
           Airco in de Achterhoek
         </p>
-        <h1 class="mt-4 font-serif text-4xl leading-[1.1] text-[var(--color-primary-900)] md:text-[3.25rem]">
+        <h1 class="mt-5 font-serif text-4xl leading-[1.1] text-white md:text-[3.5rem]">
           De installateur die binnenkomt
-          <span class="text-[var(--color-accent-600)]">zoals familie binnenkomt.</span>
+          <span class="text-[var(--color-accent)]">zoals familie binnenkomt.</span>
         </h1>
-        <p class="mt-5 max-w-prose text-lg leading-7 text-[var(--color-ink)]">
+        <p class="mt-5 max-w-prose text-lg leading-7 text-white/90">
           Benairco is de eenmanszaak van Ben Vriezen uit Gaanderen. Persoonlijke
           airco-installatie voor particulieren binnen één uur rijden — met focus op
           netheid, eerlijke prijzen en vakwerk.
         </p>
 
-        <ul class="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-[0.95rem] text-[var(--color-ink)]">
+        <ul class="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-[0.95rem] text-white/90">
           {
             heroBadges.map((badge) => (
               <li class="inline-flex items-center gap-2">
-                <Icon name="check" class="size-4 text-[var(--color-accent-600)]" />
+                <Icon name="check" class="size-4 text-[var(--color-accent)]" />
                 {badge}
               </li>
             ))
           }
         </ul>
 
-        <div class="mt-8 flex flex-wrap items-center gap-3">
+        <div class="mt-9 flex flex-wrap items-center gap-3">
           <a href={phoneHref} class="btn-primary">
             <Icon name="phone" class="size-4" />
             Bel met Ben
           </a>
-          <a href={whatsappHref} class="btn-secondary" rel="noopener">
-            <Icon name="whatsapp" class="size-4 text-[var(--color-accent-600)]" />
+          <a
+            href={whatsappHref}
+            class="inline-flex items-center justify-center gap-2 rounded-[var(--radius-button)] border border-white/40 bg-white/5 px-6 py-3.5 font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/15"
+            rel="noopener"
+          >
+            <Icon name="whatsapp" class="size-4" />
             WhatsApp
           </a>
           <a
             href="/over-ben"
-            class="inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-primary-900)] hover:text-[var(--color-accent-600)]"
+            class="inline-flex items-center gap-1 text-sm font-semibold text-white hover:text-[var(--color-accent)]"
           >
             Meer over Ben
             <Icon name="arrow-right" class="size-4" />
           </a>
         </div>
-      </div>
-
-      <div class="aspect-[4/5] w-full max-w-md justify-self-center md:max-w-none">
-        <HeroIllustration />
       </div>
     </div>
   </section>
