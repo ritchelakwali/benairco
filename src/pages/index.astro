@@ -18,7 +18,7 @@ const phoneHref = `tel:${site.contact.phone.replace(/\s/g, '')}`;
 const whatsappHref = `https://wa.me/${site.contact.whatsapp}`;
 
 const heroBadges = [
-  'STEK-traject in afronding',
+  `Start dienstverlening ${site.business.expectedHardLaunchLabel}`,
   '1 uur rondom Gaanderen',
   'Persoonlijk advies bij je thuis',
 ];
@@ -50,7 +50,7 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
 
 <BaseLayout
   title={site.name}
-  description={`Persoonlijke airco-installatie in de Achterhoek door Ben Vriezen uit Gaanderen. STEK-certificering in afronding, dienstverlening start ${site.business.expectedHardLaunchLabel}.`}
+  description={`Persoonlijke airco-installatie in de Achterhoek door Ben Vriezen uit Gaanderen. Start dienstverlening ${site.business.expectedHardLaunchLabel}, tot dan welkom voor advies en kennismaking.`}
 >
   <!-- HERO with photo + gradient overlay -->
   <section class="relative isolate overflow-hidden">
@@ -270,8 +270,8 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
         </h2>
         <p class="mx-auto mt-4 max-w-prose text-[0.95rem] text-white/80">
           Ben staat persoonlijk klaar voor algemene vragen, vrijblijvend advies
-          en voorlopige reserveringen, ook nu, tijdens het laatste stuk van het
-          certificeringstraject.
+          en voorlopige reserveringen, ook nu, in de aanloop naar de opening
+          in {site.business.expectedHardLaunchLabel}.
         </p>
         <div class="mt-8 flex flex-wrap justify-center gap-3">
           <a href={phoneHref} class="btn-primary">
