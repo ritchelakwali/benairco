@@ -30,9 +30,9 @@ const steps = [
 ];
 ---
 
-<section class="bg-[var(--color-paper)] py-16 md:py-20">
+<section class="bg-[var(--color-paper)] py-16 md:py-24">
   <div class="container-content">
-    <div class="max-w-2xl">
+    <div class="mx-auto max-w-2xl text-center">
       <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
         Zo werkt het
       </p>
@@ -40,21 +40,20 @@ const steps = [
         Van eerste belletje tot draaiende airco
       </h2>
       <p class="mt-3 text-[var(--color-muted)]">
-        Vijf stappen — geen verkooptraject, geen pushy commerciële druk. Gewoon hoe het
-        bij Ben aan de keukentafel begint.
+        Vijf stappen — geen verkooptraject, geen pushy commerciële druk.
       </p>
     </div>
 
-    <ol class="mt-10 grid gap-6 md:grid-cols-5 md:gap-4">
+    <ol class="mt-12 grid gap-6 md:grid-cols-5 md:gap-4">
       {
         steps.map((step, idx) => (
-          <li class="relative">
+          <li>
             <div class="flex items-start gap-4 md:flex-col md:items-stretch">
-              <div class="relative z-10 flex size-12 shrink-0 items-center justify-center rounded-full border-2 border-[var(--color-primary-900)] bg-white text-[var(--color-primary-900)]">
+              <div class="flex size-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary-50)] text-[var(--color-primary-700)]">
                 <Icon name={step.icon} class="size-5" />
               </div>
               <div class="md:mt-5">
-                <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+                <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)]">
                   Stap {idx + 1}
                 </p>
                 <h3 class="mt-1 font-serif text-lg text-[var(--color-primary-900)]">
@@ -63,14 +62,6 @@ const steps = [
                 <p class="mt-1.5 text-[0.95rem] text-[var(--color-ink)]">{step.body}</p>
               </div>
             </div>
-            {idx < steps.length - 1 && (
-              <div
-                class="absolute left-6 top-12 hidden h-px w-0 md:left-[calc(100%-2rem)] md:top-6 md:block md:h-px md:w-[calc(100%+1rem)]"
-                aria-hidden="true"
-              >
-                <div class="h-px w-full bg-[var(--color-border)]" />
-              </div>
-            )}
           </li>
         ))
       }

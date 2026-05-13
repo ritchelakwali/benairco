@@ -17,14 +17,20 @@ const byType = {
 ---
 
 <BaseLayout
-  title="Voorbeeldprojecten"
-  description="Typische airco-installaties in de Achterhoek — rijtjeswoningen, vrijstaande huizen, nieuwbouw. Wat we doen, welke toestellen en hoe lang het duurt."
+  title="Installatie-voorbeelden per woningtype"
+  description="Hoe een airco-installatie er typisch uitziet bij verschillende soorten woningen in de Achterhoek — rijtjeswoningen, vrijstaande huizen, boerderijen, nieuwbouw."
 >
   <section class="py-14 md:py-20">
     <div class="container-content">
-      <div class="max-w-3xl">
-        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
-          Voorbeeldprojecten
+      <div class="mx-auto max-w-3xl">
+        <nav aria-label="Broodkruimels" class="text-sm text-[var(--color-muted)]">
+          <a href="/kennisbank" class="hover:underline">Kennisbank</a>
+          <span class="mx-2">/</span>
+          <span>Voorbeelden</span>
+        </nav>
+
+        <p class="mt-4 text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+          Voorbeelden per woningtype
         </p>
         <h1 class="mt-2 font-serif text-3xl text-[var(--color-primary-900)] md:text-4xl">
           Hoe een airco-installatie er bij verschillende woningen uitziet
@@ -32,15 +38,13 @@ const byType = {
         <p class="mt-5 text-lg leading-7">
           Een Mitsubishi single-split in een Doetinchemse rijtjeswoning werkt anders
           dan een Daikin multi-split in een vrijstaand huis in Wehl. Hieronder
-          scenario's per woningtype en plaats — met toestel, capaciteit, doorlooptijd
+          uitwerkingen per woningtype en plaats — toestel, capaciteit, doorlooptijd
           en de aandachtspunten die typisch in dat soort woningen voorkomen.
         </p>
-        <p class="mt-4 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-4 text-sm text-[var(--color-muted)]">
-          <strong class="text-[var(--color-primary-900)]">Voorbeeld-cases.</strong>
-          {' '}Deze pagina toont illustratieve scenario's van typische installaties in
-          de Achterhoek. Concrete projecten met Bens eigen foto's worden toegevoegd
-          zodra hij toestemming heeft van zijn klanten — verwacht in de loop van
-          2026.
+        <p class="mt-3 text-[var(--color-muted)]">
+          Educatief bedoeld: lees dit als "wat houdt het in voor mijn type woning",
+          niet als portfolio. Concrete projecten met foto's volgen zodra Ben
+          klant-toestemming heeft.
         </p>
       </div>
 
@@ -50,7 +54,7 @@ const byType = {
             ([type, items]) =>
               items.length > 0 && (
                 <div>
-                  <div class="max-w-3xl">
+                  <div class="mx-auto max-w-3xl">
                     <h2 class="font-serif text-2xl text-[var(--color-primary-900)]">
                       {type === 'single-split'
                         ? 'Single-split installaties'
@@ -62,7 +66,7 @@ const byType = {
                       {type === 'single-split'
                         ? 'Eén binnenunit, één buitenunit. Veruit de meest voorkomende oplossing voor één hoofdruimte.'
                         : type === 'multi-split'
-                          ? 'Meerdere binnenunits delen één buitenunit. Voor wie meerdere ruimtes wil klimatiseren zonder drie verschillende buitenunits aan de gevel.'
+                          ? 'Meerdere binnenunits delen één buitenunit. Voor wie meerdere ruimtes wil klimatiseren zonder meerdere buitenunits aan de gevel.'
                           : "Airco's met warmtefunctie die ook in de tussenseizoenen efficiënt verwarmen — komen in aanmerking voor ISDE-subsidie."}
                     </p>
                   </div>
@@ -81,7 +85,8 @@ const byType = {
                           capaciteit={project.data.capaciteit}
                           aantalUnits={project.data.aantalUnits}
                           doorlooptijd={project.data.doorlooptijd}
-                          isVoorbeeld={project.data.isVoorbeeld}
+                          isVoorbeeld={false}
+                          baseUrl="/kennisbank/voorbeelden"
                         />
                       </li>
                     ))}

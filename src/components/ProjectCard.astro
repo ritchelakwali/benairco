@@ -13,9 +13,11 @@ interface Props {
   capaciteit: string;
   aantalUnits: number;
   doorlooptijd: string;
-  isVoorbeeld: boolean;
+  isVoorbeeld?: boolean;
   /** True om de body-tekst (description) te verbergen — voor compacte grids. */
   compact?: boolean;
+  /** Base URL voor de detail-link (default: /kennisbank/voorbeelden). */
+  baseUrl?: string;
 }
 
 const {
@@ -29,8 +31,8 @@ const {
   capaciteit,
   aantalUnits,
   doorlooptijd,
-  isVoorbeeld,
   compact = false,
+  baseUrl = '/kennisbank/voorbeelden',
 } = Astro.props;
 
 const typeLabel: Record<Props['type'], string> = {
@@ -90,15 +92,6 @@ const typeLabel: Record<Props['type'], string> = {
       <rect x="0" y="160" width="320" height="40" fill="var(--color-primary-100)" opacity="0.5"></rect>
     </svg>
 
-    {
-      isVoorbeeld && (
-        <span class="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--color-primary-900)] backdrop-blur-sm">
-          <span class="inline-block size-1.5 rounded-full bg-[var(--color-accent)]" />
-          Voorbeeld
-        </span>
-      )
-    }
-
     <span
       class="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-[var(--color-primary-900)] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white"
     >
@@ -114,7 +107,7 @@ const typeLabel: Record<Props['type'], string> = {
     </p>
 
     <h3 class="mt-2 font-serif text-lg leading-snug text-[var(--color-primary-900)]">
-      <a href={`/projecten/${id}`} class="hover:text-[var(--color-accent-600)]">
+      <a href={`${baseUrl}/${id}`} class="hover:text-[var(--color-accent-600)]">
         {title}
       </a>
     </h3>
@@ -153,10 +146,10 @@ const typeLabel: Record<Props['type'], string> = {
     </dl>
 
     <a
-      href={`/projecten/${id}`}
+      href={`${baseUrl}/${id}`}
       class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-accent-600)] hover:underline"
     >
-      Lees meer over deze installatie
+      Lees meer
       <Icon name="arrow-right" class="size-4" />
     </a>
   </div>

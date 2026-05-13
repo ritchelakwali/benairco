@@ -43,7 +43,33 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
       </div>
     </div>
 
-    <div class="container-content mt-16">
+    <div class="container-content mt-12">
+      <a
+        href="/kennisbank/voorbeelden"
+        class="group flex items-center justify-between gap-4 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-5 transition-colors hover:border-[var(--color-primary-700)]"
+      >
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+            Bonus
+          </p>
+          <p class="mt-1 font-serif text-lg text-[var(--color-primary-900)]">
+            Installatie-voorbeelden per woningtype
+          </p>
+          <p class="mt-0.5 text-sm text-[var(--color-muted)]">
+            Hoe een installatie er typisch uitziet bij rijtjeshuizen, boerderijen,
+            nieuwbouw en meer.
+          </p>
+        </div>
+        <span
+          class="text-[var(--color-accent-600)] transition-transform group-hover:translate-x-1"
+          aria-hidden="true"
+        >
+          →
+        </span>
+      </a>
+    </div>
+
+    <div class="container-content mt-12">
       {
         posts.length === 0 ? (
           <p class="text-[var(--color-muted)]">

@@ -13,6 +13,16 @@
         "source": "**/index.html",
         "destination": ":1",
         "type": 301
+      },
+      {
+        "source": "/projecten",
+        "destination": "/kennisbank/voorbeelden",
+        "type": 301
+      },
+      {
+        "source": "/projecten/:slug",
+        "destination": "/kennisbank/voorbeelden/:slug",
+        "type": 301
       }
     ],
     "headers": [
