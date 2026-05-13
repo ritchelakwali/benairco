@@ -3,7 +3,7 @@
  *
  * Velden gemarkeerd met TODO_BEN moeten ingevuld worden door Ben Vriezen
  * voordat de site live gaat. Alles wat hieruit komt verschijnt op de site,
- * in JSON-LD schema, op GBP, LinkedIn en in bedrijvengidsen — wijzig alleen
+ * in JSON-LD schema, op GBP, LinkedIn en in bedrijvengidsen, wijzig alleen
  * hier zodat NAP-consistentie gegarandeerd blijft.
  */
 

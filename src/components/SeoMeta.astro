@@ -20,7 +20,7 @@ const {
 } = Astro.props;
 
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site.url).toString();
-const fullTitle = title === site.name ? site.name : `${title} — ${site.name}`;
+const fullTitle = title === site.name ? site.name : `${title} | ${site.name}`;
 const absoluteOgImage = new URL(ogImage, site.url).toString();
 ---
 
