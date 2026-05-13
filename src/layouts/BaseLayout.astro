@@ -1,5 +1,6 @@
 ---
 import '~/styles/global.css';
+import { site } from '~/config/site';
 import Header from '~/components/Header.astro';
 import Footer from '~/components/Footer.astro';
 import MobileBottomBar from '~/components/MobileBottomBar.astro';
@@ -45,6 +46,13 @@ const {
     />
 
     <LocalBusinessSchema />
+
+    {site.verification.google && (
+      <meta name="google-site-verification" content={site.verification.google} />
+    )}
+    {site.verification.bing && (
+      <meta name="msvalidate.01" content={site.verification.bing} />
+    )}
 
     <slot name="head" />
   </head>

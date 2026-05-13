@@ -129,6 +129,18 @@ export const site = {
     instagram: '',
   },
 
+  // Verificatie-tokens voor zoekmachine-tools. Vul de waarde in zodra je de
+  // tools koppelt — de meta-tags in <head> renderen alleen als deze velden
+  // niet leeg zijn.
+  verification: {
+    // Google Search Console: kies bij setup 'HTML-tag' methode. Plak hier
+    // alleen de content-waarde uit <meta name="google-site-verification" content="XXX">
+    google: '',
+    // Bing Webmaster Tools: kies 'Meta tag' verificatie. Plak hier alleen
+    // de content-waarde uit <meta name="msvalidate.01" content="XXX">
+    bing: '',
+  },
+
   brand: {
     // Kleur-tokens (ook gespiegeld in src/styles/global.css @theme)
     // Synchroon met het Benairco-logo: donker navy voor wordmark/body,
