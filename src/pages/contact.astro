@@ -1,0 +1,115 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { site } from '~/config/site';
+
+const phoneHref = `tel:${site.contact.phone.replace(/\s/g, '')}`;
+const mailHref = `mailto:${site.contact.email}`;
+const whatsappHref = `https://wa.me/${site.contact.whatsapp}`;
+
+const dayLabels: Record<string, string> = {
+  monday: 'Maandag',
+  tuesday: 'Dinsdag',
+  wednesday: 'Woensdag',
+  thursday: 'Donderdag',
+  friday: 'Vrijdag',
+  saturday: 'Zaterdag',
+  sunday: 'Zondag',
+};
+---
+
+<BaseLayout
+  title="Contact"
+  description={`Bel of WhatsApp Ben Vriezen direct. Geen formulier — gewoon persoonlijk contact via telefoon, WhatsApp of e-mail.`}
+>
+  <section class="py-14 md:py-20">
+    <div class="container-content grid gap-12 md:grid-cols-2">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+          Contact
+        </p>
+        <h1 class="mt-2 font-serif text-3xl text-[var(--color-primary-900)] md:text-4xl">
+          Bel Ben gewoon op
+        </h1>
+        <p class="mt-5 max-w-prose text-lg">
+          De snelste manier om antwoord te krijgen is een telefoontje of WhatsApp.
+          Ben neemt zelf op — geen secretariaat, geen wachtmuziek, geen menu.
+        </p>
+        <p class="mt-3 max-w-prose text-[0.95rem] text-[var(--color-muted)]">
+          Een formulier vind je hier expres niet. Tot de STEK-certificering rond is
+          plant Ben nog geen installatie-afspraken; vragen, oriënterende gesprekken en
+          voorlopige reserveringen zijn wél welkom.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <a
+          href={phoneHref}
+          class="block rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-6 transition-colors hover:bg-[var(--color-primary-50)]"
+        >
+          <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)]">
+            Telefoon
+          </span>
+          <p class="mt-1 font-serif text-2xl text-[var(--color-primary-900)]">
+            {site.contact.phoneDisplay}
+          </p>
+        </a>
+
+        <a
+          href={whatsappHref}
+          rel="noopener"
+          class="block rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-6 transition-colors hover:bg-[var(--color-primary-50)]"
+        >
+          <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)]">
+            WhatsApp
+          </span>
+          <p class="mt-1 font-serif text-2xl text-[var(--color-primary-900)]">
+            Stuur Ben een berichtje
+          </p>
+        </a>
+
+        <a
+          href={mailHref}
+          class="block rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-6 transition-colors hover:bg-[var(--color-primary-50)]"
+        >
+          <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)]">
+            E-mail
+          </span>
+          <p class="mt-1 font-serif text-2xl break-all text-[var(--color-primary-900)]">
+            {site.contact.email}
+          </p>
+        </a>
+      </div>
+    </div>
+
+    <div class="container-content mt-16 grid gap-12 md:grid-cols-2">
+      <div>
+        <h2 class="font-serif text-xl text-[var(--color-primary-900)]">Openingstijden</h2>
+        <ul class="mt-4 divide-y divide-[var(--color-border)] rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white">
+          {
+            Object.entries(site.hours).map(([day, hours]) => (
+              <li class="flex items-center justify-between px-5 py-3 text-[0.95rem]">
+                <span class="font-medium">{dayLabels[day]}</span>
+                <span class="text-[var(--color-muted)]">
+                  {hours === 'closed' ? 'Gesloten' : (hours as string).replace('-', ' – ')}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-serif text-xl text-[var(--color-primary-900)]">Vestigingsadres</h2>
+        <address class="mt-4 not-italic rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-5 text-[0.95rem] leading-7">
+          <strong>{site.name}</strong><br />
+          {site.address.street}<br />
+          {site.address.postalCode} {site.address.city}<br />
+          {site.address.country === 'NL' ? 'Nederland' : site.address.country}
+        </address>
+        <p class="mt-3 text-xs text-[var(--color-muted)]">
+          KvK {site.business.kvk}
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

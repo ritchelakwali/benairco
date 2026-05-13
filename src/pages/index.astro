@@ -1,0 +1,192 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { site } from '~/config/site';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const phoneHref = `tel:${site.contact.phone.replace(/\s/g, '')}`;
+const whatsappHref = `https://wa.me/${site.contact.whatsapp}`;
+
+const pillars = [
+  {
+    title: 'Persoonlijk',
+    body: 'Geen callcenter, geen tussenpersonen. Je hebt vanaf het eerste gesprek direct contact met Ben — diezelfde persoon plaatst straks ook de installatie.',
+  },
+  {
+    title: 'Netjes',
+    body: 'Schoenhoesjes, doek over je vloer, alles opgeruimd achterlaten. Iemand bij jou thuis aan het werk moet vanzelfsprekend zijn als familie op bezoek.',
+  },
+  {
+    title: 'Betaalbaar',
+    body: 'Eerlijke prijzen zonder verrassingen achteraf. Eén kwaliteitsmerk, scherp ingekocht, ZZP-overhead die past bij wat je krijgt.',
+  },
+];
+---
+
+<BaseLayout
+  title={site.name}
+  description={`Persoonlijke airco-installatie in de Achterhoek. Benairco wordt geleverd door Ben Vriezen uit Gaanderen — STEK-certificering in afronding, dienstverlening start naar verwachting in ${site.business.expectedHardLaunch.slice(0, 4)}.`}
+>
+  <!-- Hero -->
+  <section class="bg-[var(--color-paper)] py-14 md:py-20">
+    <div class="container-content grid items-center gap-10 md:grid-cols-2">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+          Airco in de Achterhoek
+        </p>
+        <h1 class="mt-3 font-serif text-4xl text-[var(--color-primary-900)] md:text-5xl">
+          De installateur die binnenkomt zoals familie binnenkomt.
+        </h1>
+        <p class="mt-5 max-w-prose text-lg text-[var(--color-ink)]">
+          Benairco is de eenmanszaak van Ben Vriezen uit Gaanderen. Persoonlijke
+          airco-installatie voor particulieren binnen één uur rijden, met focus op
+          netheid, eerlijke prijzen en vakwerk.
+        </p>
+        <p class="mt-3 max-w-prose text-base text-[var(--color-muted)]">
+          De officiële STEK-erkenning en F-gassen-certificering worden momenteel
+          afgerond. Vanaf {site.business.expectedHardLaunch.slice(0, 4)} kan Ben
+          installaties uitvoeren. Tot die tijd kun je hem benaderen met vragen of een
+          voorlopige reservering.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a href={phoneHref} class="btn-primary">Bel met Ben</a>
+          <a href={whatsappHref} class="btn-secondary" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+
+      <div
+        class="relative aspect-[4/5] w-full overflow-hidden rounded-[var(--radius-image)] border border-[var(--color-border)] bg-[var(--color-primary-50)]"
+        aria-label="Foto van Ben — wordt later toegevoegd"
+      >
+        <div
+          class="flex h-full w-full items-center justify-center text-center text-sm text-[var(--color-muted)]"
+        >
+          Foto van Ben<br />(volgt na foto-shoot)
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillars -->
+  <section class="bg-white py-14">
+    <div class="container-content">
+      <h2 class="font-serif text-2xl text-[var(--color-primary-900)] md:text-3xl">
+        Drie dingen die Benairco anders maken
+      </h2>
+      <ul class="mt-8 grid gap-6 md:grid-cols-3">
+        {
+          pillars.map((p) => (
+            <li class="rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)] p-6">
+              <h3 class="font-serif text-xl text-[var(--color-primary-900)]">{p.title}</h3>
+              <p class="mt-2 text-[0.95rem] text-[var(--color-ink)]">{p.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- Werkgebied teaser -->
+  <section class="py-14">
+    <div class="container-content grid gap-10 md:grid-cols-[2fr_3fr]">
+      <div>
+        <h2 class="font-serif text-2xl text-[var(--color-primary-900)] md:text-3xl">
+          Werkgebied
+        </h2>
+        <p class="mt-3 max-w-prose text-[0.95rem] text-[var(--color-ink)]">
+          Alles binnen een uur rijden vanaf Gaanderen — van Doetinchem tot Winterswijk,
+          van Zutphen tot Zevenaar. {site.serviceArea.excluded.length > 0 && (
+            <span>
+              Met uitzondering van {site.serviceArea.excluded.join(', ')}.
+            </span>
+          )}
+        </p>
+        <a
+          href="/werkgebied"
+          class="mt-5 inline-flex items-center gap-1 font-semibold text-[var(--color-accent-600)] hover:underline"
+        >
+          Bekijk alle plaatsen →
+        </a>
+      </div>
+      <ul class="flex flex-wrap gap-2 text-sm">
+        {
+          site.serviceArea.cities.slice(0, 18).map((city) => (
+            <li class="rounded-full border border-[var(--color-border)] bg-white px-3 py-1 text-[var(--color-muted)]">
+              {city}
+            </li>
+          ))
+        }
+        {site.serviceArea.cities.length > 18 && (
+          <li class="rounded-full bg-[var(--color-primary-50)] px-3 py-1 text-[var(--color-primary-700)]">
+            + {site.serviceArea.cities.length - 18} meer
+          </li>
+        )}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Kennisbank -->
+  {
+    posts.length > 0 && (
+      <section class="bg-white py-14">
+        <div class="container-content">
+          <div class="flex items-baseline justify-between gap-4">
+            <h2 class="font-serif text-2xl text-[var(--color-primary-900)] md:text-3xl">
+              Uit de kennisbank
+            </h2>
+            <a
+              href="/kennisbank"
+              class="text-sm font-semibold text-[var(--color-accent-600)] hover:underline"
+            >
+              Alle artikelen →
+            </a>
+          </div>
+          <ul class="mt-8 grid gap-6 md:grid-cols-3">
+            {posts.map((post) => (
+              <li class="overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-paper)]">
+                <a href={`/kennisbank/${post.id}`} class="block p-6">
+                  <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+                    {post.data.category}
+                  </span>
+                  <h3 class="mt-2 font-serif text-lg text-[var(--color-primary-900)]">
+                    {post.data.title}
+                  </h3>
+                  <p class="mt-2 text-sm text-[var(--color-muted)]">
+                    {post.data.description}
+                  </p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Contact CTA -->
+  <section class="py-16">
+    <div class="container-content rounded-[var(--radius-card)] bg-[var(--color-primary-900)] p-8 text-center text-white md:p-12">
+      <h2 class="font-serif text-2xl text-white md:text-3xl">
+        Vragen over je airco-mogelijkheden?
+      </h2>
+      <p class="mx-auto mt-3 max-w-prose text-[0.95rem] text-white/85">
+        Ben staat persoonlijk klaar voor algemene vragen, vrijblijvend advies en
+        voorlopige reserveringen — ook nu al, tijdens het laatste stuk van zijn
+        certificeringstraject.
+      </p>
+      <div class="mt-6 flex flex-wrap justify-center gap-3">
+        <a href={phoneHref} class="btn-primary">Bel {site.contact.phoneDisplay}</a>
+        <a
+          href={whatsappHref}
+          class="btn-secondary border-white/40 bg-transparent text-white hover:bg-white/10"
+          rel="noopener"
+        >
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

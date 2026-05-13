@@ -1,0 +1,74 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { site } from '~/config/site';
+---
+
+<BaseLayout
+  title="Privacy"
+  description="Hoe Benairco omgaat met je gegevens."
+>
+  <article class="py-14 md:py-20">
+    <div class="container-content prose-readable">
+      <h1 class="font-serif text-3xl text-[var(--color-primary-900)] md:text-4xl">
+        Privacyverklaring
+      </h1>
+      <p class="mt-2 text-sm text-[var(--color-muted)]">
+        Versie: mei 2026
+      </p>
+
+      <h2>Wie zijn wij?</h2>
+      <p>
+        {site.legalName}, gevestigd in {site.address.city}, is verantwoordelijk voor de
+        verwerking van persoonsgegevens zoals weergegeven in deze privacyverklaring.
+      </p>
+      <p>
+        Contact: <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a> ·
+        Telefoon: {site.contact.phoneDisplay}
+      </p>
+
+      <h2>Welke gegevens verwerken wij?</h2>
+      <ul>
+        <li>Naam en (bedrijfs)contactgegevens als je ons benadert per telefoon, e-mail of WhatsApp</li>
+        <li>Adresgegevens van het installatie- of onderhouds-object</li>
+        <li>Eventuele technische informatie over je toestel of woning, ten behoeve van advies en uitvoering</li>
+      </ul>
+
+      <h2>Waarvoor gebruiken wij die?</h2>
+      <ul>
+        <li>Om met je in contact te kunnen treden over je vraag of opdracht</li>
+        <li>Om een offerte op te stellen of een uitgevoerde opdracht administratief af te wikkelen</li>
+        <li>Om te voldoen aan onze wettelijke verplichtingen (boekhouding, F-gassen-logboek)</li>
+      </ul>
+
+      <h2>Hoe lang bewaren wij gegevens?</h2>
+      <p>
+        Niet langer dan strikt nodig. Administratieve gegevens (facturen) bewaren wij
+        zeven jaar conform de wettelijke fiscale verplichting. Overige gegevens worden
+        verwijderd zodra ze niet meer nodig zijn voor het doel waarvoor ze zijn
+        verzameld.
+      </p>
+
+      <h2>Cookies en tracking</h2>
+      <p>
+        Deze website gebruikt op dit moment <strong>geen cookies</strong>, geen
+        tracking-scripts en geen Google Analytics. Bij toekomstige toevoeging van
+        privacy-vriendelijke statistieken zal dit hier worden vermeld.
+      </p>
+
+      <h2>Delen met derden</h2>
+      <p>
+        Wij delen je gegevens niet met derden, behalve waar dat noodzakelijk is voor de
+        uitvoering van een overeenkomst (bijvoorbeeld een groothandel die het door jou
+        bestelde toestel levert) of waar dit wettelijk verplicht is.
+      </p>
+
+      <h2>Jouw rechten</h2>
+      <p>
+        Je hebt het recht om je persoonsgegevens in te zien, te corrigeren of te laten
+        verwijderen. Stuur daarvoor een verzoek naar
+        <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>. Je hebt ook
+        het recht om een klacht in te dienen bij de Autoriteit Persoonsgegevens.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

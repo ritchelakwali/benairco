@@ -1,0 +1,67 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { site } from '~/config/site';
+---
+
+<BaseLayout
+  title="Over Ben"
+  description={`Maak kennis met ${site.owner.name}, de man achter ${site.name}. Vakman, ZZP'er en buurman uit Gaanderen — over hoe Benairco is ontstaan en waarom airco.`}
+>
+  <article class="py-14 md:py-20">
+    <div class="container-content grid gap-12 md:grid-cols-[2fr_3fr]">
+      <div
+        class="aspect-[4/5] w-full overflow-hidden rounded-[var(--radius-image)] border border-[var(--color-border)] bg-[var(--color-primary-50)]"
+        aria-label="Portretfoto Ben Vriezen — wordt later toegevoegd"
+      >
+        <div class="flex h-full w-full items-center justify-center text-center text-sm text-[var(--color-muted)]">
+          Portretfoto Ben<br />(volgt na foto-shoot)
+        </div>
+      </div>
+
+      <div class="prose-readable">
+        <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+          De man achter Benairco
+        </p>
+        <h1 class="mt-2 font-serif text-3xl text-[var(--color-primary-900)] md:text-4xl">
+          Ben Vriezen — Gaanderen
+        </h1>
+
+        <p class="mt-6 text-[var(--color-muted)]">
+          <em>
+            Deze tekst is een werkversie. Ben levert binnenkort zijn eigen verhaal aan;
+            hieronder een uitnodigende eerste versie.
+          </em>
+        </p>
+
+        <p class="mt-4">
+          {`Ik ben Ben Vriezen, geboren en getogen in de Achterhoek. Twee jaar geleden ben ik begonnen met ${site.name} omdat ik zag dat er behoefte was aan een airco-installateur die het werk doet zoals een goede buurman dat zou doen: nuchter, netjes, en met aandacht voor wat de klant écht nodig heeft — niet wat er het meeste oplevert.`}
+        </p>
+
+        <h2>Waarom airco?</h2>
+        <p>
+          Een airco is geen luxe meer. Het is een toestel dat in de zomer comfort biedt
+          en in de tussenseizoenen efficiënt kan verwarmen — met de juiste subsidie zelfs
+          aantrekkelijk geprijsd. Ik leg uit wat past bij jouw huis, jouw budget en jouw
+          gebruik. Geen jargon, geen verkooppraat.
+        </p>
+
+        <h2>Waar ik nu sta</h2>
+        <p>
+          Op dit moment rond ik de STEK-erkenning en F-gassen-certificering af. Dat zijn
+          de officiële papieren die nodig zijn om met koudemiddelen te mogen werken — een
+          gewoon vakdiploma volstaat niet. Ik verwacht dat ik vanaf{' '}
+          {site.business.expectedHardLaunch.slice(0, 4)} installaties mag plaatsen.
+          Tot die tijd ben ik beschikbaar voor advies, oriënterende gesprekken en
+          voorlopige reserveringen.
+        </p>
+
+        <h2>Klein, lokaal, eerlijk</h2>
+        <p>
+          Benairco is en blijft een eenmanszaak. Geen verkoopteam, geen call center, geen
+          tussenpersonen die provisie pakken. Bel je naar Benairco, dan krijg je mij. Dat
+          maakt het kleiner van schaal — maar persoonlijker van karakter.
+        </p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

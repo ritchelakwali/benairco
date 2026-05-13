@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@theme {
+  /* Kleuren — gespiegeld vanuit src/config/site.ts brand.colors */
+  --color-primary: #2c4a52;
+  --color-primary-50: #f3f6f7;
+  --color-primary-100: #e0e8ea;
+  --color-primary-700: #2c4a52;
+  --color-primary-900: #1a2e33;
+
+  --color-accent: #c47b3c;
+  --color-accent-50: #fbf3eb;
+  --color-accent-600: #b06a30;
+
+  --color-ink: #1a1a1a;
+  --color-paper: #fbfaf6;
+  --color-muted: #6b7280;
+  --color-border: #e5e3dc;
+
+  /* Typografie */
+  --font-serif: "Source Serif 4", "Source Serif Pro", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+
+  /* Rondingen */
+  --radius-card: 0.625rem; /* 10px */
+  --radius-button: 0.5rem;
+  --radius-image: 0.75rem;
+
+  /* Container */
+  --container-content: 68rem; /* prettige leesbreedte voor body */
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background-color: var(--color-paper);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-size: 1.0625rem; /* 17px */
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    color: var(--color-primary-900);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  /* Reserveer ruimte voor focus-states zodat sprong-shift uitblijft */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Sluit native onderstreping uit bij links binnen knoppen */
+  a {
+    color: inherit;
+  }
+}
+
+@layer components {
+  .container-content {
+    max-width: var(--container-content);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    background-color: var(--color-accent);
+    color: white;
+    font-weight: 600;
+    border-radius: var(--radius-button);
+    transition: background-color 150ms ease;
+  }
+  .btn-primary:hover {
+    background-color: var(--color-accent-600);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    background-color: white;
+    color: var(--color-primary-900);
+    border: 1px solid var(--color-border);
+    font-weight: 600;
+    border-radius: var(--radius-button);
+    transition: background-color 150ms ease;
+  }
+  .btn-secondary:hover {
+    background-color: var(--color-primary-50);
+  }
+
+  .prose-readable {
+    max-width: 38rem;
+    margin-inline: auto;
+  }
+  .prose-readable h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  .prose-readable h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+  }
+  .prose-readable p {
+    margin-bottom: 1rem;
+  }
+  .prose-readable a {
+    color: var(--color-accent-600);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .prose-readable ul,
+  .prose-readable ol {
+    margin: 1rem 0 1rem 1.5rem;
+  }
+  .prose-readable li {
+    margin-bottom: 0.375rem;
+  }
+}

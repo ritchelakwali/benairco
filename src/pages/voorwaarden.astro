@@ -1,0 +1,83 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { site } from '~/config/site';
+---
+
+<BaseLayout
+  title="Algemene voorwaarden"
+  description="De algemene voorwaarden van Benairco."
+>
+  <article class="py-14 md:py-20">
+    <div class="container-content prose-readable">
+      <h1 class="font-serif text-3xl text-[var(--color-primary-900)] md:text-4xl">
+        Algemene voorwaarden
+      </h1>
+      <p class="mt-2 text-sm text-[var(--color-muted)]">
+        Versie: mei 2026 · Werkversie tot hard-launch
+      </p>
+
+      <p class="mt-6 rounded bg-[var(--color-primary-50)] p-4 text-sm">
+        <strong>TODO_BEN:</strong> Deze voorwaarden zijn een boilerplate-werkversie. Voor
+        hard-launch bij STEK-erkenning moeten ze worden gecontroleerd op vermelding van
+        STEK + F-gassen-certificaat, eventuele branche-specifieke clausules en
+        ondertekend door Ben.
+      </p>
+
+      <h2>1. Toepasselijkheid</h2>
+      <p>
+        Deze voorwaarden gelden voor alle aanbiedingen, overeenkomsten en diensten
+        tussen {site.legalName} ("opdrachtnemer") en zijn opdrachtgevers.
+      </p>
+
+      <h2>2. Aanbieding en offerte</h2>
+      <p>
+        Offertes zijn vrijblijvend en geldig gedurende 30 dagen na uitgifte, tenzij
+        anders aangegeven. Prijzen zijn inclusief BTW, exclusief eventuele meerwerk-uren
+        die met de opdrachtgever vooraf worden afgestemd.
+      </p>
+
+      <h2>3. Uitvoering van de overeenkomst</h2>
+      <p>
+        Opdrachtnemer voert de overeenkomst naar beste inzicht en vermogen uit, in
+        overeenstemming met de eisen van goed vakmanschap en de geldende wettelijke
+        regelingen voor STEK-erkende installateurs.
+      </p>
+
+      <h2>4. Betaling</h2>
+      <p>
+        Facturen worden voldaan binnen 14 dagen na factuurdatum, tenzij anders
+        overeengekomen.
+      </p>
+
+      <h2>5. Garantie</h2>
+      <p>
+        Op nieuwe toestellen geldt de fabrieksgarantie van de leverancier. Op de
+        uitvoering van het installatiewerk verleent opdrachtnemer 12 maanden garantie,
+        mits het toestel volgens voorschriften wordt gebruikt en onderhouden.
+      </p>
+
+      <h2>6. Aansprakelijkheid</h2>
+      <p>
+        Opdrachtnemer is uitsluitend aansprakelijk voor directe schade veroorzaakt door
+        toerekenbare tekortkoming bij de uitvoering van de overeenkomst, beperkt tot het
+        bedrag van de betreffende opdracht.
+      </p>
+
+      <h2>7. Toepasselijk recht</h2>
+      <p>
+        Op alle overeenkomsten is Nederlands recht van toepassing. Geschillen worden
+        zoveel mogelijk in onderling overleg opgelost. Lukt dit niet, dan worden zij
+        voorgelegd aan de bevoegde rechter in het arrondissement waar opdrachtnemer is
+        gevestigd.
+      </p>
+
+      <h2>Bedrijfsgegevens</h2>
+      <p>
+        {site.legalName}<br />
+        {site.address.street}, {site.address.postalCode} {site.address.city}<br />
+        KvK {site.business.kvk}<br />
+        BTW {site.business.vat}
+      </p>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Pre-launch pagina's: niet indexeren tot STEK-erkenning rond is.
+# Ook al staat de noindex meta erop, een expliciete robots-disallow is robuuster.
+Disallow: /diensten
+Disallow: /diensten/
+Disallow: /offerte
+
+Sitemap: https://benairco.nl/sitemap-index.xml

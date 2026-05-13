@@ -1,0 +1,60 @@
+---
+import { site } from '~/config/site';
+
+const dayMap: Record<string, string> = {
+  monday: 'Mo',
+  tuesday: 'Tu',
+  wednesday: 'We',
+  thursday: 'Th',
+  friday: 'Fr',
+  saturday: 'Sa',
+  sunday: 'Su',
+};
+
+const openingHoursSpecification = Object.entries(site.hours)
+  .filter(([, hours]) => hours !== 'closed')
+  .map(([day, hours]) => {
+    const [opens, closes] = (hours as string).split('-');
+    return {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: `https://schema.org/${dayMap[day]}`,
+      opens,
+      closes,
+    };
+  });
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${site.url}/#localbusiness`,
+  name: site.name,
+  description: site.tagline,
+  url: site.url,
+  telephone: site.contact.phone,
+  email: site.contact.email,
+  image: `${site.url}/og-image.jpg`,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address.street,
+    postalCode: site.address.postalCode,
+    addressLocality: site.address.city,
+    addressCountry: site.address.country,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: site.address.geo.latitude,
+    longitude: site.address.geo.longitude,
+  },
+  areaServed: site.serviceArea.cities.map((city) => ({
+    '@type': 'City',
+    name: city,
+  })),
+  openingHoursSpecification,
+  founder: {
+    '@type': 'Person',
+    name: site.owner.name,
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />

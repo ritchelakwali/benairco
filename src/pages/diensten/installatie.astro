@@ -1,0 +1,56 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+
+// Activeren bij hard-launch (STEK-erkenning rond). Tot die tijd noindex en niet in nav.
+---
+
+<BaseLayout
+  title="Airco-installatie"
+  description="Persoonlijke airco-installatie in de Achterhoek door Ben Vriezen — single-split, multi-split en lucht-lucht warmtepompen."
+  noindex={true}
+>
+  <article class="py-14 md:py-20">
+    <div class="container-content prose-readable">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+        Diensten · Installatie
+      </p>
+      <h1 class="mt-2 font-serif text-3xl text-[var(--color-primary-900)] md:text-4xl">
+        Airco-installatie door Ben zelf
+      </h1>
+
+      <p class="mt-6 text-[var(--color-muted)]">
+        <em>Deze pagina wordt definitief gemaakt bij hard-launch. Onderstaande tekst is
+        een werkversie en bevat geen vaste prijzen.</em>
+      </p>
+
+      <h2>Wat krijg je?</h2>
+      <p>
+        Een persoonlijke kennismaking, een eerlijk advies over het toestel dat bij jouw
+        woning past, een vaste prijs vooraf, en een nette installatie waarbij je huis
+        net zo schoon achterblijft als toen Ben binnenkwam.
+      </p>
+
+      <h2>Het proces</h2>
+      <ol>
+        <li>Vrijblijvend gesprek bij je thuis (gratis, geen verplichtingen)</li>
+        <li>Schriftelijke offerte met heldere prijs</li>
+        <li>Installatie binnen overeengekomen termijn</li>
+        <li>Uitleg over bediening en onderhoud</li>
+        <li>Begeleiding bij ISDE-subsidie-aanvraag indien van toepassing</li>
+      </ol>
+
+      <h2>Welke toestellen?</h2>
+      <p>
+        Benairco werkt bij voorkeur met een beperkt aantal merken zodat onderhoud en
+        garantie soepel verlopen. Welke modellen exact, wordt op deze pagina later
+        toegelicht.
+      </p>
+
+      <h2>Prijsindicatie</h2>
+      <p>
+        <em>TODO_BEN: definitieve richtprijzen per type installatie (single-split,
+        multi-split, lucht-lucht warmtepomp) toevoegen voor hard-launch.</em>
+      </p>
+    </div>
+  </article>
+</BaseLayout>

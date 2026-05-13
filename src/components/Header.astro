@@ -1,0 +1,59 @@
+---
+import { site } from '~/config/site';
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/over-ben', label: 'Over Ben' },
+  { href: '/werkgebied', label: 'Werkgebied' },
+  { href: '/kennisbank', label: 'Kennisbank' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="border-b border-[var(--color-border)] bg-[var(--color-paper)]">
+  <div class="container-content flex items-center justify-between py-5">
+    <a href="/" class="flex items-baseline gap-2" aria-label={`${site.name} — terug naar home`}>
+      <span class="font-serif text-2xl font-semibold text-[var(--color-primary-900)]">
+        {site.name}
+      </span>
+      <span class="hidden text-sm text-[var(--color-muted)] sm:inline">
+        airco in de Achterhoek
+      </span>
+    </a>
+
+    <nav aria-label="Hoofdnavigatie" class="hidden md:block">
+      <ul class="flex items-center gap-7 text-[0.95rem]">
+        {
+          navItems.map((item) => {
+            const itemPath = item.href.replace(/\/$/, '') || '/';
+            const isActive = currentPath === itemPath;
+            return (
+              <li>
+                <a
+                  href={item.href}
+                  class={`transition-colors hover:text-[var(--color-accent-600)] ${
+                    isActive
+                      ? 'font-semibold text-[var(--color-primary-900)]'
+                      : 'text-[var(--color-ink)]'
+                  }`}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+
+    <a
+      href={`tel:${site.contact.phone.replace(/\s/g, '')}`}
+      class="btn-primary hidden md:inline-flex"
+    >
+      Bel direct
+    </a>
+  </div>
+</header>

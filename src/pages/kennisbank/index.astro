@@ -1,0 +1,66 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout
+  title="Kennisbank"
+  description="Achtergrond, uitleg en advies over airco's voor particulieren — geschreven door Ben Vriezen, eerlijk en zonder verkooppraat."
+>
+  <section class="py-14 md:py-20">
+    <div class="container-content max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+        Kennisbank
+      </p>
+      <h1 class="mt-2 font-serif text-3xl text-[var(--color-primary-900)] md:text-4xl">
+        Wat je moet weten over airco's
+      </h1>
+      <p class="mt-5 max-w-prose text-lg">
+        Geen verkooppraatjes, geen jargon. Eerlijke uitleg over kosten, subsidies,
+        modellen en onderhoud — zoals Ben het je aan de keukentafel zou uitleggen.
+      </p>
+    </div>
+
+    <div class="container-content mt-12">
+      {
+        posts.length === 0 ? (
+          <p class="text-[var(--color-muted)]">
+            Er staan nog geen artikelen gepubliceerd. Kom snel terug — Ben werkt aan het
+            eerste stuk.
+          </p>
+        ) : (
+          <ul class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {posts.map((post) => (
+              <li class="overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white">
+                <a href={`/kennisbank/${post.id}`} class="block p-6">
+                  <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+                    {post.data.category}
+                  </span>
+                  <h2 class="mt-2 font-serif text-xl text-[var(--color-primary-900)]">
+                    {post.data.title}
+                  </h2>
+                  <p class="mt-2 text-sm text-[var(--color-muted)]">
+                    {post.data.description}
+                  </p>
+                  <p class="mt-4 text-xs text-[var(--color-muted)]">
+                    {dateFormatter.format(post.data.pubDate)}
+                  </p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>

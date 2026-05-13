@@ -1,0 +1,67 @@
+---
+import { site } from '~/config/site';
+
+const year = new Date().getFullYear();
+const hardLaunchYear = site.business.expectedHardLaunch.slice(0, 4);
+---
+
+<footer class="mt-20 border-t border-[var(--color-border)] bg-white">
+  <div class="container-content grid gap-10 py-12 md:grid-cols-3">
+    <div>
+      <h2 class="font-serif text-xl text-[var(--color-primary-900)]">{site.name}</h2>
+      <p class="mt-3 max-w-xs text-sm text-[var(--color-muted)]">
+        {site.tagline}. Persoonlijk, netjes, betaalbaar — uit Gaanderen, voor de hele Achterhoek.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-serif text-base font-semibold text-[var(--color-primary-900)]">
+        Contact
+      </h3>
+      <ul class="mt-3 space-y-1.5 text-sm">
+        <li>
+          <a
+            href={`tel:${site.contact.phone.replace(/\s/g, '')}`}
+            class="hover:text-[var(--color-accent-600)]"
+          >
+            {site.contact.phoneDisplay}
+          </a>
+        </li>
+        <li>
+          <a
+            href={`mailto:${site.contact.email}`}
+            class="hover:text-[var(--color-accent-600)]"
+          >
+            {site.contact.email}
+          </a>
+        </li>
+        <li class="text-[var(--color-muted)]">
+          {site.address.street}<br />
+          {site.address.postalCode} {site.address.city}
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-serif text-base font-semibold text-[var(--color-primary-900)]">
+        Onderweg naar opening
+      </h3>
+      <p class="mt-3 text-sm text-[var(--color-muted)]">
+        Benairco is momenteel bezig met de STEK-erkenning en F-gassen-certificering.
+        Volledige dienstverlening wordt verwacht vanaf {hardLaunchYear}.
+      </p>
+    </div>
+  </div>
+
+  <div class="border-t border-[var(--color-border)]">
+    <div
+      class="container-content flex flex-col items-start justify-between gap-2 py-4 text-xs text-[var(--color-muted)] md:flex-row md:items-center"
+    >
+      <p>© {year} {site.legalName} · KvK {site.business.kvk}</p>
+      <ul class="flex items-center gap-5">
+        <li><a href="/privacy" class="hover:text-[var(--color-accent-600)]">Privacy</a></li>
+        <li><a href="/voorwaarden" class="hover:text-[var(--color-accent-600)]">Voorwaarden</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,53 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { site } from '~/config/site';
+
+const cities = site.serviceArea.cities;
+const excluded = site.serviceArea.excluded;
+---
+
+<BaseLayout
+  title="Werkgebied"
+  description={`Benairco werkt in heel de Achterhoek en omstreken — alles binnen één uur rijden vanaf Gaanderen. ${cities.length} plaatsen in de regio.`}
+>
+  <section class="py-14 md:py-20">
+    <div class="container-content max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+        Werkgebied
+      </p>
+      <h1 class="mt-2 font-serif text-3xl text-[var(--color-primary-900)] md:text-4xl">
+        Alles binnen één uur rijden vanaf Gaanderen
+      </h1>
+      <p class="mt-5 max-w-prose text-lg">
+        Benairco bedient particulieren in de Achterhoek en de directe omgeving — van
+        Doetinchem tot Winterswijk, van Zutphen tot Zevenaar, en de aanliggende
+        Liemers. Onderstaande lijst is een richtinggevende selectie; staat jouw plaats
+        er niet bij en woon je binnen het uur vanaf Gaanderen, neem dan vrijblijvend
+        contact op.
+      </p>
+
+      {
+        excluded.length > 0 && (
+          <p class="mt-4 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-4 text-sm">
+            <strong>Uitzondering:</strong> Benairco werkt niet in {excluded.join(', ')}.
+          </p>
+        )
+      }
+    </div>
+
+    <div class="container-content mt-12">
+      <h2 class="font-serif text-xl text-[var(--color-primary-900)]">
+        Plaatsen in het werkgebied
+      </h2>
+      <ul class="mt-5 grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-3 lg:grid-cols-4">
+        {
+          cities.map((city) => (
+            <li class="border-b border-[var(--color-border)] py-2 text-[0.95rem]">
+              {city}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
