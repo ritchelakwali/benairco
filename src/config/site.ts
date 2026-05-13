@@ -9,8 +9,16 @@
 
 export const site = {
   url: 'https://benairco.nl',
+  // Publieke merk-naam (domein, marketing, GBP)
   name: 'Benairco',
-  legalName: 'Benairco', // TODO_BEN: definitieve handelsnaam zoals bij KvK
+  // Officiële handelsnaam zoals geregistreerd bij KvK. Wordt getoond in
+  // footer, voorwaarden en privacy om aan de wettelijke vermeldingsplicht
+  // voor eenmanszaken te voldoen.
+  legalName: 'Aircoservice-Gelre',
+  // Korte juridische disclosure-zin voor footer/voorwaarden.
+  // TODO_BEN: "Benairco" registreren als tweede handelsnaam bij KvK (€ 0
+  // bij het reguliere inschrijfformulier), of deze tekst aanpassen.
+  legalNotice: 'Benairco is de naam waaronder Aircoservice-Gelre haar diensten voor particulieren aanbiedt.',
   tagline: 'Persoonlijke airco-installatie in de Achterhoek',
 
   owner: {
@@ -19,12 +27,12 @@ export const site = {
   },
 
   contact: {
-    // TODO_BEN: definitief telefoonnummer in internationaal formaat
-    phone: '+31 6 00000000',
-    phoneDisplay: '06 - 00 00 00 00',
+    phone: '+31 6 18402285',
+    phoneDisplay: '06 - 18 40 22 85',
     // WhatsApp accepteert het nummer zonder + en zonder spaties
-    whatsapp: '31600000000',
-    // TODO_BEN: e-mailadres dat Ben beheert
+    whatsapp: '31618402285',
+    // TODO_BEN: e-mailadres dat Ben beheert (info@benairco.nl is logisch
+    // zodra Strato-mail of forwarding is ingesteld)
     email: 'info@benairco.nl',
   },
 
@@ -42,13 +50,16 @@ export const site = {
   },
 
   business: {
-    // TODO_BEN: KvK-nummer zodra inschrijving definitief is
-    kvk: '00000000',
-    // TODO_BEN: BTW-nummer
+    kvk: '94749493',
+    establishmentNr: '000060200855',
+    // TODO_BEN: BTW-nummer ophalen bij Belastingdienst / KvK-extract
     vat: 'NL000000000B00',
     // Status t.o.v. STEK + F-gassen
     stekStatus: 'pending', // 'pending' | 'certified'
-    expectedHardLaunch: '2026-09-01', // TODO_BEN: bijwerken als certificering datum bekend is
+    // STEK-erkenning verwacht in Q4 2026. Datum geeft start dienstverlening
+    // weer; UI rondt af naar "Q4 2026" of de maand.
+    expectedHardLaunch: '2026-10-01',
+    expectedHardLaunchLabel: 'Q4 2026',
   },
 
   hours: {

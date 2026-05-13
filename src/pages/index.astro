@@ -28,7 +28,7 @@ const pillars = [
 
 <BaseLayout
   title={site.name}
-  description={`Persoonlijke airco-installatie in de Achterhoek. Benairco wordt geleverd door Ben Vriezen uit Gaanderen — STEK-certificering in afronding, dienstverlening start naar verwachting in ${site.business.expectedHardLaunch.slice(0, 4)}.`}
+  description={`Persoonlijke airco-installatie in de Achterhoek. Benairco wordt geleverd door Ben Vriezen uit Gaanderen — STEK-certificering in afronding, dienstverlening start ${site.business.expectedHardLaunchLabel}.`}
 >
   <!-- Hero -->
   <section class="bg-[var(--color-paper)] py-14 md:py-20">
@@ -47,9 +47,9 @@ const pillars = [
         </p>
         <p class="mt-3 max-w-prose text-base text-[var(--color-muted)]">
           De officiële STEK-erkenning en F-gassen-certificering worden momenteel
-          afgerond. Vanaf {site.business.expectedHardLaunch.slice(0, 4)} kan Ben
-          installaties uitvoeren. Tot die tijd kun je hem benaderen met vragen of een
-          voorlopige reservering.
+          afgerond. Vanaf {site.business.expectedHardLaunchLabel} kan Ben installaties
+          uitvoeren. Tot die tijd kun je hem benaderen met vragen of een voorlopige
+          reservering.
         </p>
         <div class="mt-7 flex flex-wrap gap-3">
           <a href={phoneHref} class="btn-primary">Bel met Ben</a>

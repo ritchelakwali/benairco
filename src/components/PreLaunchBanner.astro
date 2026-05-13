@@ -1,18 +1,13 @@
 ---
 import { site } from '~/config/site';
 
-const launchDate = new Date(site.business.expectedHardLaunch);
-const monthFormatter = new Intl.DateTimeFormat('nl-NL', {
-  month: 'long',
-  year: 'numeric',
-});
-const launchLabel = monthFormatter.format(launchDate);
+const launchLabel = site.business.expectedHardLaunchLabel;
 ---
 
 <div class="bg-[var(--color-primary-50)] border-b border-[var(--color-border)]">
   <p class="container-content py-2 text-center text-sm text-[var(--color-primary-900)]">
     <span class="font-semibold">Bijna open.</span>
     Benairco rondt momenteel de STEK-erkenning af. Verwachte start dienstverlening:
-    <span class="font-semibold capitalize">{launchLabel}</span>.
+    <span class="font-semibold">{launchLabel}</span>.
   </p>
 </div>
