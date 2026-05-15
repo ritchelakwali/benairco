@@ -17,18 +17,6 @@ const blog = defineCollection({
     }),
 });
 
-const locations = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/locations' }),
-  schema: z.object({
-    title: z.string(),
-    city: z.string(),
-    description: z.string().max(170),
-    province: z.string().default('Gelderland'),
-    travelMinutes: z.number().int().positive(),
-    draft: z.boolean().default(true),
-  }),
-});
-
 const projects = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projects' }),
   schema: z.object({
@@ -55,4 +43,4 @@ const projects = defineCollection({
   }),
 });
 
-export const collections = { blog, locations, projects };
+export const collections = { blog, projects };

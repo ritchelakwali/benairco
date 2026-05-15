@@ -1,5 +1,6 @@
 ---
 import Icon from '~/components/Icon.astro';
+import { site } from '~/config/site';
 
 const steps = [
   {
@@ -20,7 +21,7 @@ const steps = [
   {
     icon: 'tools' as const,
     title: 'Installatie in één dag',
-    body: 'Een single-split zit binnen één werkdag. Een vakman uit ons vaste team komt langs, geen onbekende onderaannemer.',
+    body: 'Een single-split zit binnen één werkdag. Een vakman uit ons vaste team komt langs.',
   },
   {
     icon: 'shield' as const,
@@ -34,14 +35,15 @@ const steps = [
   <div class="container-content">
     <div class="mx-auto max-w-2xl text-center">
       <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
-        Zo werkt het
+        Zo gaat het werken vanaf {site.business.expectedHardLaunchLabel}
       </p>
       <h2 class="mt-2 font-serif text-2xl text-[var(--color-primary-900)] md:text-3xl">
         Van eerste belletje tot draaiende airco
       </h2>
       <p class="mt-3 text-[var(--color-muted)]">
-        Vijf stappen, geen verkooptraject, geen pushy commerciële druk. Zo werken
-        wij bij elke klant.
+        Vijf stappen, geen verkooptraject, geen pushy commerciële druk. In aanloop
+        naar de opening kun je nu al kennismaken of een voorlopige reservering
+        plaatsen.
       </p>
     </div>
 
