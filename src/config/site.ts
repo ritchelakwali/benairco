@@ -1,7 +1,7 @@
 /**
  * Single source of truth voor Benairco bedrijfsgegevens.
  *
- * Velden gemarkeerd met TODO_BEN moeten ingevuld worden door Ben Vriezen
+ * Velden gemarkeerd met TODO_BEN moeten ingevuld worden door Ben Vrieze
  * voordat de site live gaat. Alles wat hieruit komt verschijnt op de site,
  * in JSON-LD schema, op GBP, LinkedIn en in bedrijvengidsen, wijzig alleen
  * hier zodat NAP-consistentie gegarandeerd blijft.
@@ -23,7 +23,7 @@ export const site = {
   tagline: 'Persoonlijke airco-installatie in de Achterhoek',
 
   owner: {
-    name: 'Ben Vriezen',
+    name: 'Ben Vrieze',
     role: 'Eigenaar',
   },
 

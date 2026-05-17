@@ -1,6 +1,6 @@
 # Benairco.nl
 
-Statische marketingsite voor Benairco — eenmanszaak Ben Vriezen, airco-installatie in de Achterhoek. Astro 5 + Tailwind v4 + TypeScript, gehost op Firebase Hosting.
+Statische marketingsite voor Benairco — eenmanszaak Ben Vrieze, airco-installatie in de Achterhoek. Astro 5 + Tailwind v4 + TypeScript, gehost op Firebase Hosting.
 
 `PROJECT.md` bevat de inhoudelijke spec. `CLAUDE.md` bevat de werkafspraken voor AI-assistentie. Begin daar als je nieuw bent.
 

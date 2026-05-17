@@ -4,7 +4,7 @@ Dit document beschrijft wie juridisch eigenaar is van wat, wie operationeel behe
 
 ## Uitgangspunt
 
-Ben Vriezen (eenmanszaak Aircoservice-Gelre, handelend onder Benairco) is **juridisch eigenaar** van alle bedrijfs-assets. RaconSoft is **operationeel beheerder** zolang het beheerabonnement loopt.
+Ben Vrieze (eenmanszaak Aircoservice-Gelre, handelend onder Benairco) is **juridisch eigenaar** van alle bedrijfs-assets. RaconSoft is **operationeel beheerder** zolang het beheerabonnement loopt.
 
 Belangrijke nuance: Ben is digitaal niet-zelfstandig — hij maakt geen accounts aan, beheert geen wachtwoorden en logt zelf nergens in. Dat is geen probleem, maar het betekent dat de toegangsstructuur **niet** mag bouwen op "Ben kan zelf inloggen als RaconSoft wegvalt". De structuur moet zo zijn dat een andere dienstverlener met behulp van Ben (en de noodcontact) binnen een dag operationeel kan overnemen.
 
@@ -46,7 +46,7 @@ Dit is een gepland traject, niet een toevallig moment. Drie bezoeken aan Ben gep
    - Recovery-mail: Bens persoonlijke e-mail (bestaande Outlook/Hotmail/Ziggo)
    - Recovery-telefoon: Bens mobiel
    - 2FA aanzetten met authenticator-app op Bens telefoon
-2. LinkedIn-account voor Ben Vriezen (persoonlijk profiel, niet bedrijf):
+2. LinkedIn-account voor Ben Vrieze (persoonlijk profiel, niet bedrijf):
    - Met Bens echte naam, foto, achtergrond
    - Gekoppeld aan Bens persoonlijke e-mail
 3. Bitwarden-account voor Ben:
@@ -57,7 +57,7 @@ Dit is een gepland traject, niet een toevallig moment. Drie bezoeken aan Ben gep
 
 1. Firebase-project: Ben toevoegen als Owner via IAM (Console → IAM & Admin → Add → Bens Google-mail → Role: Owner). Ritchel verlaagt zelf naar Editor.
 2. GitHub-repo: óf transferren naar een Ben-owned GitHub-account (`github.com/benvriezen/benairco`), óf nieuwe GitHub-organisatie "Benairco" aanmaken onder Ben en repo daar inplaatsen. Ritchel wordt admin in die org.
-3. Strato domein: registrant-data wijzigen naar `Aircoservice-Gelre, t.n.v. Ben Vriezen, Akkerstraat 18`. Strato-account zelf mag bij Ritchel blijven (operationeel) maar de WHOIS-houder wordt Ben.
+3. Strato domein: registrant-data wijzigen naar `Aircoservice-Gelre, t.n.v. Ben Vrieze, Akkerstraat 18`. Strato-account zelf mag bij Ritchel blijven (operationeel) maar de WHOIS-houder wordt Ben.
 4. Bitwarden vault "Benairco" aanmaken; alle bestaande wachtwoorden importeren; Ben krijgt collection-toegang.
 5. Google Business Profile claimen onder Bens Google-account → adres-verificatie aanvragen (kaartje per post, 5-14 dagen). Ritchel toevoegen als Manager zodra verificatie binnen is.
 6. LinkedIn-bedrijfspagina aanmaken vanaf Bens persoonlijke LinkedIn. Ritchel toevoegen als Content Admin.

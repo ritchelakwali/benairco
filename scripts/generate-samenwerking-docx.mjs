@@ -64,7 +64,7 @@ const doc = new Document({
 
         H('1. Partijen'),
         Bullet(
-          'Opdrachtgever: Aircoservice-Gelre, handelend onder Benairco, t.n.v. Ben Vriezen, Akkerstraat 18, 7011 DB Gaanderen, KvK 94749493 ("Benairco").',
+          'Opdrachtgever: Aircoservice-Gelre, handelend onder Benairco, t.n.v. Ben Vrieze, Akkerstraat 18, 7011 DB Gaanderen, KvK 94749493 ("Benairco").',
         ),
         Bullet(
           'Opdrachtnemer: RaconSoft, t.n.v. Ritchel Akwali ("RaconSoft").',
@@ -162,7 +162,7 @@ const doc = new Document({
         P(
           'Voor akkoord met bovenstaande voorwaarden en met de daarin opgenomen noodcontact-procedure:',
         ),
-        new Paragraph({ spacing: { before: 300, after: 100 }, children: [new TextRun('Ben Vriezen — namens Aircoservice-Gelre / Benairco')] }),
+        new Paragraph({ spacing: { before: 300, after: 100 }, children: [new TextRun('Ben Vrieze — namens Aircoservice-Gelre / Benairco')] }),
         new Paragraph({ children: [new TextRun({ text: 'Plaats: __________________________', color: '666666' })] }),
         new Paragraph({ children: [new TextRun({ text: 'Datum: __________________________', color: '666666' })] }),
         new Paragraph({ spacing: { before: 100 }, children: [new TextRun({ text: 'Handtekening: __________________________', color: '666666' })] }),

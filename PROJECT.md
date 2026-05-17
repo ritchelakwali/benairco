@@ -4,7 +4,7 @@ Leidend document voor de digitale aanwezigheid van Benairco. Wijzigingen worden 
 
 ## Context
 
-Benairco is een eenmanszaak van Ben Vriezen in Gaanderen, gespecialiseerd in airco-installatie voor particulieren in de Achterhoek en omstreken. Het bedrijf bestaat twee jaar, heeft tot nu toe ongeveer tien klanten via mond-tot-mond, en bevindt zich in de aanvraagfase voor STEK-erkenning en F-gassen-certificering. Tot die certificeringen binnen zijn mag Ben wettelijk geen koudemiddelhoudende installaties plaatsen of onderhouden, en mag er dus niet actief geadverteerd worden voor die dienst.
+Benairco is een eenmanszaak van Ben Vrieze in Gaanderen, gespecialiseerd in airco-installatie voor particulieren in de Achterhoek en omstreken. Het bedrijf bestaat twee jaar, heeft tot nu toe ongeveer tien klanten via mond-tot-mond, en bevindt zich in de aanvraagfase voor STEK-erkenning en F-gassen-certificering. Tot die certificeringen binnen zijn mag Ben wettelijk geen koudemiddelhoudende installaties plaatsen of onderhouden, en mag er dus niet actief geadverteerd worden voor die dienst.
 
 Doel: complete digitale aanwezigheid neerzetten — website, Google Business Profile, LinkedIn-bedrijfspagina — die nu in soft-launch gaat om domein-autoriteit en zoek-historie op te bouwen, en die naadloos overgaat in volledige operatie zodra de certificeringen binnen zijn.
 
