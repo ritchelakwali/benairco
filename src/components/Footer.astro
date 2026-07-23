@@ -10,7 +10,7 @@ const launchLabel = site.business.expectedHardLaunchLabel;
     <div>
       <h2 class="font-serif text-xl text-[var(--color-primary-900)]">{site.name}</h2>
       <p class="mt-3 max-w-xs text-sm text-[var(--color-muted)]">
-        {site.tagline}. Persoonlijk, netjes, betaalbaar. Uit Gaanderen, voor de hele Achterhoek.
+        {site.tagline}. Persoonlijk, netjes, betaalbaar. Uit Gaanderen, voor de Achterhoek en Twente.
       </p>
     </div>
 
@@ -19,14 +19,6 @@ const launchLabel = site.business.expectedHardLaunchLabel;
         Contact
       </h3>
       <ul class="mt-3 space-y-1.5 text-sm">
-        <li>
-          <a
-            href={`tel:${site.contact.phone.replace(/\s/g, '')}`}
-            class="hover:text-[var(--color-accent-600)]"
-          >
-            {site.contact.phoneDisplay}
-          </a>
-        </li>
         <li>
           <a
             href={`mailto:${site.contact.email}`}

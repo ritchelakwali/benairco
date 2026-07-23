@@ -4,9 +4,7 @@ import { site } from '~/config/site';
 import ContactIllustration from '~/components/ContactIllustration.astro';
 import Icon from '~/components/Icon.astro';
 
-const phoneHref = `tel:${site.contact.phone.replace(/\s/g, '')}`;
 const mailHref = `mailto:${site.contact.email}`;
-const whatsappHref = `https://wa.me/${site.contact.whatsapp}`;
 
 const dayLabels: Record<string, string> = {
   monday: 'Maandag',
@@ -21,7 +19,7 @@ const dayLabels: Record<string, string> = {
 
 <BaseLayout
   title="Contact"
-  description={`Bel of WhatsApp Benairco direct. Geen formulier, gewoon persoonlijk contact via telefoon, WhatsApp of e-mail.`}
+  description={`Neem direct contact op met Benairco via e-mail. Geen formulier, gewoon persoonlijk contact.`}
 >
   <section class="py-14 md:py-20">
     <div class="container-content grid gap-12 md:grid-cols-2 md:items-center">
@@ -30,11 +28,11 @@ const dayLabels: Record<string, string> = {
           Contact
         </p>
         <h1 class="mt-2 font-serif text-3xl text-[var(--color-primary-900)] md:text-4xl">
-          Bel ons gewoon op
+          Mail ons gewoon
         </h1>
         <p class="mt-5 max-w-prose text-lg">
-          De snelste manier om antwoord te krijgen is een telefoontje of WhatsApp.
-          Ben neemt zelf op, geen secretariaat, geen wachtmuziek, geen menu.
+          De snelste manier om antwoord te krijgen is een e-mail. Ben leest
+          zelf mee en antwoordt persoonlijk, geen secretariaat, geen menu.
         </p>
         <p class="mt-3 max-w-prose text-[0.95rem] text-[var(--color-muted)]">
           Een formulier vind je hier expres niet. Wij plannen nog geen installatie-
@@ -43,41 +41,6 @@ const dayLabels: Record<string, string> = {
         </p>
 
         <div class="mt-7 space-y-3">
-          <a
-            href={phoneHref}
-            class="flex items-center gap-4 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-5 transition-colors hover:bg-[var(--color-primary-50)]"
-          >
-            <span class="grid size-11 shrink-0 place-items-center rounded-full bg-[var(--color-primary-900)] text-white">
-              <Icon name="phone" class="size-5" />
-            </span>
-            <span class="flex-1">
-              <span class="block text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)]">
-                Telefoon
-              </span>
-              <span class="block font-serif text-xl text-[var(--color-primary-900)]">
-                {site.contact.phoneDisplay}
-              </span>
-            </span>
-          </a>
-
-          <a
-            href={whatsappHref}
-            rel="noopener"
-            class="flex items-center gap-4 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-5 transition-colors hover:bg-[var(--color-primary-50)]"
-          >
-            <span class="grid size-11 shrink-0 place-items-center rounded-full bg-[var(--color-accent)] text-white">
-              <Icon name="whatsapp" class="size-5" />
-            </span>
-            <span class="flex-1">
-              <span class="block text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)]">
-                WhatsApp
-              </span>
-              <span class="block font-serif text-xl text-[var(--color-primary-900)]">
-                Stuur ons een berichtje
-              </span>
-            </span>
-          </a>
-
           <a
             href={mailHref}
             class="flex items-center gap-4 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-5 transition-colors hover:bg-[var(--color-primary-50)]"

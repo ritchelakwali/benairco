@@ -11,7 +11,6 @@ const navItems = [
 ];
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
-const phoneHref = `tel:${site.contact.phone.replace(/\s/g, '')}`;
 ---
 
 <header class="relative border-b border-[var(--color-border)] bg-[var(--color-paper)]">
@@ -46,8 +45,8 @@ const phoneHref = `tel:${site.contact.phone.replace(/\s/g, '')}`;
       </ul>
     </nav>
 
-    <a href={phoneHref} class="btn-primary hidden md:inline-flex">
-      Bel direct
+    <a href="/contact" class="btn-primary hidden md:inline-flex">
+      Neem contact op
     </a>
 
     <!-- Mobile hamburger -->
@@ -119,8 +118,8 @@ const phoneHref = `tel:${site.contact.phone.replace(/\s/g, '')}`;
         })
       }
       <li class="mt-2 border-t border-[var(--color-border)] pt-3">
-        <a href={phoneHref} class="btn-primary w-full justify-center">
-          Bel direct
+        <a href="/contact" class="btn-primary w-full justify-center">
+          Neem contact op
         </a>
       </li>
     </ul>

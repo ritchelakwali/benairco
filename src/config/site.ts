@@ -11,16 +11,16 @@ export const site = {
   url: 'https://benairco.nl',
   // Publieke merk-naam (domein, marketing, GBP)
   name: 'Benairco',
-  // Officiële handelsnaam zoals oorspronkelijk ingeschreven bij KvK.
-  // Wordt getoond in footer/voorwaarden om aan de wettelijke
-  // vermeldingsplicht voor eenmanszaken te voldoen.
-  legalName: 'Aircoservice-Gelre',
-  // Disclosure-zin voor footer/voorwaarden. Gaat uit van scenario 1:
-  // Benairco wordt door Ben geregistreerd als tweede handelsnaam bij KvK.
-  // TODO_BEN: handelsnaam-toevoeging indienen bij KvK (gratis via reguliere
-  // wijzigingsmelding). Zodra dit is gedaan klopt deze tekst.
-  legalNotice: 'Benairco en Aircoservice-Gelre zijn handelsnamen van dezelfde eenmanszaak (KvK 94749493).',
-  tagline: 'Persoonlijke airco-installatie in de Achterhoek',
+  // Publiek getoonde naam voor de wettelijke vermeldingsplicht van
+  // eenmanszaken (footer/voorwaarden/privacy). De eenmanszaak staat onder
+  // een andere handelsnaam bij KvK ingeschreven (zie OWNERSHIP.md); die
+  // wordt op verzoek niet publiek op de site getoond.
+  legalName: 'Benairco',
+  // Disclosure-zin voor footer/voorwaarden.
+  // TODO_BEN: handelsnaam-toevoeging 'Benairco' indienen bij KvK (gratis via
+  // reguliere wijzigingsmelding). Zodra dit is gedaan klopt deze tekst.
+  legalNotice: 'Benairco is een handelsnaam van een eenmanszaak (KvK 94749493).',
+  tagline: 'Persoonlijke airco-installatie in de Achterhoek en Twente',
 
   owner: {
     name: 'Ben Vrieze',
@@ -28,6 +28,9 @@ export const site = {
   },
 
   contact: {
+    // Telefoon en WhatsApp worden voorlopig NIET op de site getoond (op
+    // verzoek weggehaald tot het nummer definitief live is). De waarden
+    // blijven hier bewaard zodat de knoppen eenvoudig terug te zetten zijn.
     phone: '+31 6 18402285',
     phoneDisplay: '06 - 18 40 22 85',
     // WhatsApp accepteert het nummer zonder + en zonder spaties
@@ -74,14 +77,12 @@ export const site = {
   },
 
   serviceArea: {
-    // Gemeentes binnen 1 uur rijden vanaf Gaanderen, met uitzondering van Duiven.
-    // Volgorde: meest nabij eerst.
+    // Gemeentes binnen 1 uur rijden vanaf Gaanderen, met uitzondering van
+    // Duiven, Didam en 's-Heerenberg. Volgorde: meest nabij eerst.
     cities: [
       'Gaanderen',
       'Doetinchem',
       'Wehl',
-      'Didam',
-      "'s-Heerenberg",
       'Zeddam',
       'Ulft',
       'Terborg',
@@ -98,6 +99,13 @@ export const site = {
       'Borculo',
       'Eibergen',
       'Neede',
+      'Haaksbergen',
+      'Goor',
+      'Delden',
+      'Enschede',
+      'Hengelo (Ov)',
+      'Oldenzaal',
+      'Losser',
       'Zutphen',
       'Lochem',
       'Warnsveld',
@@ -117,7 +125,7 @@ export const site = {
       'Emmerich (DE)',
       'Anholt (DE)',
     ],
-    excluded: ['Duiven'],
+    excluded: ['Duiven', 'Didam', "'s-Heerenberg"],
     radiusLabel: '1 uur rijden vanaf Gaanderen',
   },
 

@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 const { Content } = await render(project);
 
-const phoneHref = `tel:${site.contact.phone.replace(/\s/g, '')}`;
+const mailHref = `mailto:${site.contact.email}`;
 
 const specs = [
   { label: 'Woningtype', value: project.data.woningtype },
@@ -78,15 +78,15 @@ const specs = [
         <aside class="mt-12 rounded-[var(--radius-card)] bg-[var(--color-primary-900)] p-6 text-white">
           <h2 class="font-serif text-xl text-white">Lijkt jouw situatie hierop?</h2>
           <p class="mt-2 text-[0.95rem] text-white/85">
-            Bel ons voor een vrijblijvend gesprek over wat in jouw specifieke
+            Mail ons voor een vrijblijvend gesprek over wat in jouw specifieke
             situatie past, woningtype, isolatie, gebruik, budget.
           </p>
           <a
-            href={phoneHref}
+            href={mailHref}
             class="mt-4 inline-flex items-center gap-2 rounded-[var(--radius-button)] bg-[var(--color-accent)] px-5 py-2.5 font-semibold text-white hover:bg-[var(--color-accent-600)]"
           >
-            <Icon name="phone" class="size-4" />
-            {site.contact.phoneDisplay}
+            <Icon name="mail" class="size-4" />
+            {site.contact.email}
           </a>
         </aside>
       </div>

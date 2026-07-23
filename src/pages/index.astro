@@ -14,8 +14,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 4);
 
-const phoneHref = `tel:${site.contact.phone.replace(/\s/g, '')}`;
-const whatsappHref = `https://wa.me/${site.contact.whatsapp}`;
+const mailHref = `mailto:${site.contact.email}`;
 
 const heroBadges = [
   `Start dienstverlening ${site.business.expectedHardLaunchLabel}`,
@@ -50,7 +49,7 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
 
 <BaseLayout
   title={site.name}
-  description={`Persoonlijke airco-installatie in de Achterhoek. Een klein team van zelfstandige vakmensen rond Ben Vrieze uit Gaanderen. Start dienstverlening ${site.business.expectedHardLaunchLabel}, tot dan welkom voor advies en kennismaking.`}
+  description={`Persoonlijke airco-installatie in de Achterhoek en Twente. Een klein team van zelfstandige vakmensen rond Ben Vrieze uit Gaanderen. Start dienstverlening ${site.business.expectedHardLaunchLabel}, tot dan welkom voor advies en kennismaking.`}
 >
   <!-- HERO with photo + gradient overlay -->
   <section class="relative isolate overflow-hidden">
@@ -58,7 +57,7 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
     <div class="absolute inset-0 -z-20">
       <Image
         src={livingroomHero}
-        alt="Moderne woonkamer met wandmodel-airco, Benairco-stijl installatie"
+        alt="Moderne woonkamer met een wandmodel-airco boven de bank"
         widths={[640, 960, 1280, 1600, 2000]}
         sizes="100vw"
         quality={82}
@@ -86,7 +85,7 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
       <div class="max-w-2xl">
         <p class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
           <span class="inline-block size-1.5 rounded-full bg-[var(--color-accent)]"></span>
-          Airco in de Achterhoek
+          Airco in de Achterhoek en Twente
         </p>
         <h1 class="mt-5 font-serif text-4xl leading-[1.1] text-white md:text-[3.5rem]">
           Persoonlijke airco-installateur
@@ -94,8 +93,8 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
         </h1>
         <p class="mt-5 max-w-prose text-lg leading-7 text-white/90">
           Een klein vast team van zelfstandige vakmensen uit Gaanderen. Wij
-          installeren airco's bij particulieren in de hele Achterhoek, netjes
-          en eerlijk geprijsd.
+          installeren airco's bij particulieren in de Achterhoek en Twente,
+          netjes en eerlijk geprijsd.
         </p>
 
         <ul class="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-[0.95rem] text-white/90">
@@ -110,17 +109,16 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
         </ul>
 
         <div class="mt-9 flex flex-wrap items-center gap-3">
-          <a href={phoneHref} class="btn-primary">
-            <Icon name="phone" class="size-4" />
+          <a href="/contact" class="btn-primary">
+            <Icon name="mail" class="size-4" />
             Plan een adviesgesprek
           </a>
           <a
-            href={whatsappHref}
+            href={mailHref}
             class="inline-flex items-center justify-center gap-2 rounded-[var(--radius-button)] border border-white/40 bg-white/5 px-6 py-3.5 font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/15"
-            rel="noopener"
           >
-            <Icon name="whatsapp" class="size-4" />
-            WhatsApp
+            <Icon name="mail" class="size-4" />
+            Mail direct
           </a>
           <a
             href="/over-ons"
@@ -274,17 +272,16 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
           in {site.business.expectedHardLaunchLabel}.
         </p>
         <div class="mt-8 flex flex-wrap justify-center gap-3">
-          <a href={phoneHref} class="btn-primary">
-            <Icon name="phone" class="size-4" />
-            {site.contact.phoneDisplay}
+          <a href="/contact" class="btn-primary">
+            <Icon name="mail" class="size-4" />
+            Plan een adviesgesprek
           </a>
           <a
-            href={whatsappHref}
+            href={mailHref}
             class="inline-flex items-center justify-center gap-2 rounded-[var(--radius-button)] border border-white/30 px-6 py-3.5 font-semibold text-white transition-colors hover:bg-white/10"
-            rel="noopener"
           >
-            <Icon name="whatsapp" class="size-4" />
-            WhatsApp
+            <Icon name="mail" class="size-4" />
+            {site.contact.email}
           </a>
         </div>
       </div>

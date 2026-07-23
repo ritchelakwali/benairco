@@ -100,11 +100,11 @@ const articleSchema = {
           Vragen over dit onderwerp?
         </h2>
         <p class="mt-2 text-[0.95rem]">
-          Wij leggen het persoonlijk uit aan de keukentafel of telefonisch. Bel
-          {' '}<a href={`tel:${site.contact.phone.replace(/\s/g, '')}`} class="font-semibold underline">
-            {site.contact.phoneDisplay}
-          </a>{' '}
-          of stuur een WhatsApp.
+          Wij leggen het persoonlijk uit aan de keukentafel of per mail. Stuur
+          ons gerust een berichtje via
+          {' '}<a href={`mailto:${site.contact.email}`} class="font-semibold underline">
+            {site.contact.email}
+          </a>.
         </p>
       </aside>
     </div>
