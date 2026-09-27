@@ -4,7 +4,7 @@ Leidend document voor de digitale aanwezigheid van Benairco. Wijzigingen worden 
 
 ## Context
 
-Benairco is een eenmanszaak van Ben Vrieze in Gaanderen, gespecialiseerd in airco-installatie voor particulieren in de Achterhoek en omstreken. Het bedrijf bestaat twee jaar, heeft tot nu toe ongeveer tien klanten via mond-tot-mond, en bevindt zich in de aanvraagfase voor STEK-erkenning en F-gassen-certificering. Tot die certificeringen binnen zijn mag Ben wettelijk geen koudemiddelhoudende installaties plaatsen of onderhouden, en mag er dus niet actief geadverteerd worden voor die dienst.
+Benairco is een eenmanszaak van Ben Vrieze in Gaanderen, gespecialiseerd in airco-installatie voor particulieren in de Achterhoek en omstreken. Het bedrijf bestaat twee jaar, heeft tot nu toe ongeveer tien klanten via mond-tot-mond, en is sinds september 2026 STEK-gecertificeerd. Daarmee mag Benairco koudemiddelhoudende installaties plaatsen en onderhouden en er actief voor adverteren (hard-launch, fase 2).
 
 Doel: complete digitale aanwezigheid neerzetten — website, Google Business Profile, LinkedIn-bedrijfspagina — die nu in soft-launch gaat om domein-autoriteit en zoek-historie op te bouwen, en die naadloos overgaat in volledige operatie zodra de certificeringen binnen zijn.
 
@@ -20,7 +20,7 @@ Belangrijkste concurrent in Bens perceptie: Tombergen Airco Service Gelderland (
 
 ## Constraints (hard)
 
-1. **Geen claim van diensten die STEK vereisen** tot certificering binnen is. Geen "wij installeren," geen prijzen voor installatie, geen offerteformulier voor installatiediensten, geen calls-to-action die suggereren dat de dienst nu beschikbaar is.
+1. ~~**Geen claim van diensten die STEK vereisen** tot certificering binnen is.~~ Vervallen per september 2026 (STEK binnen). Geen "wij installeren," geen prijzen voor installatie, geen offerteformulier voor installatiediensten, geen calls-to-action die suggereren dat de dienst nu beschikbaar is.
 2. **Wel toegestaan**: informatieve content over airco's, het bedrijfsverhaal, het werkgebied, een "aanstaande lancering"-framing met geschatte datum, contactopties voor algemene vragen, nieuwsbrief-inschrijving voor geïnteresseerden.
 3. **NAP-consistentie**: naam, adres, telefoonnummer moeten exact identiek zijn op website, GBP, LinkedIn en alle bedrijvengidsen. Eén bron van waarheid: `src/config/site.ts`.
 4. **Privacy en wetgeving**: geen cookies in fase 0 (dus geen cookiebanner). AVG-conform contactformulier indien later toegevoegd. Geen Google Analytics.

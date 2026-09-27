@@ -4,7 +4,6 @@ import { site } from '~/config/site';
 import Header from '~/components/Header.astro';
 import Footer from '~/components/Footer.astro';
 import MobileBottomBar from '~/components/MobileBottomBar.astro';
-import PreLaunchBanner from '~/components/PreLaunchBanner.astro';
 import LocalBusinessSchema from '~/components/LocalBusinessSchema.astro';
 import SeoMeta from '~/components/SeoMeta.astro';
 
@@ -14,7 +13,6 @@ interface Props {
   noindex?: boolean;
   ogImage?: string;
   type?: 'website' | 'article';
-  showPreLaunchBanner?: boolean;
 }
 
 const {
@@ -23,7 +21,6 @@ const {
   noindex = false,
   ogImage,
   type = 'website',
-  showPreLaunchBanner = true,
 } = Astro.props;
 ---
 
@@ -33,6 +30,7 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#fbfaf6" />
 
@@ -62,7 +60,6 @@ const {
     >
       Naar inhoud
     </a>
-    {showPreLaunchBanner && <PreLaunchBanner />}
     <Header />
     <main id="main" class="flex-1">
       <slot />

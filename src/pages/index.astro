@@ -17,7 +17,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 const mailHref = `mailto:${site.contact.email}`;
 
 const heroBadges = [
-  `Start dienstverlening ${site.business.expectedHardLaunchLabel}`,
+  'STEK-gecertificeerd',
   '1 uur rondom Gaanderen',
   'Persoonlijk advies bij je thuis',
 ];
@@ -49,7 +49,7 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
 
 <BaseLayout
   title={site.name}
-  description={`Persoonlijke airco-installatie in de Achterhoek en Twente. Een klein team van zelfstandige vakmensen rond Ben Vrieze uit Gaanderen. Start dienstverlening ${site.business.expectedHardLaunchLabel}, tot dan welkom voor advies en kennismaking.`}
+  description={`Persoonlijke airco-installatie in de Achterhoek en Twente. Een klein team van zelfstandige vakmensen rond Ben Vrieze uit Gaanderen. STEK-gecertificeerd, netjes en eerlijk geprijsd.`}
 >
   <!-- HERO with photo + gradient overlay -->
   <section class="relative isolate overflow-hidden">
@@ -89,7 +89,7 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
         </p>
         <h1 class="mt-5 font-serif text-4xl leading-[1.1] text-white md:text-[3.5rem]">
           Persoonlijke airco-installateur
-          <span class="text-[var(--color-accent)]">aan huis.</span>
+          <span class="text-[var(--color-accent-300)]">aan huis.</span>
         </h1>
         <p class="mt-5 max-w-prose text-lg leading-7 text-white/90">
           Een klein vast team van zelfstandige vakmensen uit Gaanderen. Wij
@@ -101,7 +101,7 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
           {
             heroBadges.map((badge) => (
               <li class="inline-flex items-center gap-2">
-                <Icon name="check" class="size-4 text-[var(--color-accent)]" />
+                <Icon name="check" class="size-4 text-[var(--color-accent-300)]" />
                 {badge}
               </li>
             ))
@@ -122,7 +122,7 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
           </a>
           <a
             href="/over-ons"
-            class="inline-flex items-center gap-1 text-sm font-semibold text-white hover:text-[var(--color-accent)]"
+            class="inline-flex items-center gap-1 text-sm font-semibold text-white hover:text-[var(--color-accent-300)]"
           >
             Meer over Benairco
             <Icon name="arrow-right" class="size-4" />
@@ -267,9 +267,8 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
           Vragen over je airco-mogelijkheden?
         </h2>
         <p class="mx-auto mt-4 max-w-prose text-[0.95rem] text-white/80">
-          Wij staan persoonlijk klaar voor algemene vragen, vrijblijvend advies
-          en voorlopige reserveringen, ook nu, in de aanloop naar de opening
-          in {site.business.expectedHardLaunchLabel}.
+          Mail ons voor vrijblijvend advies, een opname bij je thuis of een
+          offerte op maat. Ben leest zelf mee en antwoordt persoonlijk.
         </p>
         <div class="mt-8 flex flex-wrap justify-center gap-3">
           <a href="/contact" class="btn-primary">

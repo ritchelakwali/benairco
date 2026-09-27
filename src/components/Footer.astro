@@ -1,14 +1,16 @@
 ---
 import { site } from '~/config/site';
+import Logo from '~/components/Logo.astro';
 
 const year = new Date().getFullYear();
-const launchLabel = site.business.expectedHardLaunchLabel;
 ---
 
 <footer class="mt-20 border-t border-[var(--color-border)] bg-white">
   <div class="container-content grid gap-10 py-12 md:grid-cols-3">
     <div>
-      <h2 class="font-serif text-xl text-[var(--color-primary-900)]">{site.name}</h2>
+      <h2>
+        <Logo size={40} />
+      </h2>
       <p class="mt-3 max-w-xs text-sm text-[var(--color-muted)]">
         {site.tagline}. Persoonlijk, netjes, betaalbaar. Uit Gaanderen, voor de Achterhoek en Twente.
       </p>
@@ -36,11 +38,12 @@ const launchLabel = site.business.expectedHardLaunchLabel;
 
     <div>
       <h3 class="font-serif text-base font-semibold text-[var(--color-primary-900)]">
-        Onderweg naar opening
+        STEK-gecertificeerd
       </h3>
       <p class="mt-3 text-sm text-[var(--color-muted)]">
-        Volledige dienstverlening start vanaf {launchLabel}. Tot dan zijn wij beschikbaar
-        voor advies, kennismaking en voorlopige reserveringen.
+        {site.name} is een STEK-gecertificeerd installatiebedrijf{site.business.stekNumber && (
+          <> (erkenningsnummer {site.business.stekNumber})</>
+        )}. Airco's en warmtepompen worden geplaatst en onderhouden volgens de F-gassenregels.
       </p>
     </div>
   </div>

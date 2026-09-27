@@ -13,7 +13,7 @@ import { site } from '~/config/site';
         Algemene voorwaarden
       </h1>
       <p class="mt-2 text-sm text-[var(--color-muted)]">
-        Versie: mei 2026
+        Versie: september 2026
       </p>
 
       <h2>1. Toepasselijkheid</h2>
@@ -35,6 +35,13 @@ import { site } from '~/config/site';
         Opdrachtnemer voert de overeenkomst naar beste inzicht en vermogen uit, in
         overeenstemming met de eisen van goed vakmanschap en de geldende wettelijke
         regelingen voor installatiebedrijven.
+      </p>
+      <p>
+        Opdrachtnemer is STEK-gecertificeerd{site.business.stekNumber && (
+          <> onder erkenningsnummer {site.business.stekNumber}</>
+        )}. Werkzaamheden aan installaties met gefluoreerde broeikasgassen worden
+        uitgevoerd door F-gassen-gecertificeerd personeel, conform de
+        F-gassenverordening (EU) 2024/573.
       </p>
 
       <h2>4. Betaling</h2>

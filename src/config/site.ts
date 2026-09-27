@@ -57,12 +57,11 @@ export const site = {
     establishmentNr: '000060200855',
     // TODO_BEN: BTW-nummer ophalen bij Belastingdienst / KvK-extract
     vat: 'NL000000000B00',
-    // Status t.o.v. STEK + F-gassen
-    stekStatus: 'pending', // 'pending' | 'certified'
-    // STEK-erkenning verwacht in Q4 2026. Datum geeft start dienstverlening
-    // weer; UI rondt af naar "Q4 2026" of de maand.
-    expectedHardLaunch: '2026-10-01',
-    expectedHardLaunchLabel: 'Q4 2026',
+    // STEK-certificering binnen per september 2026 (hard-launch).
+    stekStatus: 'certified',
+    // TODO_BEN: STEK-erkenningsnummer van het certificaat. Wordt in footer en
+    // voorwaarden getoond zodra ingevuld.
+    stekNumber: '',
   },
 
   hours: {
@@ -150,17 +149,16 @@ export const site = {
   },
 
   brand: {
-    // Kleur-tokens (ook gespiegeld in src/styles/global.css @theme)
-    // Synchroon met het Benairco-logo: donker navy voor wordmark/body,
-    // medium teal voor het schild-symbool en accent-vlakken.
+    // Kleur-tokens (ook gespiegeld in src/styles/global.css @theme),
+    // afgeleid van het rood/blauwe Benairco-logo in public/brand/.
     colors: {
-      primaryNavy: '#1a3a5c', // wordmark, headings, donkere blokken
-      primaryTeal: '#2c7da8', // schild-symbool, knop-accenten, links
-      accent: '#c47b3c', // warm terracotta voor primaire CTAs
+      primaryNavy: '#102a5c', // headings, donkere blokken
+      primaryBlue: '#1d4fd8', // iconen, links (logo-blauw, AA op wit)
+      accent: '#d7120b', // logo-rood voor primaire CTAs (AA met witte tekst)
       ink: '#1a1a1a',
       paper: '#fbfaf6', // ivoorwit
       muted: '#6b7280',
-      border: '#e5e3dc',
+      border: '#e1e6ef',
     },
     fonts: {
       heading: 'Source Serif 4',

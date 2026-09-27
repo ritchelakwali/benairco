@@ -25,13 +25,14 @@ const openingHoursSpecification = Object.entries(site.hours)
 
 const schema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': 'HVACBusiness',
   '@id': `${site.url}/#localbusiness`,
   name: site.name,
   description: site.tagline,
   url: site.url,
   email: site.contact.email,
   image: `${site.url}/og-image.jpg`,
+  logo: `${site.url}/brand/benairco-icon-512.png`,
   address: {
     '@type': 'PostalAddress',
     streetAddress: site.address.street,
