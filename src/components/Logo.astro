@@ -13,7 +13,7 @@ interface Props {
 const { size = 40, withTagline = false, variant = 'color', class: className = '' } = Astro.props;
 
 // Verhoudingen volgen de viewBox van de SVG's in public/brand/
-const ratio = withTagline ? 3290 / 1005 : 3230 / 810;
+const ratio = withTagline ? 3340 / 1025 : 3340 / 825;
 const base = withTagline ? 'benairco-logo' : 'benairco-wordmark';
 const src = `/brand/${base}${variant === 'color' ? '' : `-${variant}`}.svg`;
 ---
