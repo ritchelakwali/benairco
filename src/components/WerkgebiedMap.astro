@@ -81,7 +81,7 @@ const lng = site.address.geo.longitude;
     // Aangepaste pin matchend met site-stijl
     const pinSvg = `
       <svg width="32" height="42" viewBox="0 0 32 42" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3))">
-        <path d="M16 0 C7 0 0 7 0 16 C0 28 16 42 16 42 C16 42 32 28 32 16 C32 7 25 0 16 0 Z" fill="#c47b3c"/>
+        <path d="M16 0 C7 0 0 7 0 16 C0 28 16 42 16 42 C16 42 32 28 32 16 C32 7 25 0 16 0 Z" fill="#d7120b"/>
         <circle cx="16" cy="16" r="6" fill="#fbfaf6"/>
       </svg>
     `;
@@ -101,10 +101,10 @@ const lng = site.address.geo.longitude;
     // 1-uur rijden radius (ca. 50 km)
     L.circle([lat, lng], {
       radius: 50000,
-      color: '#c47b3c',
+      color: '#d7120b',
       weight: 1.5,
       dashArray: '6, 6',
-      fillColor: '#c47b3c',
+      fillColor: '#d7120b',
       fillOpacity: 0.04,
     }).addTo(map);
   }

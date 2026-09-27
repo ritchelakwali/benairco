@@ -13,24 +13,24 @@
 
 @theme {
   /* Kleuren, gespiegeld vanuit src/config/site.ts brand.colors.
-   * Palette komt voort uit het Benairco-logo:
-   *  - primary-900 = navy uit het wordmark
-   *  - primary-700 = teal uit het schild-symbool
-   *  - primary-50/100 = lichte tints voor backgrounds en heuvels */
-  --color-primary: #1a3a5c;
-  --color-primary-50: #eaf2f8;
-  --color-primary-100: #c8dde8;
-  --color-primary-700: #2c7da8;
-  --color-primary-900: #1a3a5c;
+   * Afgeleid van het Benairco-logo (rood = warm, blauw = koel), getemperd
+   * zodat tekst en knoppen AA-contrast halen op wit/ivoor. */
+  --color-primary: #102a5c;
+  --color-primary-50: #eef3fd;
+  --color-primary-100: #d3e0fa;
+  --color-primary-700: #1d4fd8;
+  --color-primary-900: #102a5c;
 
-  --color-accent: #c47b3c;
-  --color-accent-50: #fbf3eb;
-  --color-accent-600: #b06a30;
+  --color-accent: #d7120b;
+  --color-accent-50: #fdf0ef;
+  --color-accent-600: #b30e08;
+  /* Voor accenttekst op donkere (navy) vlakken */
+  --color-accent-300: #ff8a7a;
 
   --color-ink: #1a1a1a;
   --color-paper: #fbfaf6;
   --color-muted: #6b7280;
-  --color-border: #e0e6ec;
+  --color-border: #e1e6ef;
 
   /* Typografie
    * --font-serif is historisch genaamd maar wijst nu naar Manrope (modern sans
