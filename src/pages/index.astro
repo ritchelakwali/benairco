@@ -83,9 +83,15 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
 
     <div class="container-content py-20 text-white md:py-28 lg:py-32">
       <div class="max-w-2xl">
-        <p class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
-          <span class="inline-block size-1.5 rounded-full bg-[var(--color-accent)]"></span>
-          Airco in de Achterhoek en Twente
+        <p class="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm font-semibold uppercase tracking-wider text-white">
+          <span class="inline-flex items-center gap-2">
+            <Icon name="flame" class="size-4 text-[var(--color-accent-300)]" />
+            Warm in de winter
+          </span>
+          <span class="inline-flex items-center gap-2">
+            <Icon name="snowflake" class="size-4 text-[var(--color-primary-100)]" />
+            Koel in de zomer
+          </span>
         </p>
         <h1 class="mt-5 font-serif text-4xl leading-[1.1] text-white md:text-[3.5rem]">
           Persoonlijke airco-installateur
@@ -93,8 +99,9 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
         </h1>
         <p class="mt-5 max-w-prose text-lg leading-7 text-white/90">
           Een klein vast team van zelfstandige vakmensen uit Gaanderen. Wij
-          installeren airco's bij particulieren in de Achterhoek en Twente,
-          netjes en eerlijk geprijsd.
+          installeren airco's die 's zomers koelen en 's winters verwarmen,
+          bij particulieren in de Achterhoek en Twente. Netjes en eerlijk
+          geprijsd.
         </p>
 
         <ul class="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-[0.95rem] text-white/90">
