@@ -21,6 +21,7 @@ const steps = [
     icon: 'tools' as const,
     title: 'Installatie in één dag',
     body: 'Een single-split zit binnen één werkdag. Een vakman uit ons vaste team komt langs.',
+    link: { href: '/kennisbank/installatiedag-airco', label: 'Zo verloopt de dag' },
   },
   {
     icon: 'shield' as const,
@@ -60,6 +61,17 @@ const steps = [
                   {step.title}
                 </h3>
                 <p class="mt-1.5 text-[0.95rem] text-[var(--color-ink)]">{step.body}</p>
+                {
+                  step.link && (
+                    <a
+                      href={step.link.href}
+                      class="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-accent-600)] hover:underline"
+                    >
+                      {step.link.label}
+                      <Icon name="arrow-right" class="size-4" />
+                    </a>
+                  )
+                }
               </div>
             </div>
           </li>
