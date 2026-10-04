@@ -1,0 +1,105 @@
+---
+import Icon from '~/components/Icon.astro';
+
+// Zelfde vuistregels als de tabel in kennisbank/welke-airco-past-bij-welk-huis
+const rows = [
+  { ruimte: 'Kleine slaapkamer', oppervlak: '10–14 m²', vermogen: '2.0 – 2.5 kW' },
+  { ruimte: 'Grote slaapkamer of werkkamer', oppervlak: '14–20 m²', vermogen: '2.5 – 3.5 kW' },
+  { ruimte: 'Woonkamer', oppervlak: '20–35 m²', vermogen: '3.5 – 5.0 kW' },
+  { ruimte: 'Open woonkeuken', oppervlak: '35–55 m²', vermogen: '5.0 – 7.0 kW' },
+  { ruimte: 'Groot open plan', oppervlak: 'vanaf 55 m²', vermogen: 'Multi-split' },
+];
+
+const stepUp = [
+  'Veel glas op het zuiden of westen',
+  'Een ouder of matig geïsoleerd huis',
+  'Een kamer direct onder het dak',
+];
+---
+
+<section class="bg-white py-16 md:py-24">
+  <div class="container-content grid gap-10 md:grid-cols-[2fr_3fr] md:items-start md:gap-12">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-600)]">
+        Vermogenswijzer
+      </p>
+      <h2 class="mt-2 font-serif text-2xl text-[var(--color-primary-900)] md:text-3xl">
+        Welk vermogen past bij jouw kamer?
+      </h2>
+      <p class="mt-3 max-w-prose text-[var(--color-ink)]">
+        Het vermogen van een airco staat in kilowatt (kW). Te krap en hij draait
+        de hele dag voluit, te ruim en je betaalt voor wat je niet gebruikt.
+        Zoek je kamer op voor een eerste indicatie.
+      </p>
+
+      <h3 class="mt-6 font-serif text-lg text-[var(--color-primary-900)]">
+        Kies een stap ruimer bij
+      </h3>
+      <ul class="mt-3 space-y-2 text-[0.95rem]">
+        {
+          stepUp.map((item) => (
+            <li class="flex items-start gap-3">
+              <Icon name="check" class="mt-1 size-4 shrink-0 text-[var(--color-primary-700)]" />
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="min-w-0">
+      <div class="overflow-hidden rounded-[var(--radius-card)] border border-[var(--color-border)]">
+        <table class="w-full text-left text-[0.95rem]">
+          <caption class="sr-only">
+            Indicatief airco-vermogen per type ruimte en vloeroppervlak
+          </caption>
+          <thead class="bg-[var(--color-primary-50)] text-xs font-semibold uppercase tracking-wider text-[var(--color-primary-900)]">
+            <tr>
+              <th scope="col" class="px-4 py-3">Ruimte</th>
+              <th scope="col" class="hidden px-4 py-3 sm:table-cell">Oppervlak</th>
+              <th scope="col" class="px-4 py-3 text-right">Vermogen</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[var(--color-border)] bg-[var(--color-paper)]">
+            {
+              rows.map((row) => (
+                <tr>
+                  <th scope="row" class="px-4 py-3.5 font-medium text-[var(--color-primary-900)]">
+                    {row.ruimte}
+                    <span class="block text-sm font-normal text-[var(--color-muted)] sm:hidden">
+                      {row.oppervlak}
+                    </span>
+                  </th>
+                  <td class="hidden px-4 py-3.5 whitespace-nowrap text-[var(--color-muted)] sm:table-cell">
+                    {row.oppervlak}
+                  </td>
+                  <td class="px-4 py-3.5 text-right font-semibold whitespace-nowrap text-[var(--color-primary-900)]">
+                    {row.vermogen}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-3 text-sm text-[var(--color-muted)]">
+        Indicatie bij een gewone plafondhoogte. Tijdens de opname bij je thuis
+        rekenen wij het precies voor je uit.
+      </p>
+
+      <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+        <a href="/contact#meesturen" class="btn-primary">
+          <Icon name="mail" class="size-4" />
+          Mail je kamermaat en een foto
+        </a>
+        <a
+          href="/kennisbank/welke-airco-past-bij-welk-huis"
+          class="inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-accent-600)] hover:underline"
+        >
+          Uitleg over single- en multi-split
+          <Icon name="arrow-right" class="size-4" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

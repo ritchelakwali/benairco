@@ -6,6 +6,7 @@ import { Image } from 'astro:assets';
 import Icon from '~/components/Icon.astro';
 import ProcessTimeline from '~/components/ProcessTimeline.astro';
 import BrandsSection from '~/components/BrandsSection.astro';
+import Vermogenswijzer from '~/components/Vermogenswijzer.astro';
 import Faq from '~/components/Faq.astro';
 import CategoryBadge from '~/components/CategoryBadge.astro';
 import livingroomHero from '~/assets/hero/livingroom.jpg';
@@ -174,6 +175,9 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
 
   <!-- BRANDS -->
   <BrandsSection />
+
+  <!-- VERMOGENSWIJZER -->
+  <Vermogenswijzer />
 
   <!-- WERKGEBIED TEASER (rustige variant) -->
   <section class="bg-[var(--color-paper)] py-16 md:py-24">
