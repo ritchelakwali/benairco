@@ -27,7 +27,7 @@ const pillars = [
   {
     icon: 'heart' as const,
     title: 'Persoonlijk',
-    body: 'Een vast team van vakmensen die elkaar al jaren kennen. Geen callcenter, geen tussenpersonen.',
+    body: 'Geen callcenter, geen tussenpersonen. Vanaf je eerste mail heb je contact met Ben, en hij komt ook zelf je airco installeren.',
   },
   {
     icon: 'check' as const,
@@ -50,7 +50,7 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
 
 <BaseLayout
   title={site.name}
-  description={`Persoonlijke airco-installatie in de Achterhoek en Twente. Een klein team van zelfstandige vakmensen rond Ben Vrieze uit Gaanderen. STEK-gecertificeerd, netjes en eerlijk geprijsd.`}
+  description={`Persoonlijke airco-installatie in de Achterhoek en Twente door ${site.owner.name} uit ${site.address.city}. STEK-gecertificeerd, netjes en eerlijk geprijsd.`}
 >
   <!-- HERO with photo + gradient overlay -->
   <section class="relative isolate overflow-hidden">
@@ -99,9 +99,9 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
           <span class="text-[var(--color-accent-300)]">aan huis.</span>
         </h1>
         <p class="mt-5 max-w-prose text-lg leading-7 text-white/90">
-          Een klein vast team van zelfstandige vakmensen uit Gaanderen. Wij
-          installeren airco's die 's zomers koelen en 's winters verwarmen,
-          bij particulieren in de Achterhoek en Twente. Netjes en eerlijk
+          Benairco is {site.owner.name} uit {site.address.city}. Hij installeert
+          zelf airco's die 's zomers koelen en 's winters verwarmen, bij
+          particulieren in de Achterhoek en Twente. Netjes en eerlijk
           geprijsd.
         </p>
 
@@ -148,7 +148,7 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
           Waarom Benairco
         </p>
         <h2 class="mt-2 font-serif text-2xl text-[var(--color-primary-900)] md:text-3xl">
-          Drie dingen die wij anders doen
+          Drie dingen die Ben anders doet
         </h2>
       </div>
 
@@ -275,8 +275,8 @@ const dateFormatter = new Intl.DateTimeFormat('nl-NL', {
           Vragen over je airco-mogelijkheden?
         </h2>
         <p class="mx-auto mt-4 max-w-prose text-[0.95rem] text-white/80">
-          Mail ons voor vrijblijvend advies, een opname bij je thuis of een
-          offerte op maat. Ben leest zelf mee en antwoordt persoonlijk.
+          Mail Ben voor vrijblijvend advies, een opname bij je thuis of een
+          offerte op maat. Hij leest elke mail zelf en antwoordt persoonlijk.
         </p>
         <div class="mt-8 flex flex-wrap justify-center gap-3">
           <a href="/contact" class="btn-primary">
