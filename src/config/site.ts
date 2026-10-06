@@ -78,6 +78,8 @@ export const site = {
   serviceArea: {
     // Gemeentes binnen 1 uur rijden vanaf Gaanderen, met uitzondering van
     // Duiven, Didam en 's-Heerenberg. Volgorde: meest nabij eerst.
+    // `excluded` wordt op verzoek niet op de site getoond; de plaatsen staan
+    // alleen niet in de lijst.
     cities: [
       'Gaanderen',
       'Doetinchem',

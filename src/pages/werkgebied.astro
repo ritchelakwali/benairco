@@ -5,7 +5,6 @@ import WerkgebiedMap from '~/components/WerkgebiedMap.astro';
 import Icon from '~/components/Icon.astro';
 
 const cities = site.serviceArea.cities;
-const excluded = site.serviceArea.excluded;
 ---
 
 <BaseLayout
@@ -75,18 +74,6 @@ const excluded = site.serviceArea.excluded;
         <p class="mt-4 text-sm text-[var(--color-muted)]">
           Zie ook onze <a href="/kennisbank/voorbeelden" class="font-semibold text-[var(--color-accent-600)] hover:underline">installatie-voorbeelden per woningtype</a> in de kennisbank.
         </p>
-
-        {
-          excluded.length > 0 && (
-            <p class="mt-6 inline-flex items-start gap-3 rounded-[var(--radius-card)] border border-[var(--color-border)] bg-white p-4 text-sm">
-              <Icon name="route" class="size-5 shrink-0 text-[var(--color-accent-600)]" />
-              <span>
-                <strong>Uitzondering:</strong> Benairco werkt niet in{' '}
-                {excluded.join(', ')}.
-              </span>
-            </p>
-          )
-        }
       </div>
 
       <div class="aspect-[6/5] w-full overflow-hidden rounded-[var(--radius-image)] border border-[var(--color-border)]">
